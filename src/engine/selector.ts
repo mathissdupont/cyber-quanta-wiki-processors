@@ -1,4 +1,4 @@
-import type { Chip } from '../domain/chip'
+import { sectorLabels, type Chip, type Sector } from '../domain/chip'
 
 export type SecurityRequirement =
   | 'secureBoot'
@@ -9,6 +9,7 @@ export type SecurityRequirement =
 
 export interface SelectionCriteria {
   category: string
+  sector: Sector | ''
   requireLinux: boolean
   requireIndustrialQualification: boolean
   requireFunctionalSafety: boolean
@@ -19,6 +20,7 @@ export interface SelectionCriteria {
 
 export interface SelectionResult {
   chip: Chip
+  matchedSectorFit?: NonNullable<Chip['sectorFits']>[number]
   eligible: boolean
   status: 'eligible' | 'series-reference' | 'blocked'
   blockers: string[]
@@ -49,9 +51,19 @@ export function selectChips(chips: Chip[], criteria: SelectionCriteria): Selecti
       const blockers: string[] = []
       const matchedRequirements: string[] = []
       const notes: string[] = []
+      const matchedSectorFit = criteria.sector
+        ? chip.sectorFits?.find((fit) => fit.sector === criteria.sector)
+        : undefined
 
       if (criteria.category && chip.category !== criteria.category) {
         blockers.push(`Tür ${criteria.category} değil`)
+      }
+      if (criteria.sector) {
+        if (matchedSectorFit) {
+          matchedRequirements.push(`${sectorLabels[criteria.sector]}: ${matchedSectorFit.product}`)
+        } else {
+          blockers.push(`${sectorLabels[criteria.sector]} için somut uygunluk kanıtı kaydedilmemiş`)
+        }
       }
       if (criteria.requireLinux && !chip.compute.linuxCapable) {
         blockers.push('Linux çalıştırmaya uygun değil')
@@ -95,12 +107,16 @@ export function selectChips(chips: Chip[], criteria: SelectionCriteria): Selecti
           ? 'series-reference' as const
           : 'eligible' as const
 
-      return { chip, eligible: status === 'eligible', status, blockers, matchedRequirements, notes }
+      return { chip, matchedSectorFit, eligible: status === 'eligible', status, blockers, matchedRequirements, notes }
     })
     .sort((left, right) => {
       const rank = { eligible: 0, 'series-reference': 1, blocked: 2 }
       if (left.status !== right.status) return rank[left.status] - rank[right.status]
       if (left.blockers.length !== right.blockers.length) return left.blockers.length - right.blockers.length
+      const sectorEvidenceRank = { 'reference-design': 0, 'manufacturer-target': 1, 'feature-match': 2 }
+      const leftSectorRank = left.matchedSectorFit ? sectorEvidenceRank[left.matchedSectorFit.evidenceLevel] : 3
+      const rightSectorRank = right.matchedSectorFit ? sectorEvidenceRank[right.matchedSectorFit.evidenceLevel] : 3
+      if (leftSectorRank !== rightSectorRank) return leftSectorRank - rightSectorRank
       return left.chip.model.localeCompare(right.chip.model)
     })
 }

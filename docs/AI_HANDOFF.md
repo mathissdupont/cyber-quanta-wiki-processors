@@ -22,12 +22,14 @@ Bu proje `secure-signing` reposundan tamamen ayrıdır. Eski repo değiştirilme
 - Git deposu `main` dalındadır ve `origin`, public GitHub repository'sine bağlıdır:
   `https://github.com/mathissdupont/cyber-quanta-wiki-processors`.
 - Dokuz üreticiden 56 ayrı çip/seri kaydı var: 46 tam parça, 10 seri/ön eleme kaydı.
-- Son doğrulamada `npm run check`: lint + 23 test + production build başarılıdır.
+- Son doğrulamada `npm run check`: lint + 24 test + production build başarılıdır.
 - Son doğrulamada `npm run check:links`: 93 benzersiz kaynak URL'si denetlenmiş, 0 hata alınmıştır.
 - Arayüz SaaS/landing page görünümünden Wikipedia tarzı bilgi mimarisine çevrildi.
 - Katalog, her çip maddesi, üretici dizini, kılavuzlar ve karşılaştırma ayrı adreslerde.
 - Üretici ve aile sayfaları kalıcı URL'lerle üretici → aile → model hiyerarşisi kurar.
-- `/tools/selector` zorunlu gereksinimleri uygular ve her elenen kayıt için engel gösterir.
+- `/tools/selector` zorunlu teknik ve sektör gereksinimlerini uygular; eşleşen
+  somut ürün kanıtını, avantajları ve kritik koşulları gösterir. Sektör kaydı
+  eksikliği teknik uyumsuzluk değil, kanıt eksikliği olarak açıklanır.
 - `/tools/value` tarihli fiyat anlık görüntülerini ve yalnızca karşılaştırılabilir
   MCU'larda CoreMark/USD hesabını gösterir.
 - Katalog `applicationTags` alanıyla IoT, endüstriyel, otomotiv, Edge AI,
@@ -90,6 +92,7 @@ Bu proje `secure-signing` reposundan tamamen ayrıdır. Eski repo değiştirilme
 ## Sonraki mantıklı iş
 
 Somut sektör modeli STM32G431CBT6, SAMRH71, AURIX TC397, MIFARE SAM AV3 ve
-AM6254 ile başlatıldı. Sonraki adım yeni kayıtları yalnızca resmî referans
-tasarım/hedef uygulama kanıtıyla genişletmek, fiyat verisinin eskime uyarısını
-otomatikleştirmek ve seçiciye toplam BOM karmaşıklığı kriteri eklemektir.
+AM6254 ile başlatıldı ve gereksinim seçiciye bağlandı. Sonraki adım sektör
+kapsamını resmî referans tasarım/hedef uygulama kanıtıyla genişletmek, fiyat
+verisinin eskime uyarısını otomatikleştirmek ve seçiciye toplam BOM karmaşıklığı
+kriteri eklemektir.

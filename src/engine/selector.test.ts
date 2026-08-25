@@ -5,7 +5,7 @@ import { selectChips } from './selector'
 describe('requirement selector', () => {
   it('never presents a series-level record as a final candidate', () => {
     const results = selectChips(chips, {
-      category: '', requireLinux: false, requireIndustrialQualification: false, requireFunctionalSafety: false, minClockMhz: 0,
+      category: '', sector: '', requireLinux: false, requireIndustrialQualification: false, requireFunctionalSafety: false, minClockMhz: 0,
       requiredConnectivity: [], requiredSecurity: [],
     })
     const seriesResults = results.filter((result) => result.chip.recordScope === 'series')
@@ -16,7 +16,7 @@ describe('requirement selector', () => {
 
   it('accepts only verified secure-boot candidates when secure boot is mandatory', () => {
     const results = selectChips(chips, {
-      category: '', requireLinux: false, requireIndustrialQualification: false, requireFunctionalSafety: false, minClockMhz: 0,
+      category: '', sector: '', requireLinux: false, requireIndustrialQualification: false, requireFunctionalSafety: false, minClockMhz: 0,
       requiredConnectivity: [], requiredSecurity: ['secureBoot'],
     })
     const eligible = results.filter((result) => result.eligible)
@@ -26,7 +26,7 @@ describe('requirement selector', () => {
 
   it('explains why an incompatible chip was eliminated', () => {
     const results = selectChips(chips, {
-      category: '', requireLinux: true, requireIndustrialQualification: false, requireFunctionalSafety: false, minClockMhz: 0,
+      category: '', sector: '', requireLinux: true, requireIndustrialQualification: false, requireFunctionalSafety: false, minClockMhz: 0,
       requiredConnectivity: ['Wi-Fi'], requiredSecurity: [],
     })
     const stm32 = results.find((result) => result.chip.id === 'stm32h573zi')
@@ -37,10 +37,25 @@ describe('requirement selector', () => {
 
   it('requires explicit industrial and functional-safety evidence', () => {
     const results = selectChips(chips, {
-      category: '', requireLinux: false, requireIndustrialQualification: true, requireFunctionalSafety: true,
+      category: '', sector: '', requireLinux: false, requireIndustrialQualification: true, requireFunctionalSafety: true,
       minClockMhz: 0, requiredConnectivity: [], requiredSecurity: [],
     })
     expect(results.find((result) => result.chip.id === 'efr32mg24a010f1024im40')?.eligible).toBe(false)
     expect(results.filter((result) => result.eligible).every((result) => result.chip.industrial?.qualification.support === 'supported' && result.chip.industrial?.functionalSafety.support === 'supported')).toBe(true)
+  })
+
+  it('requires and explains source-backed sector suitability when a sector is selected', () => {
+    const results = selectChips(chips, {
+      category: '', sector: 'home-appliances', requireLinux: false, requireIndustrialQualification: false,
+      requireFunctionalSafety: false, minClockMhz: 0, requiredConnectivity: [], requiredSecurity: [],
+    })
+    const stm32 = results.find((result) => result.chip.id === 'stm32g431cbt6')
+    const unrelated = results.find((result) => result.chip.id === 'samrh71f20e-7gb-mq')
+
+    expect(stm32?.eligible).toBe(true)
+    expect(stm32?.matchedSectorFit?.product).toContain('Çamaşır makinesi')
+    expect(stm32?.matchedSectorFit?.evidenceLevel).toBe('reference-design')
+    expect(unrelated?.eligible).toBe(false)
+    expect(unrelated?.blockers).toContain('Ev aletleri için somut uygunluk kanıtı kaydedilmemiş')
   })
 })

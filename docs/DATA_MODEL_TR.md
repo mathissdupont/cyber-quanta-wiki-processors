@@ -116,6 +116,13 @@ Her kayıtta en az bir avantaj, bir kritik koşul ve bir resmî kaynak zorunludu
 Örneğin “uçaklar için iyidir” yeterli değildir; radyasyon sınıfı, kullanılan
 uçuş veri yolu ve görev seviyesi kalifikasyonun ayrıca gerektiği yazılmalıdır.
 
+Gereksinim seçici `sector` kriteri seçildiğinde aynı sektör kimliğine sahip
+`sectorFits` kaydını arar. Eşleşme yoksa parça, teknik olarak kesin uygunsuz ilan
+edilmez; “somut uygunluk kanıtı kaydedilmemiş” gerekçesiyle aday listesinden
+çıkarılır. Eşleşme varsa kanıt düzeyi, ürün adı, gerekçe, avantajlar ve kritik
+koşullar seçim sonucuna taşınır. Aynı teknik sonuç düzeyinde referans tasarımı,
+üretici hedefinden; üretici hedefi de özellik eşleşmesinden önce sıralanır.
+
 ## Ticari veri ve benchmark
 
 Opsiyonel `commercial` nesnesi iki ayrı kanıt türünü tutar:

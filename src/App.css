@@ -150,6 +150,13 @@
 .secondary-button:hover { background: var(--surface-hover); }
 .selector-results { min-width: 900px; }
 .selector-results .eligible-row { background: color-mix(in srgb, var(--green) 8%, transparent); }
+.selector-sector-fit { min-width: 300px; }
+.selector-sector-fit > strong, .selector-sector-fit > small { display: block; }
+.selector-sector-fit > .evidence-level { display: inline-block; margin: 5px 0; }
+.selector-sector-fit details { border-top: 1px solid var(--light-border); margin-top: 8px; padding-top: 6px; }
+.selector-sector-fit summary { color: var(--link); cursor: pointer; font-size: 11px; }
+.selector-sector-fit h4 { font-size: 11px; margin: 9px 0 3px; }
+.selector-sector-fit ul { font-size: 11px; }
 .result-state { border: 1px solid; border-radius: 2px; display: inline-block; font-size: 9px; font-weight: 700; padding: 3px 5px; }
 .result-pass { background: #e6f3ed; border-color: #72b89d; color: #0b654d; }
 .result-blocked { background: #fee7e6; border-color: #d98783; color: #8b1e1e; }

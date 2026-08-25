@@ -19,6 +19,7 @@
 - Tarihli fiyat anlık görüntüsü ve sınırlı CoreMark/USD karşılaştırması
 - i.MX 93, AM625 ve STM32MP257 için tam Linux MPU sipariş kodları
 - Somut ürün/sektör uygunluğu, kanıt düzeyi, avantaj ve eleme koşulu modeli
+- Gereksinim seçicide kaynaklı sektör filtresi ve somut ürün eşleşme açıklaması
 - Test/build kontrolü
 - GitHub Pages workflow'u
 

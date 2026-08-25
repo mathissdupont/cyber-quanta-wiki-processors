@@ -18,7 +18,8 @@ Canlı wiki: https://mathissdupont.github.io/cyber-quanta-wiki-processors/
   flash şifreleme, debug ve anahtar saklama incelemesi
 - `doğrulandı / koşullu / desteklenmiyor / uygulanamaz / belirsiz` kanıt durumları
 - Wikipedia/dokümantasyon tarzı içerik ağacı ve madde sayfaları
-- Arama, filtreleme, gereksinim seçici ve ayrı üçlü karşılaştırma aracı
+- Arama, filtreleme, sektör kanıtını da kullanan gereksinim seçici ve ayrı
+  üçlü karşılaştırma aracı
 - Açık/koyu tema ve mobilde yatay kaydırılabilir teknik tablolar
 - Her çip için kalıcı wiki adresi ve ayrıntılı kaynakça
 - Üretici → aile → seri/tam parça URL hiyerarşisi
@@ -97,6 +98,11 @@ alma teklifi veya toplam BOM maliyeti değildir.
 tasarımı”, “üreticinin hedef uygulaması” ve “kaynaklı özellik eşleşmesi” kanıt
 düzeyleri birbirinden ayrılır. Her somut ürün adayında avantajlar, kritik
 koşullar ve kaynaklar birlikte gösterilir.
+
+Gereksinim seçicide sektör seçildiğinde yalnızca o sektör için somut ve
+kaynaklı uygunluk kaydı bulunan parçalar aday kalır. Kayıt bulunmaması teknik
+uygunsuzluk iddiası olarak değil, “somut sektör kanıtı kaydedilmemiş” eleme
+gerekçesi olarak gösterilir.
 
 ## GitHub Pages yayını
 

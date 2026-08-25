@@ -157,3 +157,18 @@ eklendi. Lint, 23 otomatik test ve
 production build başarıyla tamamlandı.
 Beş yeni resmî ST bağlantısıyla birlikte toplam 93 benzersiz kaynak URL'si
 denetlendi ve erişilemeyen bağlantı bulunmadı.
+
+Somut sektör modeli daha sonra gereksinime göre seçim aracına bağlandı. Seçim
+formuna ev aletleri, endüstriyel otomasyon, otomotiv/mobilite, ödeme/erişim,
+havacılık/uzay ve edge bilişim seçenekleri eklendi. Bir sektör seçildiğinde
+motor aynı sektör kimliğine sahip kaynaklı uygunluk kaydını zorunlu tutmaktadır.
+Kaydı bulunmayan işlemcinin teknik olarak kullanılamayacağı iddia edilmemekte;
+sonuçta “somut uygunluk kanıtı kaydedilmemiş” açıklaması gösterilmektedir.
+
+Eşleşen adayların sonuç tablosuna somut ürün adı, referans tasarımı/üretici
+hedefi/özellik eşleşmesi kanıt seviyesi, teknik gerekçe, avantajlar ve kritik
+koşullar eklendi. Aynı sonuç sınıfındaki parçalar kanıt gücüne göre referans
+tasarımı, üretici hedefi ve özellik eşleşmesi sırasıyla listelendi. Ev aletleri
+seçiminde STM32G431CBT6'nın çamaşır makinesi referans tasarımıyla aday kaldığını
+ve ilgisiz kaydın açıklanabilir biçimde elendiğini doğrulayan regresyon testi
+eklendi. Toplam 24 test, lint ve production build başarılı oldu.
