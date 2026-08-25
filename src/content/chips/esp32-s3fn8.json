@@ -1,0 +1,13 @@
+{
+  "extends": "esp32-s3",
+  "id": "esp32-s3fn8",
+  "model": "ESP32-S3FN8",
+  "summary": "8 MB Quad SPI Flash belleği paket içinde bulunan, paket içi PSRAM içermeyen çift çekirdekli Wi-Fi ve Bluetooth LE MCU.",
+  "variantNote": "FN8 kodu 8 MB paket içi Flash ve paket içi PSRAM bulunmadığını belirtir.",
+  "compute": {"flashKb": 8192, "psramKb": 0},
+  "physical": {"temperature": "-40 °C–85 °C", "packages": ["QFN56, 7 × 7 mm"]},
+  "strengths": ["8 MB paket içi Flash", "Dahili Wi-Fi ve Bluetooth LE", "ESP-IDF ekosistemi"],
+  "limitations": ["Paket içi PSRAM yoktur", "Yalnızca 2.4 GHz Wi-Fi destekler"],
+  "sources": [{"id": "s3-datasheet", "title": "ESP32-S3 Series Datasheet", "url": "https://documentation.espressif.com/esp32_s3_datasheet_en.pdf", "kind": "datasheet", "publisher": "Espressif Systems", "checkedAt": "2026-08-25"}],
+  "reviewedAt": "2026-08-25"
+}

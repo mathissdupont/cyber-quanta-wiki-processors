@@ -1,0 +1,48 @@
+{
+  "id": "silabs-siwg917m111mgtba",
+  "manufacturer": "Silicon Labs",
+  "family": "SiWx917M",
+  "model": "SiWG917M111MGTBA",
+  "recordScope": "exact-part",
+  "category": "Wireless MCU",
+  "lifecycle": "active",
+  "summary": "Wi-Fi 6, Bluetooth LE ve Matter bağlantısını çift işlemci mimarisi, 8 MB paket içi flash ve Silicon Labs Secure Zone güvenlik özellikleriyle birleştiren kablosuz MCU.",
+  "compute": {
+    "cpu": "Arm Cortex-M4F application MCU + network wireless processor",
+    "cores": 2,
+    "maxClockMhz": 180,
+    "flashKb": 8192,
+    "ramKb": 672,
+    "linuxCapable": false,
+    "operatingSystems": ["Simplicity SDK", "FreeRTOS", "Matter SDK"],
+    "accelerators": ["Crypto accelerators", "Wireless baseband"]
+  },
+  "connectivity": ["Wi-Fi 6 2.4 GHz", "Bluetooth 5.4 LE", "Matter", "SPI", "UART", "I²C"],
+  "peripherals": ["GPIO", "ADC", "PWM", "Timers", "PSRAM interface"],
+  "security": {
+    "secureBoot": {"support": "supported", "summary": "Secure Zone özellikleri Secure Boot'u açıkça içerir.", "sourceIds": ["siwx-security"]},
+    "secureUpdate": {"support": "supported", "summary": "Secure OTA, Secure Zone güvenlik özellikleri arasında listelenir.", "sourceIds": ["siwx-security"]},
+    "antiRollback": {"support": "conditional", "summary": "Anti-rollback M4 ve ağ işlemcisi için desteklenir; ilgili eFuse politikası üretimde etkinleştirilmelidir.", "sourceIds": ["siwx-antirob"]},
+    "hardwareRootOfTrust": {"support": "supported", "summary": "PUF, TRNG ve güvenli boot kökü Secure Zone sınırını destekler.", "sourceIds": ["siwx-security"]},
+    "isolation": {"support": "supported", "summary": "Uygulama ve ağ işlemcisi ayrımı ile Secure Zone korumalı servisleri bulunur.", "sourceIds": ["siwx-rm"]},
+    "flashEncryption": {"support": "supported", "summary": "Encrypted XIP desteği güvenlik özelliklerinde listelenir.", "sourceIds": ["siwx-security"]},
+    "secureDebug": {"support": "conditional", "summary": "Debug kilidi ve yetkili açma akışı desteklenir; üretim yaşam döngüsünde yapılandırılmalıdır.", "sourceIds": ["siwx-antirob"]},
+    "secureKeyStorage": {"support": "supported", "summary": "Secure Key Storage ve PUF tabanlı koruma bulunur.", "sourceIds": ["siwx-security"]},
+    "tamperResistance": {"support": "conditional", "summary": "Secure Zone mantıksal koruma sağlar; kart seviyesinde fiziksel tamper ayrıca tasarlanmalıdır.", "sourceIds": ["siwx-security"]},
+    "cryptography": ["AES", "SHA", "RSA", "ECC", "TRNG", "PUF"],
+    "certifications": []
+  },
+  "physical": {"supplyVoltage": "IC datasheet çalışma koşullarına göre", "temperature": "-40 °C – +85 °C", "packages": ["7 × 7 mm DR-QFN"]},
+  "tools": ["Simplicity Studio", "Simplicity SDK", "Matter development tools"],
+  "useCases": ["secure-iot", "matter", "smart-home", "connected-sensor", "low-power-wi-fi"],
+  "strengths": ["Wi-Fi 6 ve BLE aynı modülde", "Secure Zone: secure boot, OTA, anti-rollback ve anahtar saklama", "8 MB dahili flash"],
+  "limitations": ["Güvenlik işlevleri üretim provisioning ve eFuse politikası gerektirir", "PSRAM bu sipariş kodunda harici bellek olarak tasarlanmalıdır"],
+  "sources": [
+    {"id": "siwx-product", "title": "Wi-Fi Products: SiWx917", "url": "https://www.silabs.com/wireless/wi-fi", "kind": "product-page", "publisher": "Silicon Labs", "checkedAt": "2026-08-25"},
+    {"id": "siwx-datasheet", "title": "SiWG917 SoC Data Sheet", "url": "https://www.silabs.com/documents/public/data-sheets/siwg917-datasheet.pdf", "kind": "datasheet", "publisher": "Silicon Labs", "checkedAt": "2026-08-25"},
+    {"id": "siwx-security", "title": "Designing Connected Wi-Fi 6 Sensors Using SiWx917 and Matter", "url": "https://www.silabs.com/documents/public/presentations/tech-talks-designing-connected-wi-fi-6-sensors-using-siwx917-and-matter.pdf", "kind": "application-note", "publisher": "Silicon Labs", "checkedAt": "2026-08-25"},
+    {"id": "siwx-antirob", "title": "AN1442: SiWx917 SoC Secure Boot with Anti-Rollback Protection", "url": "https://docs.silabs.com/wifi-application-notes/latest/wifi-siwx917-soc-secure-boot-with-anti-rollback-protection/", "kind": "application-note", "publisher": "Silicon Labs", "checkedAt": "2026-08-25"},
+    {"id": "siwx-rm", "title": "SiWx917 SoC Family Reference Manual", "url": "https://www.silabs.com/documents/public/reference-manuals/siw917x-family-rm.pdf", "kind": "reference-manual", "publisher": "Silicon Labs", "checkedAt": "2026-08-25"}
+  ],
+  "reviewedAt": "2026-08-25"
+}

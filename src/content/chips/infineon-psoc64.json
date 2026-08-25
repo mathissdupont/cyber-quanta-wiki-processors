@@ -1,0 +1,163 @@
+{
+  "id": "infineon-psoc64",
+  "manufacturer": "Infineon Technologies",
+  "family": "PSoC 64",
+  "model": "CYB06447BZI-BLDx",
+  "recordScope": "series",
+  "category": "Wireless MCU",
+  "lifecycle": "active",
+  "summary": "Fabrikada oluşturulan değiştirilemez güven kökü ve ayrılmış güvenli çekirdek sunan PSoC 64 secure MCU serisi.",
+  "variantNote": "Model son eki, BLE ve paket/bellek yapılandırmasını değiştirir; tasarımda tam sipariş kodu seçilmelidir.",
+  "compute": {
+    "cpu": "Arm Cortex-M4F + reserved Cortex-M0+",
+    "cores": 2,
+    "maxClockMhz": 150,
+    "flashKb": 1024,
+    "ramKb": 288,
+    "linuxCapable": false,
+    "operatingSystems": [
+      "ModusToolbox",
+      "RTOS"
+    ],
+    "accelerators": [
+      "Crypto block",
+      "Programmable analog/digital"
+    ]
+  },
+  "connectivity": [
+    "Bluetooth LE (BL varyantları)",
+    "USB FS",
+    "UART",
+    "SPI",
+    "I²C",
+    "I²S"
+  ],
+  "peripherals": [
+    "12-bit ADC",
+    "12-bit DAC",
+    "Op-amps",
+    "CapSense",
+    "PWM/Timers",
+    "LCD"
+  ],
+  "security": {
+    "secureBoot": {
+      "support": "supported",
+      "summary": "Değiştirilemez fabrika boot kodu imzalı Infineon bootloader ve uygulama imzasını doğrular.",
+      "sourceIds": [
+        "infineon-security"
+      ]
+    },
+    "secureUpdate": {
+      "support": "supported",
+      "summary": "Güvenli firmware yönetimi ve imzalama araçları ürün SDK’sında sağlanır.",
+      "sourceIds": [
+        "infineon-datasheet"
+      ]
+    },
+    "antiRollback": {
+      "support": "conditional",
+      "summary": "Politikalar provisioning sırasında tanımlanır; rollback ayrıntısı seçilen güvenlik politikasında doğrulanmalıdır.",
+      "sourceIds": [
+        "infineon-security"
+      ]
+    },
+    "hardwareRootOfTrust": {
+      "support": "supported",
+      "summary": "İzole, fabrikada sağlanan root of trust bulunur.",
+      "sourceIds": [
+        "infineon-datasheet"
+      ]
+    },
+    "isolation": {
+      "support": "supported",
+      "summary": "Cortex-M0+ güvenli sistem işlerine ayrılır; kullanıcı uygulaması Cortex-M4’te çalışır.",
+      "sourceIds": [
+        "infineon-security"
+      ]
+    },
+    "flashEncryption": {
+      "support": "conditional",
+      "summary": "QSPI/SMIF için anlık şifreleme/çözme donanımı bulunur.",
+      "sourceIds": [
+        "infineon-datasheet"
+      ]
+    },
+    "secureDebug": {
+      "support": "conditional",
+      "summary": "Debug koruma kuralları provisioning policy içinde yapılandırılır.",
+      "sourceIds": [
+        "infineon-security"
+      ]
+    },
+    "secureKeyStorage": {
+      "support": "supported",
+      "summary": "Güvenli depolama ve provisioning hizmetleri belirtilir.",
+      "sourceIds": [
+        "infineon-datasheet"
+      ]
+    },
+    "tamperResistance": {
+      "support": "conditional",
+      "summary": "Provisioning öncesi entrance exam desteği vardır; fiziksel tamper kapsamı modele göre doğrulanmalıdır.",
+      "sourceIds": [
+        "infineon-security"
+      ]
+    },
+    "cryptography": [
+      "AES",
+      "SHA",
+      "RSA/ECC",
+      "TRNG"
+    ],
+    "certifications": []
+  },
+  "physical": {
+    "supplyVoltage": "Tam parçaya göre",
+    "temperature": "Tam parçaya göre",
+    "packages": [
+      "BGA",
+      "QFN seçenekleri"
+    ]
+  },
+  "tools": [
+    "ModusToolbox",
+    "PSoC 64 Secure Boot SDK",
+    "p64-utils",
+    "OpenOCD"
+  ],
+  "useCases": [
+    "secure-iot",
+    "smart-appliance",
+    "connected-sensor",
+    "hmi"
+  ],
+  "strengths": [
+    "Hazır güven kökü ve attestation",
+    "Güvenli çekirdek uygulamadan ayrılmış",
+    "Programlanabilir analog ve CapSense"
+  ],
+  "limitations": [
+    "Provisioning ve policy süreci öğrenilmelidir",
+    "BLE ve bellek özellikleri tam varyanta bağlıdır"
+  ],
+  "sources": [
+    {
+      "id": "infineon-datasheet",
+      "title": "PSoC 64 CYB06447BZI-BLDx datasheet",
+      "url": "https://www.infineon.com/assets/row/public/documents/30/49/infineon-psoc-64-mcu-cyb06447bzi-bldx-datasheet-preliminary-datasheet-en.pdf",
+      "kind": "datasheet",
+      "publisher": "Infineon Technologies",
+      "checkedAt": "2026-08-25"
+    },
+    {
+      "id": "infineon-security",
+      "title": "Getting started with PSoC 64 security",
+      "url": "https://documentation.infineon.com/psoc6/docs/pud1713174332689",
+      "kind": "application-note",
+      "publisher": "Infineon Technologies",
+      "checkedAt": "2026-08-25"
+    }
+  ],
+  "reviewedAt": "2026-08-25"
+}

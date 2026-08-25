@@ -1,0 +1,13 @@
+{
+  "extends": "esp32-p4",
+  "id": "esp32-p4nrw32x",
+  "model": "ESP32-P4NRW32X",
+  "summary": "32 MB paket içi PSRAM, 400 MHz çift yüksek performans çekirdeği ve görüntü işleme çevre birimleri içeren ESP32-P4 varyantı.",
+  "variantNote": "X son eki yükseltilmiş ürün revizyonunu; W32 ise 32 MB paket içi PSRAM yapılandırmasını belirtir.",
+  "compute": {"psramKb": 32768},
+  "physical": {"temperature": "-40 °C–85 °C", "packages": ["QFN104, 10 × 10 mm"]},
+  "strengths": ["32 MB paket içi PSRAM", "Büyük görüntü ve HMI tamponlarına uygun bellek", "Secure boot ve anahtar yönetimi"],
+  "limitations": ["Dahili kablosuz radyo yoktur", "Program Flash harici olarak tasarlanmalıdır"],
+  "sources": [{"id": "p4-datasheet", "title": "ESP32-P4 Series Datasheet", "url": "https://documentation.espressif.com/esp32-p4_datasheet_en.pdf", "kind": "datasheet", "publisher": "Espressif Systems", "checkedAt": "2026-08-25"}],
+  "reviewedAt": "2026-08-25"
+}

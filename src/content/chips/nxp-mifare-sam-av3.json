@@ -1,0 +1,44 @@
+{
+  "id": "nxp-mifare-sam-av3",
+  "manufacturer": "NXP Semiconductors",
+  "family": "MIFARE SAM",
+  "model": "MIFARE SAM AV3",
+  "recordScope": "exact-part",
+  "category": "Secure Element",
+  "lifecycle": "active",
+  "summary": "POS, toplu taşıma ve erişim altyapılarında kriptografik anahtarları ve temassız işlem güvenliğini uygulamadan ayıran Secure Access Module.",
+  "compute": {
+    "cpu": "Güvenli MCU mimarisi (ayrıntı yayımlanmamış)",
+    "cores": null,
+    "maxClockMhz": null,
+    "flashKb": null,
+    "ramKb": null,
+    "linuxCapable": false,
+    "operatingSystems": ["Host komut arayüzü"],
+    "accelerators": ["AES", "TDEA", "RSA", "ECC"]
+  },
+  "connectivity": ["ISO/IEC 7816 contact interface"],
+  "peripherals": ["Secure key slots", "Host authentication"],
+  "security": {
+    "secureBoot": {"support": "not-applicable", "summary": "Kullanıcı firmware'i çalıştıran genel amaçlı bir MCU değildir; güvenli modül firmware'i NXP kontrolündedir.", "sourceIds": ["sam-product"]},
+    "secureUpdate": {"support": "unknown", "summary": "Saha firmware güncelleme arayüzü bu genel katalog kaydında doğrulanmadı.", "sourceIds": []},
+    "antiRollback": {"support": "not-applicable", "summary": "Kullanıcı firmware sürümü için genel amaçlı rollback modeli uygulanmaz.", "sourceIds": ["sam-product"]},
+    "hardwareRootOfTrust": {"support": "supported", "summary": "Ayrık güvenli modül, anahtarları host işlemciden ayıran donanımsal güven sınırı oluşturur.", "sourceIds": ["sam-product"]},
+    "isolation": {"support": "supported", "summary": "Anahtar işlemleri host uygulamadan ayrılmış SAM içinde yürütülür.", "sourceIds": ["sam-product"]},
+    "flashEncryption": {"support": "not-applicable", "summary": "Genel amaçlı harici firmware flash alanı bulunmaz.", "sourceIds": ["sam-product"]},
+    "secureDebug": {"support": "unknown", "summary": "Debug yaşam döngüsünün ayrıntıları kamuya açık ürün sayfasında doğrulanmadı.", "sourceIds": []},
+    "secureKeyStorage": {"support": "supported", "summary": "128 simetrik, 3 RSA ve 8 ECC anahtar girişine kadar güvenli saklama açıklanır.", "sourceIds": ["sam-product"]},
+    "tamperResistance": {"support": "supported", "summary": "Secure MCU ve Common Criteria değerlendirmesi fiziksel/mantıksal saldırı dirençli sınırı destekler.", "sourceIds": ["sam-product"]},
+    "cryptography": ["MIFARE Crypto1", "TDEA", "AES-128/192/256", "RSA", "ECC"],
+    "certifications": ["Common Criteria EAL6+ (hardware)", "MIFARE Security Certification (software)", "FIPS 140-2 CAVP"]
+  },
+  "physical": {"supplyVoltage": "ISO/IEC 7816 arayüz koşullarına göre", "temperature": "Ürün datasheetine göre", "packages": ["HVQFN32", "PCM 1.5 module", "Wafer"]},
+  "tools": ["MIFARE SAM AV3 evaluation kit", "NXP Reader Library"],
+  "useCases": ["payment-terminal", "public-transport", "tolling", "access-control", "key-management"],
+  "strengths": ["Anahtarları host MCU/MPU'dan ayırır", "Geniş simetrik ve asimetrik algoritma desteği", "POS ve temassız altyapıya uygun modüler güvenlik sınırı"],
+  "limitations": ["Ana uygulama işlemcisinin yerini tutmaz", "Sistem düzeyi EMV veya PCI sertifikasyonunu tek başına sağlamaz"],
+  "sources": [
+    {"id": "sam-product", "title": "MIFARE SAM AV3 Secure Access Module", "url": "https://www.nxp.com/products/MIFSAMAV3", "kind": "product-page", "publisher": "NXP Semiconductors", "checkedAt": "2026-08-25"}
+  ],
+  "reviewedAt": "2026-08-25"
+}

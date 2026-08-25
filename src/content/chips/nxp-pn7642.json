@@ -1,0 +1,45 @@
+{
+  "id": "nxp-pn7642",
+  "manufacturer": "NXP Semiconductors",
+  "family": "PN76",
+  "model": "PN7642",
+  "recordScope": "exact-part",
+  "category": "NFC Controller",
+  "lifecycle": "active",
+  "summary": "NFC okuyucu ön ucunu, 45 MHz Arm Cortex-M33 işlemciyi ve güvenlik işlevlerini tek parçada birleştiren programlanabilir NFC denetleyicisi.",
+  "compute": {
+    "cpu": "Arm Cortex-M33",
+    "cores": 1,
+    "maxClockMhz": 45,
+    "flashKb": 180,
+    "ramKb": 20,
+    "linuxCapable": false,
+    "operatingSystems": ["MCUXpresso SDK", "Bare metal"],
+    "accelerators": ["NFC reader front-end", "Cryptographic accelerators"]
+  },
+  "connectivity": ["NFC-A", "NFC-B", "FeliCa", "ISO/IEC 15693", "I²C", "SPI", "UART"],
+  "peripherals": ["12 GPIO", "Contact interface", "Host interfaces"],
+  "security": {
+    "secureBoot": {"support": "supported", "summary": "Ürün belgeleri güvenli boot mekanizmasını güvenlik alt sistemi içinde tanımlar.", "sourceIds": ["pn7642-ds"]},
+    "secureUpdate": {"support": "supported", "summary": "Güvenli firmware güncelleme ürün datasheetinde belirtilir.", "sourceIds": ["pn7642-ds"]},
+    "antiRollback": {"support": "unknown", "summary": "Sürüm düşürme engelinin uygulama düzeyi ayrıntısı bu kayıtta doğrulanmadı.", "sourceIds": []},
+    "hardwareRootOfTrust": {"support": "supported", "summary": "SESIP değerlendirmeli güvenlik sistemi güven kökü ve güvenli servisler sağlar.", "sourceIds": ["pn7642-product"]},
+    "isolation": {"support": "supported", "summary": "Cortex-M33 TrustZone ve güvenlik alt sistemi güvenli/güvensiz alan ayrımını destekler.", "sourceIds": ["pn7642-ds"]},
+    "flashEncryption": {"support": "unknown", "summary": "Tüm kullanıcı flash alanı için şifreleme kapsamı bu kayıtta doğrulanmadı.", "sourceIds": []},
+    "secureDebug": {"support": "conditional", "summary": "Debug erişimi yaşam döngüsü ve üretim yapılandırmasına bağlı güvenlik politikası gerektirir.", "sourceIds": ["pn7642-ds"]},
+    "secureKeyStorage": {"support": "supported", "summary": "Ürün sayfası güvenli anahtar saklama ve kriptografik servisleri açıkça belirtir.", "sourceIds": ["pn7642-product"]},
+    "tamperResistance": {"support": "conditional", "summary": "Güvenlik sistemi saldırı azaltımları içerir; fiziksel ürün tehdidi özel tasarımda değerlendirilmelidir.", "sourceIds": ["pn7642-product"]},
+    "cryptography": ["AES", "RSA", "ECC", "SHA", "TRNG"],
+    "certifications": ["SESIP"]
+  },
+  "physical": {"supplyVoltage": "Datasheet çalışma koşullarına göre", "temperature": "Varyanta göre", "packages": ["VFBGA64", "HVQFN64"]},
+  "tools": ["MCUXpresso IDE", "MCUXpresso SDK", "NFC Cockpit"],
+  "useCases": ["nfc-reader", "authentication", "access-control", "payment-terminal-component"],
+  "strengths": ["NFC ön ucu ve uygulama MCU'sunu birleştirebilir", "Güvenli anahtar saklama", "Çoklu temassız protokol desteği"],
+  "limitations": ["Tek başına ödeme terminali sertifikasyonu sağlamaz", "20 KB kullanıcı RAM'i yoğun uygulamaları sınırlar"],
+  "sources": [
+    {"id": "pn7642-product", "title": "PN7642 product page", "url": "https://www.nxp.com/products/PN7642", "kind": "product-page", "publisher": "NXP Semiconductors", "checkedAt": "2026-08-25"},
+    {"id": "pn7642-ds", "title": "PN7642 Single-chip solution with high-performance NFC reader, customizable MCU and security toolbox", "url": "https://www.nxp.com/docs/en/data-sheet/PN7642.pdf", "kind": "datasheet", "publisher": "NXP Semiconductors", "checkedAt": "2026-08-25"}
+  ],
+  "reviewedAt": "2026-08-25"
+}

@@ -1,0 +1,13 @@
+{
+  "extends": "infineon-psoc64",
+  "id": "cyb06447bzi-bld53",
+  "model": "CYB06447BZI-BLD53",
+  "summary": "1 MB Flash, 288 KB SRAM, Bluetooth LE, 78 GPIO ve 116-BGA paket içeren USB'siz PSoC 64 secure MCU.",
+  "variantNote": "BLD53 varyantı 116-BGA pakette 78 GPIO sunar ve USB çevre birimi içermez.",
+  "peripherals": ["78 GPIO", "12-bit ADC", "12-bit DAC", "Op-amp", "CapSense", "12 UDB", "PWM/Timers", "LCD"],
+  "physical": {"supplyVoltage": "Datasheet çalışma koşullarına göre", "temperature": "-40 °C–85 °C", "packages": ["116-BGA, 5.2 × 6.4 mm"]},
+  "strengths": ["Kompakt 116-BGA paket", "Fabrika kökenli güven kökü", "Bluetooth LE ve programlanabilir analog/dijital bloklar"],
+  "limitations": ["USB çevre birimi yoktur", "Provisioning ve güvenlik politikası üretim sürecinde yönetilmelidir"],
+  "sources": [{"id": "bld53-product", "title": "CYB06447BZI-BLD53 product page", "url": "https://www.infineon.com/part/CYB06447BZI-BLD53", "kind": "product-page", "publisher": "Infineon Technologies", "checkedAt": "2026-08-25"}],
+  "reviewedAt": "2026-08-25"
+}

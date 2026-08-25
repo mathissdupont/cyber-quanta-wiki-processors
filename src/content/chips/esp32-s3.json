@@ -1,0 +1,171 @@
+{
+  "id": "esp32-s3",
+  "manufacturer": "Espressif Systems",
+  "family": "ESP32-S3",
+  "model": "ESP32-S3",
+  "recordScope": "series",
+  "category": "Wireless MCU",
+  "lifecycle": "active",
+  "summary": "Dahili Wi-Fi/BLE, vektör komutları ve üretim güvenliği özellikleri bulunan yaygın IoT MCU ailesi.",
+  "variantNote": "Flash ve PSRAM kapasitesi seçilen ESP32-S3 çip/modül varyantına göre değişir.",
+  "compute": {
+    "cpu": "Dual-core Xtensa LX7",
+    "cores": 2,
+    "maxClockMhz": 240,
+    "flashKb": null,
+    "ramKb": 512,
+    "linuxCapable": false,
+    "operatingSystems": [
+      "ESP-IDF",
+      "FreeRTOS"
+    ],
+    "accelerators": [
+      "Vector instructions",
+      "Digital Signature peripheral"
+    ]
+  },
+  "connectivity": [
+    "Wi-Fi 4 2.4 GHz",
+    "Bluetooth 5 LE",
+    "USB"
+  ],
+  "peripherals": [
+    "45 GPIO",
+    "SPI",
+    "I²S",
+    "I²C",
+    "PWM",
+    "ADC",
+    "UART",
+    "SD/MMC",
+    "TWAI"
+  ],
+  "security": {
+    "secureBoot": {
+      "support": "supported",
+      "summary": "Secure Boot V2, bootloader ve uygulamaları RSA-PSS ile doğrular.",
+      "sourceIds": [
+        "esp-secure-boot"
+      ]
+    },
+    "secureUpdate": {
+      "support": "supported",
+      "summary": "İmzalı OTA uygulama imajları secure boot doğrulamasından geçer.",
+      "sourceIds": [
+        "esp-secure-boot"
+      ]
+    },
+    "antiRollback": {
+      "support": "conditional",
+      "summary": "Anti-rollback uygulama güvenlik sürümü ve eFuse politikasıyla yapılandırılır; ürüne özel doğrulanmalıdır.",
+      "sourceIds": [
+        "esp-secure-boot"
+      ]
+    },
+    "hardwareRootOfTrust": {
+      "support": "supported",
+      "summary": "ROM birinci aşama bootloader ve eFuse anahtar özetleri güven zincirinin temelidir.",
+      "sourceIds": [
+        "esp-secure-boot"
+      ]
+    },
+    "isolation": {
+      "support": "conditional",
+      "summary": "World Controller erişim ayrımı sağlar; Arm TrustZone değildir.",
+      "sourceIds": [
+        "esp-product"
+      ]
+    },
+    "flashEncryption": {
+      "support": "supported",
+      "summary": "Harici flash için AES-XTS tabanlı flash encryption desteklenir.",
+      "sourceIds": [
+        "esp-flash"
+      ]
+    },
+    "secureDebug": {
+      "support": "conditional",
+      "summary": "Üretim politikasında JTAG ve ROM download erişimleri eFuse ile kısıtlanabilir.",
+      "sourceIds": [
+        "esp-secure-boot"
+      ]
+    },
+    "secureKeyStorage": {
+      "support": "supported",
+      "summary": "Anahtar materyali korumalı eFuse bloklarında tutulabilir.",
+      "sourceIds": [
+        "esp-flash"
+      ]
+    },
+    "tamperResistance": {
+      "support": "unknown",
+      "summary": "Fiziksel tamper sensörü desteği bu kayıtta doğrulanmadı.",
+      "sourceIds": []
+    },
+    "cryptography": [
+      "RSA-PSS",
+      "AES-XTS",
+      "SHA-256",
+      "HMAC",
+      "Digital Signature"
+    ],
+    "certifications": []
+  },
+  "physical": {
+    "supplyVoltage": "Çip/modül datasheetine göre",
+    "temperature": "Varyanta göre",
+    "packages": [
+      "QFN",
+      "Modül seçenekleri"
+    ]
+  },
+  "tools": [
+    "ESP-IDF",
+    "idf.py",
+    "esptool",
+    "espsecure"
+  ],
+  "useCases": [
+    "smart-appliance",
+    "connected-display",
+    "voice",
+    "secure-iot",
+    "gateway"
+  ],
+  "strengths": [
+    "Dahili Wi-Fi ve BLE",
+    "Geniş topluluk ve yazılım ekosistemi",
+    "Düşük maliyetli prototipleme"
+  ],
+  "limitations": [
+    "Yalnızca 2.4 GHz Wi-Fi",
+    "Secure boot ve flash encryption üretim eFuse sürecini geri döndürülemez biçimde etkileyebilir"
+  ],
+  "sources": [
+    {
+      "id": "esp-product",
+      "title": "ESP32-S3 product page",
+      "url": "https://www.espressif.com/en/products/socs/esp32-s3",
+      "kind": "product-page",
+      "publisher": "Espressif Systems",
+      "checkedAt": "2026-08-25"
+    },
+    {
+      "id": "esp-secure-boot",
+      "title": "ESP32-S3 Secure Boot V2 guide",
+      "url": "https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/security/secure-boot-v2.html",
+      "kind": "reference-manual",
+      "publisher": "Espressif Systems",
+      "checkedAt": "2026-08-25"
+    },
+    {
+      "id": "esp-flash",
+      "title": "ESP32-S3 Flash Encryption guide",
+      "url": "https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/security/flash-encryption.html",
+      "kind": "reference-manual",
+      "publisher": "Espressif Systems",
+      "checkedAt": "2026-08-25"
+    }
+  ],
+  "reviewedAt": "2026-08-25"
+}

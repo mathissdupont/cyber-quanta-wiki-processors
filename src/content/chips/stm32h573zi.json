@@ -1,0 +1,156 @@
+{
+  "id": "stm32h573zi",
+  "manufacturer": "STMicroelectronics",
+  "family": "STM32H5",
+  "model": "STM32H573ZI",
+  "recordScope": "exact-part",
+  "category": "MCU",
+  "lifecycle": "active",
+  "summary": "Yüksek performans, TrustZone ve ST-iRoT güven kökü sunan Cortex-M33 tabanlı güvenli MCU.",
+  "variantNote": "STM32H563 ve STM32H573 güvenlik hızlandırıcıları ile hazır güven kökü seçeneklerinde farklılaşır.",
+  "compute": {
+    "cpu": "Arm Cortex-M33",
+    "cores": 1,
+    "maxClockMhz": 250,
+    "flashKb": 2048,
+    "ramKb": 640,
+    "linuxCapable": false,
+    "operatingSystems": [
+      "Bare metal",
+      "RTOS"
+    ],
+    "accelerators": [
+      "DSP",
+      "FPU",
+      "AES",
+      "PKA",
+      "OTFDEC"
+    ]
+  },
+  "connectivity": [
+    "Ethernet",
+    "USB",
+    "CAN FD",
+    "UART",
+    "SPI",
+    "I²C"
+  ],
+  "peripherals": [
+    "ADC",
+    "DAC",
+    "PWM/Timers",
+    "Camera interface",
+    "External memory interface"
+  ],
+  "security": {
+    "secureBoot": {
+      "support": "supported",
+      "summary": "ST-iRoT, değiştirilemez güven kökü ve güvenli açılış hizmeti sağlar.",
+      "sourceIds": [
+        "st-product"
+      ]
+    },
+    "secureUpdate": {
+      "support": "supported",
+      "summary": "ST-iRoT güvenli firmware güncelleme hizmetini kapsar.",
+      "sourceIds": [
+        "st-product"
+      ]
+    },
+    "antiRollback": {
+      "support": "unknown",
+      "summary": "Tam anti-rollback mekanizması seçilen güvenli servis ve ürün politikasına göre ayrıca doğrulanmalıdır.",
+      "sourceIds": []
+    },
+    "hardwareRootOfTrust": {
+      "support": "supported",
+      "summary": "ST-iRoT önceden yapılandırılmış değiştirilemez güven köküdür.",
+      "sourceIds": [
+        "st-product"
+      ]
+    },
+    "isolation": {
+      "support": "supported",
+      "summary": "Armv8-M TrustZone ile güvenli ve güvenli olmayan çalışma alanları ayrılabilir.",
+      "sourceIds": [
+        "st-product"
+      ]
+    },
+    "flashEncryption": {
+      "support": "conditional",
+      "summary": "OTFDEC donanımı belirli harici bellek kullanım senaryolarında anlık çözme sağlar.",
+      "sourceIds": [
+        "st-product"
+      ]
+    },
+    "secureDebug": {
+      "support": "supported",
+      "summary": "ECDSA P-256 kimlik doğrulamalı debug erişimi bulunur.",
+      "sourceIds": [
+        "st-product"
+      ]
+    },
+    "secureKeyStorage": {
+      "support": "supported",
+      "summary": "Donanıma özgü anahtar ile güvenli anahtar saklama desteği sunulur.",
+      "sourceIds": [
+        "st-product"
+      ]
+    },
+    "tamperResistance": {
+      "support": "conditional",
+      "summary": "Kripto hızlandırıcılarında yan kanal dayanımı belirtilir; fiziksel tehdit modeli ayrıca değerlendirilmelidir.",
+      "sourceIds": [
+        "st-product"
+      ]
+    },
+    "cryptography": [
+      "AES",
+      "PKA",
+      "SHA",
+      "TRNG",
+      "ECDSA P-256"
+    ],
+    "certifications": []
+  },
+  "physical": {
+    "supplyVoltage": "Varyanta göre datasheet üzerinden seçilmeli",
+    "temperature": "-40 °C ile +125 °C seçeneği",
+    "packages": [
+      "LQFP",
+      "BGA"
+    ]
+  },
+  "tools": [
+    "STM32CubeIDE",
+    "STM32CubeProgrammer",
+    "STM32CubeH5"
+  ],
+  "useCases": [
+    "industrial-control",
+    "appliance",
+    "gateway",
+    "motor-control",
+    "secure-iot"
+  ],
+  "strengths": [
+    "250 MHz gerçek zamanlı MCU",
+    "Güçlü güvenlik temeli",
+    "Zengin endüstriyel çevre birimleri"
+  ],
+  "limitations": [
+    "Dahili Wi-Fi/Bluetooth yok",
+    "Linux sınıfı bir uygulama işlemcisi değil"
+  ],
+  "sources": [
+    {
+      "id": "st-product",
+      "title": "STM32H563/573 product page",
+      "url": "https://www.st.com/en/microcontrollers-microprocessors/stm32h563-573.html",
+      "kind": "product-page",
+      "publisher": "STMicroelectronics",
+      "checkedAt": "2026-08-25"
+    }
+  ],
+  "reviewedAt": "2026-08-25"
+}

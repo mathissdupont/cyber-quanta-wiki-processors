@@ -1,0 +1,155 @@
+{
+  "id": "nrf5340",
+  "manufacturer": "Nordic Semiconductor",
+  "family": "nRF53",
+  "model": "nRF5340",
+  "recordScope": "exact-part",
+  "category": "Wireless MCU",
+  "lifecycle": "active",
+  "summary": "Uygulama ve ağ işlerini ayıran çift Cortex-M33 çekirdekli, çok protokollü düşük güç SoC.",
+  "compute": {
+    "cpu": "2 × Arm Cortex-M33",
+    "cores": 2,
+    "maxClockMhz": 128,
+    "flashKb": 1280,
+    "ramKb": 576,
+    "linuxCapable": false,
+    "operatingSystems": [
+      "nRF Connect SDK",
+      "Zephyr"
+    ],
+    "accelerators": [
+      "CryptoCell-312",
+      "FPU",
+      "DSP"
+    ]
+  },
+  "connectivity": [
+    "Bluetooth LE",
+    "Bluetooth Mesh",
+    "Thread",
+    "Zigbee",
+    "Matter",
+    "NFC",
+    "ANT",
+    "Proprietary 2.4 GHz"
+  ],
+  "peripherals": [
+    "USB",
+    "QSPI",
+    "High-speed SPI",
+    "PWM",
+    "PDM",
+    "I²S",
+    "ADC"
+  ],
+  "security": {
+    "secureBoot": {
+      "support": "supported",
+      "summary": "nRF Connect SDK secure bootloader imzalı yazılımla güven zinciri kurabilir.",
+      "sourceIds": [
+        "nordic-product"
+      ]
+    },
+    "secureUpdate": {
+      "support": "conditional",
+      "summary": "Güvenli güncelleme MCUboot/nRF Connect SDK yapılandırmasına bağlıdır.",
+      "sourceIds": [
+        "nordic-product"
+      ]
+    },
+    "antiRollback": {
+      "support": "unknown",
+      "summary": "Sürüm düşürme politikası seçilen bootloader yapılandırmasında ayrıca doğrulanmalıdır.",
+      "sourceIds": []
+    },
+    "hardwareRootOfTrust": {
+      "support": "supported",
+      "summary": "CryptoCell-312 ve KMU birlikte güven kökü ve anahtar saklama sağlar.",
+      "sourceIds": [
+        "nordic-product"
+      ]
+    },
+    "isolation": {
+      "support": "supported",
+      "summary": "Uygulama çekirdeğinde Arm TrustZone ile güvenli ayrım bulunur.",
+      "sourceIds": [
+        "nordic-product"
+      ]
+    },
+    "flashEncryption": {
+      "support": "unknown",
+      "summary": "Dahili flash için genel amaçlı şeffaf şifreleme bu kayıtta doğrulanmadı.",
+      "sourceIds": []
+    },
+    "secureDebug": {
+      "support": "unknown",
+      "summary": "Debug yaşam döngüsü ayrıntısı ayrı ürün güvenlik dokümanıyla doğrulanmalı.",
+      "sourceIds": []
+    },
+    "secureKeyStorage": {
+      "support": "supported",
+      "summary": "KMU ve CryptoCell üzerinden işlemciden izole anahtar kullanımı sağlanır.",
+      "sourceIds": [
+        "nordic-product"
+      ]
+    },
+    "tamperResistance": {
+      "support": "unknown",
+      "summary": "Fiziksel tamper özelliği bu kaynaklarda doğrulanmadı.",
+      "sourceIds": []
+    },
+    "cryptography": [
+      "AES",
+      "SHA-2",
+      "HMAC",
+      "RSA",
+      "ECC",
+      "TRNG"
+    ],
+    "certifications": [
+      "PSA Certified Level 2"
+    ]
+  },
+  "physical": {
+    "supplyVoltage": "1.7 V–5.5 V",
+    "temperature": "-40 °C–105 °C",
+    "packages": [
+      "aQFN94",
+      "WLCSP95"
+    ]
+  },
+  "tools": [
+    "nRF Connect SDK",
+    "nRF Connect for Desktop",
+    "west",
+    "Zephyr"
+  ],
+  "useCases": [
+    "wearable",
+    "matter",
+    "lighting",
+    "audio",
+    "secure-iot"
+  ],
+  "strengths": [
+    "Uygulama/ağ için iki çekirdek",
+    "Geniş 2.4 GHz protokol desteği",
+    "Zephyr tabanlı SDK"
+  ],
+  "limitations": [
+    "Wi-Fi yok",
+    "En yüksek güvenlik seviyesi yazılım ve provisioning yapılandırmasına bağlıdır"
+  ],
+  "sources": [
+    {
+      "id": "nordic-product",
+      "title": "nRF5340 product page",
+      "url": "https://www.nordicsemi.com/Products/nRF5340",
+      "kind": "product-page",
+      "publisher": "Nordic Semiconductor",
+      "checkedAt": "2026-08-25"
+    }
+  ],
+  "reviewedAt": "2026-08-25"
+}

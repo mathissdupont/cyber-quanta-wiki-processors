@@ -1,0 +1,157 @@
+{
+  "id": "nxp-rw612",
+  "manufacturer": "NXP Semiconductors",
+  "family": "RW61x",
+  "model": "RW612",
+  "recordScope": "exact-part",
+  "category": "Wireless MCU",
+  "lifecycle": "active",
+  "summary": "Wi-Fi 6, Bluetooth LE ve 802.15.4 radyolarını EdgeLock güvenliğiyle birleştiren kablosuz MCU.",
+  "compute": {
+    "cpu": "Arm Cortex-M33",
+    "cores": 1,
+    "maxClockMhz": 260,
+    "flashKb": null,
+    "ramKb": 1229,
+    "linuxCapable": false,
+    "operatingSystems": [
+      "FreeRTOS",
+      "Zephyr"
+    ],
+    "accelerators": [
+      "PowerQuad",
+      "EdgeLock Secure Enclave"
+    ]
+  },
+  "connectivity": [
+    "Wi-Fi 6 2.4/5 GHz",
+    "Bluetooth LE 5.4",
+    "802.15.4",
+    "Thread",
+    "Matter",
+    "Ethernet",
+    "USB"
+  ],
+  "peripherals": [
+    "ADC",
+    "DAC",
+    "PWM/Timers",
+    "LCD interface",
+    "FlexComm UART/SPI/I²C/I²S"
+  ],
+  "security": {
+    "secureBoot": {
+      "support": "supported",
+      "summary": "EdgeLock Secure Enclave güvenli açılışı destekler.",
+      "sourceIds": [
+        "nxp-product"
+      ]
+    },
+    "secureUpdate": {
+      "support": "supported",
+      "summary": "Ürün sayfasında güvenli yazılım güncelleme desteği açıkça belirtilir.",
+      "sourceIds": [
+        "nxp-product"
+      ]
+    },
+    "antiRollback": {
+      "support": "unknown",
+      "summary": "Sürüm sayacı ve geri alma politikasının ürün dokümanında ayrıca doğrulanması gerekir.",
+      "sourceIds": []
+    },
+    "hardwareRootOfTrust": {
+      "support": "supported",
+      "summary": "EdgeLock donanım güven kökü sağlar.",
+      "sourceIds": [
+        "nxp-product"
+      ]
+    },
+    "isolation": {
+      "support": "supported",
+      "summary": "Arm TrustZone-M tabanlı güvenilir yürütme ortamı bulunur.",
+      "sourceIds": [
+        "nxp-product"
+      ]
+    },
+    "flashEncryption": {
+      "support": "supported",
+      "summary": "Harici XIP flash için anlık şifre çözme motoru bulunur.",
+      "sourceIds": [
+        "nxp-product"
+      ]
+    },
+    "secureDebug": {
+      "support": "supported",
+      "summary": "EdgeLock güvenli debug mekanizmasını kapsar.",
+      "sourceIds": [
+        "nxp-product"
+      ]
+    },
+    "secureKeyStorage": {
+      "support": "supported",
+      "summary": "PUF tabanlı güvenli anahtar yönetimi bulunur.",
+      "sourceIds": [
+        "nxp-product"
+      ]
+    },
+    "tamperResistance": {
+      "support": "conditional",
+      "summary": "EdgeLock güvenlik alt sistemi güçlü izolasyon sağlar; fiziksel saldırı kapsamı sertifika profiline göre incelenmelidir.",
+      "sourceIds": [
+        "nxp-product"
+      ]
+    },
+    "cryptography": [
+      "AES",
+      "SHA",
+      "ECC",
+      "RSA",
+      "TRNG",
+      "PUF"
+    ],
+    "certifications": [
+      "SESIP Level 3"
+    ]
+  },
+  "physical": {
+    "supplyVoltage": "Tek 3.3 V besleme",
+    "temperature": "-40 °C ile +85 °C",
+    "packages": [
+      "TFBGA145",
+      "HVQFN116",
+      "WLCSP151"
+    ]
+  },
+  "tools": [
+    "MCUXpresso IDE",
+    "MCUXpresso SDK",
+    "Secure Provisioning Tool"
+  ],
+  "useCases": [
+    "smart-appliance",
+    "smart-home",
+    "gateway",
+    "secure-iot",
+    "matter"
+  ],
+  "strengths": [
+    "Tek çipte üç radyo",
+    "Donanım güven kökü ve PUF",
+    "Matter için güçlü aday"
+  ],
+  "limitations": [
+    "Dahili program flash yerine harici XIP flash mimarisi tasarımı etkiler",
+    "Linux çalıştırmaz"
+  ],
+  "sources": [
+    {
+      "id": "nxp-product",
+      "title": "RW612 product page",
+      "url": "https://www.nxp.com/products/wireless-connectivity/wi-fi-plus-bluetooth-plus-802-15-4/wireless-mcu-with-integrated-tri-radio-1x1-wi-fi-6-plus-bluetooth-low-energy-5-4-802-15-4:RW612",
+      "kind": "product-page",
+      "publisher": "NXP Semiconductors",
+      "checkedAt": "2026-08-25"
+    }
+  ],
+  "reviewedAt": "2026-08-25"
+}

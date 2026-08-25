@@ -1,0 +1,46 @@
+{
+  "id": "esp32-p4",
+  "manufacturer": "Espressif Systems",
+  "family": "ESP32-P4",
+  "model": "ESP32-P4",
+  "recordScope": "series",
+  "category": "SoC",
+  "lifecycle": "active",
+  "summary": "Görüntü, H.264 ve yapay zekâ iş yükleri için 400 MHz çift çekirdek RISC-V işlemci ve vektör/AI komutları sunan, dahili radyo içermeyen uygulama SoC'si.",
+  "variantNote": "Paket, harici flash ve PSRAM kapasitesi seçilen modül veya kart tasarımına bağlıdır.",
+  "compute": {
+    "cpu": "Dual-core 32-bit RISC-V + low-power RISC-V",
+    "cores": 3,
+    "maxClockMhz": 400,
+    "flashKb": null,
+    "ramKb": 768,
+    "linuxCapable": false,
+    "operatingSystems": ["ESP-IDF", "FreeRTOS"],
+    "accelerators": ["AI instruction extensions", "H.264 encoder", "Pixel Processing Accelerator", "2D DMA"]
+  },
+  "connectivity": ["USB 2.0 OTG", "Ethernet MAC", "MIPI-CSI", "MIPI-DSI"],
+  "peripherals": ["55 GPIO", "SPI", "I²C", "I²S", "UART", "SDIO", "PWM", "ADC"],
+  "security": {
+    "secureBoot": {"support": "supported", "summary": "ESP32-P4 güvenlik özellikleri Secure Boot'u açıkça listeler.", "sourceIds": ["p4-product"]},
+    "secureUpdate": {"support": "supported", "summary": "ESP-IDF OTA imajları secure boot güven zinciriyle kullanılabilir.", "sourceIds": ["p4-security"]},
+    "antiRollback": {"support": "conditional", "summary": "Güvenlik sürümü ve eFuse politikası ürün yapılandırmasında etkinleştirilmelidir.", "sourceIds": ["p4-security"]},
+    "hardwareRootOfTrust": {"support": "supported", "summary": "ROM, eFuse ve Key Management Unit güven zincirinin donanımsal temelini sağlar.", "sourceIds": ["p4-product"]},
+    "isolation": {"support": "supported", "summary": "Erişim izinleri ve ayrıcalık seviyeleri donanımsal izolasyon mekanizmaları sunar.", "sourceIds": ["p4-product"]},
+    "flashEncryption": {"support": "supported", "summary": "Harici flash için şifreleme güvenlik özellikleri arasındadır.", "sourceIds": ["p4-security"]},
+    "secureDebug": {"support": "conditional", "summary": "Debug erişimi eFuse ve yaşam döngüsü politikasıyla kısıtlanmalıdır.", "sourceIds": ["p4-security"]},
+    "secureKeyStorage": {"support": "supported", "summary": "Key Management Unit ve eFuse tabanlı anahtar koruması bulunur.", "sourceIds": ["p4-product"]},
+    "tamperResistance": {"support": "unknown", "summary": "Harici fiziksel tamper algılama bu kayıtta doğrulanmadı.", "sourceIds": []},
+    "cryptography": ["AES", "SHA", "RSA", "ECC", "HMAC", "Digital Signature", "TRNG"],
+    "certifications": []
+  },
+  "physical": {"supplyVoltage": "Datasheet çalışma koşullarına göre", "temperature": "Varyanta göre", "packages": ["BGA"]},
+  "tools": ["ESP-IDF", "idf.py", "esptool", "ESP-DL"],
+  "useCases": ["edge-ai", "camera", "hmi", "multimedia"],
+  "strengths": ["400 MHz RISC-V ve AI komutları", "Kamera ve ekran arayüzleri", "Güçlü güvenlik çevre birimleri"],
+  "limitations": ["Dahili Wi-Fi veya Bluetooth radyosu yoktur", "Kablosuz bağlantı için ayrı bir companion çip gerekir"],
+  "sources": [
+    {"id": "p4-product", "title": "ESP32-P4 product page", "url": "https://www.espressif.com/en/products/socs/esp32-p4", "kind": "product-page", "publisher": "Espressif Systems", "checkedAt": "2026-08-25"},
+    {"id": "p4-security", "title": "ESP32-P4 Security Overview", "url": "https://docs.espressif.com/projects/esp-idf/en/latest/esp32p4/security/security.html", "kind": "reference-manual", "publisher": "Espressif Systems", "checkedAt": "2026-08-25"}
+  ],
+  "reviewedAt": "2026-08-25"
+}

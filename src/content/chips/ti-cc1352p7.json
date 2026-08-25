@@ -1,0 +1,152 @@
+{
+  "id": "ti-cc1352p7",
+  "manufacturer": "Texas Instruments",
+  "family": "SimpleLink CC13x2",
+  "model": "CC1352P7",
+  "recordScope": "exact-part",
+  "category": "Wireless MCU",
+  "lifecycle": "active",
+  "summary": "Sub-1 GHz ve 2.4 GHz protokollerini güçlü RF çıkışıyla birleştiren uzun menzil odaklı kablosuz MCU.",
+  "compute": {
+    "cpu": "Arm Cortex-M4F",
+    "cores": 1,
+    "maxClockMhz": 48,
+    "flashKb": 704,
+    "ramKb": 152,
+    "linuxCapable": false,
+    "operatingSystems": [
+      "SimpleLink SDK",
+      "FreeRTOS",
+      "TI-RTOS"
+    ],
+    "accelerators": [
+      "Sensor Controller",
+      "Crypto accelerator"
+    ]
+  },
+  "connectivity": [
+    "Sub-1 GHz",
+    "Bluetooth LE",
+    "802.15.4",
+    "Thread",
+    "Zigbee",
+    "Matter",
+    "Wi-SUN",
+    "Proprietary 2.4 GHz"
+  ],
+  "peripherals": [
+    "12-bit ADC",
+    "DAC",
+    "SPI",
+    "UART",
+    "I²C",
+    "I²S",
+    "Timers"
+  ],
+  "security": {
+    "secureBoot": {
+      "support": "supported",
+      "summary": "TI ürün sayfası secure boot desteğini belirtir.",
+      "sourceIds": [
+        "ti-product"
+      ]
+    },
+    "secureUpdate": {
+      "support": "supported",
+      "summary": "Secure firmware/software update ve OTA desteği belirtilir.",
+      "sourceIds": [
+        "ti-product"
+      ]
+    },
+    "antiRollback": {
+      "support": "unknown",
+      "summary": "Monoton sürüm politikası bu katalog kaynağında doğrulanmadı.",
+      "sourceIds": []
+    },
+    "hardwareRootOfTrust": {
+      "support": "conditional",
+      "summary": "Boot ROM ve cihaz güvenlik mekanizmaları bulunur; kök anahtar yerleşimi uygulama notuyla incelenmelidir.",
+      "sourceIds": [
+        "ti-product"
+      ]
+    },
+    "isolation": {
+      "support": "not-supported",
+      "summary": "Cortex-M4F, Arm TrustZone-M sağlamaz.",
+      "sourceIds": [
+        "ti-product"
+      ]
+    },
+    "flashEncryption": {
+      "support": "unknown",
+      "summary": "Şeffaf flash şifreleme bu kaynakta doğrulanmadı.",
+      "sourceIds": []
+    },
+    "secureDebug": {
+      "support": "supported",
+      "summary": "Secure debug ürün güvenlik yetenekleri arasında listelenir.",
+      "sourceIds": [
+        "ti-product"
+      ]
+    },
+    "secureKeyStorage": {
+      "support": "unknown",
+      "summary": "Anahtar saklama ayrıntısı teknik referansla ayrıca doğrulanmalı.",
+      "sourceIds": []
+    },
+    "tamperResistance": {
+      "support": "unknown",
+      "summary": "Fiziksel tamper desteği bu kayıtta doğrulanmadı.",
+      "sourceIds": []
+    },
+    "cryptography": [
+      "AES",
+      "ECC",
+      "RSA",
+      "SHA-2",
+      "TRNG"
+    ],
+    "certifications": []
+  },
+  "physical": {
+    "supplyVoltage": "1.8 V–3.8 V",
+    "temperature": "-40 °C–105 °C",
+    "packages": [
+      "VQFN48 7×7 mm"
+    ]
+  },
+  "tools": [
+    "Code Composer Studio",
+    "SimpleLink SDK",
+    "SysConfig",
+    "UniFlash",
+    "SmartRF Studio"
+  ],
+  "useCases": [
+    "long-range-sensor",
+    "metering",
+    "matter",
+    "industrial-iot",
+    "secure-iot"
+  ],
+  "strengths": [
+    "Sub-1 GHz ve 2.4 GHz aynı cihazda",
+    "+20 dBm entegre PA",
+    "Düşük güç sensör denetleyicisi"
+  ],
+  "limitations": [
+    "Wi-Fi yok",
+    "48 MHz CPU yüksek hesaplama yükleri için sınırlı olabilir"
+  ],
+  "sources": [
+    {
+      "id": "ti-product",
+      "title": "CC1352P7 product page",
+      "url": "https://www.ti.com/product/CC1352P7",
+      "kind": "product-page",
+      "publisher": "Texas Instruments",
+      "checkedAt": "2026-08-25"
+    }
+  ],
+  "reviewedAt": "2026-08-25"
+}

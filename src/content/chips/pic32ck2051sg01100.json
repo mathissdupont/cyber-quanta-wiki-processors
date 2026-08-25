@@ -1,0 +1,154 @@
+{
+  "id": "pic32ck2051sg01100",
+  "manufacturer": "Microchip Technology",
+  "family": "PIC32CK SG",
+  "model": "PIC32CK2051SG01100",
+  "recordScope": "exact-part",
+  "category": "MCU",
+  "lifecycle": "active",
+  "summary": "TrustZone ile izole HSM’i aynı MCU’da birleştiren, Ethernet/CAN/USB bağlantılı güvenlik odaklı Cortex-M33.",
+  "compute": {
+    "cpu": "Arm Cortex-M33",
+    "cores": 1,
+    "maxClockMhz": 120,
+    "flashKb": 2048,
+    "ramKb": 512,
+    "linuxCapable": false,
+    "operatingSystems": [
+      "MPLAB Harmony",
+      "RTOS"
+    ],
+    "accelerators": [
+      "Isolated HSM",
+      "FPU",
+      "DSP"
+    ]
+  },
+  "connectivity": [
+    "Ethernet 10/100",
+    "CAN FD",
+    "USB HS/FS",
+    "UART",
+    "SPI",
+    "I²C",
+    "I²S",
+    "SDIO"
+  ],
+  "peripherals": [
+    "12-bit ADC",
+    "Touch controller",
+    "DAC",
+    "Camera capture",
+    "External bus interface"
+  ],
+  "security": {
+    "secureBoot": {
+      "support": "supported",
+      "summary": "İzole HSM, secure boot ve secure bootloader sağlar.",
+      "sourceIds": [
+        "microchip-product"
+      ]
+    },
+    "secureUpdate": {
+      "support": "supported",
+      "summary": "Secure firmware upgrade ürün kullanım senaryosu olarak doğrulanmıştır.",
+      "sourceIds": [
+        "microchip-product"
+      ]
+    },
+    "antiRollback": {
+      "support": "unknown",
+      "summary": "Anti-rollback sayacı bu ürün özetiyle doğrulanmadı.",
+      "sourceIds": []
+    },
+    "hardwareRootOfTrust": {
+      "support": "supported",
+      "summary": "İzole işlemci/belleğe sahip HSM güven kökü olarak kullanılabilir.",
+      "sourceIds": [
+        "microchip-product"
+      ]
+    },
+    "isolation": {
+      "support": "supported",
+      "summary": "Host bellek ve çevre birimleri Arm TrustZone ile ayrılabilir.",
+      "sourceIds": [
+        "microchip-product"
+      ]
+    },
+    "flashEncryption": {
+      "support": "unknown",
+      "summary": "Genel amaçlı flash encryption desteği bu kayıtta doğrulanmadı.",
+      "sourceIds": []
+    },
+    "secureDebug": {
+      "support": "supported",
+      "summary": "Secure Debug ürün özellikleri arasında bulunur.",
+      "sourceIds": [
+        "microchip-product"
+      ]
+    },
+    "secureKeyStorage": {
+      "support": "supported",
+      "summary": "İzole HSM güvenli anahtar saklama sağlar.",
+      "sourceIds": [
+        "microchip-product"
+      ]
+    },
+    "tamperResistance": {
+      "support": "supported",
+      "summary": "Tamper detection ve DPA karşı önlemleri belirtilir.",
+      "sourceIds": [
+        "microchip-product"
+      ]
+    },
+    "cryptography": [
+      "AES",
+      "ChaCha20",
+      "SHA",
+      "RSA",
+      "ECC",
+      "TRNG"
+    ],
+    "certifications": []
+  },
+  "physical": {
+    "supplyVoltage": "1.71 V–3.63 V",
+    "temperature": "-40 °C–85 °C",
+    "packages": [
+      "TQFP100"
+    ]
+  },
+  "tools": [
+    "MPLAB X IDE",
+    "MPLAB Harmony v3",
+    "MCC",
+    "XC32"
+  ],
+  "useCases": [
+    "industrial-control",
+    "appliance",
+    "gateway",
+    "motor-control",
+    "secure-iot"
+  ],
+  "strengths": [
+    "Tam izole dahili HSM",
+    "Ethernet, CAN FD ve USB",
+    "Dual-panel flash ile güncelleme tasarımına uygun"
+  ],
+  "limitations": [
+    "Kablosuz radyo yok",
+    "HSM entegrasyonu öğrenme ve provisioning maliyeti getirir"
+  ],
+  "sources": [
+    {
+      "id": "microchip-product",
+      "title": "PIC32CK2051SG01100 product page",
+      "url": "https://www.microchip.com/en-us/product/pic32ck2051sg01100",
+      "kind": "product-page",
+      "publisher": "Microchip Technology",
+      "checkedAt": "2026-08-25"
+    }
+  ],
+  "reviewedAt": "2026-08-25"
+}

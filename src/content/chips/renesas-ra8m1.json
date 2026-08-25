@@ -1,0 +1,158 @@
+{
+  "id": "renesas-ra8m1",
+  "manufacturer": "Renesas Electronics",
+  "family": "RA8",
+  "model": "RA8M1",
+  "recordScope": "series",
+  "category": "MCU",
+  "lifecycle": "active",
+  "summary": "480 MHz Cortex-M85, büyük SRAM ve zengin bağlantı sunan yüksek performanslı gerçek zamanlı MCU ailesi.",
+  "variantNote": "Flash, paket ve çevre birimi sayıları tam RA8M1 parçasına göre değişir.",
+  "compute": {
+    "cpu": "Arm Cortex-M85 with Helium",
+    "cores": 1,
+    "maxClockMhz": 480,
+    "flashKb": 2048,
+    "ramKb": 1024,
+    "linuxCapable": false,
+    "operatingSystems": [
+      "Flexible Software Package",
+      "RTOS"
+    ],
+    "accelerators": [
+      "Helium MVE",
+      "FPU",
+      "Renesas Secure IP"
+    ]
+  },
+  "connectivity": [
+    "Ethernet",
+    "USB HS/FS",
+    "CAN FD",
+    "I3C",
+    "SPI",
+    "I²C",
+    "UART",
+    "SDHI"
+  ],
+  "peripherals": [
+    "12-bit ADC",
+    "12-bit DAC",
+    "Camera interface",
+    "External memory interface",
+    "Timers/PWM"
+  ],
+  "security": {
+    "secureBoot": {
+      "support": "supported",
+      "summary": "Secure boot ve değiştirilemez ilk aşama bootloader alanı belirtilir.",
+      "sourceIds": [
+        "renesas-flyer"
+      ]
+    },
+    "secureUpdate": {
+      "support": "conditional",
+      "summary": "Dual-bank flash güncelleme mimarisini destekler; güvenli update politikası FSP/uygulamaya bağlıdır.",
+      "sourceIds": [
+        "renesas-datasheet"
+      ]
+    },
+    "antiRollback": {
+      "support": "unknown",
+      "summary": "Monoton sürüm mekanizması başlangıç kaynaklarında doğrulanmadı.",
+      "sourceIds": []
+    },
+    "hardwareRootOfTrust": {
+      "support": "supported",
+      "summary": "Değiştirilemez depolama ve Renesas Secure IP güven kökü kurmaya yöneliktir.",
+      "sourceIds": [
+        "renesas-flyer"
+      ]
+    },
+    "isolation": {
+      "support": "supported",
+      "summary": "Armv8-M Security Extension/TrustZone bulunur.",
+      "sourceIds": [
+        "renesas-datasheet"
+      ]
+    },
+    "flashEncryption": {
+      "support": "conditional",
+      "summary": "Harici OSPI erişiminde decryption-on-the-fly desteği bulunur.",
+      "sourceIds": [
+        "renesas-datasheet"
+      ]
+    },
+    "secureDebug": {
+      "support": "unknown",
+      "summary": "Debug kimlik doğrulama ayrıntısı ayrıca incelenmelidir.",
+      "sourceIds": []
+    },
+    "secureKeyStorage": {
+      "support": "supported",
+      "summary": "RSIP-E51A anahtar yönetimi desteği sunar.",
+      "sourceIds": [
+        "renesas-datasheet"
+      ]
+    },
+    "tamperResistance": {
+      "support": "supported",
+      "summary": "Tamper algılama ve güç analizi dayanımı belirtilir.",
+      "sourceIds": [
+        "renesas-datasheet"
+      ]
+    },
+    "cryptography": [
+      "Renesas Secure IP cryptographic accelerators"
+    ],
+    "certifications": []
+  },
+  "physical": {
+    "supplyVoltage": "Tam parçaya göre",
+    "temperature": "Tam parçaya göre",
+    "packages": [
+      "LQFP",
+      "BGA seçenekleri"
+    ]
+  },
+  "tools": [
+    "e² studio",
+    "Flexible Software Package",
+    "Renesas Flash Programmer"
+  ],
+  "useCases": [
+    "industrial-control",
+    "appliance",
+    "hmi",
+    "motor-control",
+    "edge-ai"
+  ],
+  "strengths": [
+    "480 MHz Cortex-M85 performansı",
+    "1 MB SRAM",
+    "Güçlü Ethernet/USB/CAN bağlantısı"
+  ],
+  "limitations": [
+    "Dahili kablosuz bağlantı yok",
+    "Seri kaydı olduğu için tam SKU doğrulaması gerekir"
+  ],
+  "sources": [
+    {
+      "id": "renesas-flyer",
+      "title": "RA8M1 Group overview",
+      "url": "https://www.renesas.com/en/document/fly/renesas-ra8m1-group",
+      "kind": "datasheet",
+      "publisher": "Renesas Electronics",
+      "checkedAt": "2026-08-25"
+    },
+    {
+      "id": "renesas-datasheet",
+      "title": "RA8M1 Group datasheet",
+      "url": "https://www.renesas.com/en/document/dst/ra8m1-group-datasheet",
+      "kind": "datasheet",
+      "publisher": "Renesas Electronics",
+      "checkedAt": "2026-08-25"
+    }
+  ],
+  "reviewedAt": "2026-08-25"
+}

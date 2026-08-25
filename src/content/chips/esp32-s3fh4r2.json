@@ -1,0 +1,13 @@
+{
+  "extends": "esp32-s3",
+  "id": "esp32-s3fh4r2",
+  "model": "ESP32-S3FH4R2",
+  "summary": "4 MB Quad SPI Flash ve 2 MB Quad SPI PSRAM belleği paket içinde birleştiren çift çekirdekli Wi-Fi ve Bluetooth LE MCU.",
+  "variantNote": "FH4R2 kodu 4 MB paket içi Flash ve 2 MB paket içi PSRAM yapılandırmasını belirtir.",
+  "compute": {"flashKb": 4096, "psramKb": 2048},
+  "physical": {"temperature": "-40 °C–85 °C", "packages": ["QFN56, 7 × 7 mm"]},
+  "strengths": ["Flash ve PSRAM tek pakette", "Görüntü ve ses iş yükleri için ek çalışma belleği", "Dahili Wi-Fi ve Bluetooth LE"],
+  "limitations": ["Paket içi Flash kapasitesi FN8 varyantından düşüktür", "Yalnızca 2.4 GHz Wi-Fi destekler"],
+  "sources": [{"id": "s3-datasheet", "title": "ESP32-S3 Series Datasheet", "url": "https://documentation.espressif.com/esp32_s3_datasheet_en.pdf", "kind": "datasheet", "publisher": "Espressif Systems", "checkedAt": "2026-08-25"}],
+  "reviewedAt": "2026-08-25"
+}
