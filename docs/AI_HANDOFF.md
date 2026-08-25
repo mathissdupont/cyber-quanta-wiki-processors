@@ -19,7 +19,8 @@ Bu proje `secure-signing` reposundan tamamen ayrıdır. Eski repo değiştirilme
 
 ## Güncel durum
 
-- Git deposu `main` dalındadır. İlk çalışan sürüm commitlenmiştir; remote henüz yoktur.
+- Git deposu `main` dalındadır ve `origin`, public GitHub repository'sine bağlıdır:
+  `https://github.com/mathissdupont/cyber-quanta-wiki-processors`.
 - Dokuz üreticiden 43 ayrı çip/seri kaydı var: 38 tam parça, 5 seri.
 - Son doğrulamada `npm run check`: lint + 12 test + production build başarılıdır.
 - Son doğrulamada `npm run check:links`: 51 benzersiz resmî URL denetlenmiştir.
@@ -30,8 +31,9 @@ Bu proje `secure-signing` reposundan tamamen ayrıdır. Eski repo değiştirilme
 - Dark mode tercihi `cq-wiki-theme` anahtarıyla localStorage'da saklanır.
 - Kılavuz bölümü yalnızca genel ve kalıcı konular içerir: secure boot temelleri
   ve işlemci seçim metodolojisi.
-- GitHub Pages workflow'u hazır fakat GitHub repository oluşturulmadan deploy
-  edilemez.
+- GitHub Pages workflow'u aktiftir. `main` dalına yapılan push sonrasında test,
+  build ve deploy çalışır. Canlı adres:
+  `https://mathissdupont.github.io/cyber-quanta-wiki-processors/`.
 
 ## Önemli dosyalar
 

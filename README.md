@@ -5,6 +5,8 @@ Proje; MCU, kablosuz MCU, SoC ve ileride MPU ailelerini yalnızca teknik özelli
 listesi olarak değil, ürün gereksinimleri ve güvenlik yetenekleriyle birlikte
 karşılaştırmayı amaçlar.
 
+Canlı wiki: https://mathissdupont.github.io/cyber-quanta-wiki-processors/
+
 ## İlk çalışan kapsam
 
 - 9 üretici: ST, NXP, Espressif, Silicon Labs, Nordic, Texas Instruments,
