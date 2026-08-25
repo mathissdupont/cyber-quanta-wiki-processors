@@ -15,7 +15,7 @@ export function HomePage() {
       </header>
 
       <div className="wiki-notice info">
-        <strong>Kapsam:</strong> Wiki şu anda {manufacturers.length} üreticiden {chips.length} başlangıç kaydı ve {sourceCount} resmî kaynak içerir. Katalog aşamalı olarak genişletilmektedir.
+        <strong>Kapsam:</strong> Wiki şu anda {manufacturers.length} üreticiden {chips.length} başlangıç kaydı ve {sourceCount} denetlenen kaynak içerir. Katalog aşamalı olarak genişletilmektedir.
       </div>
 
       <section id="purpose">
@@ -33,6 +33,7 @@ export function HomePage() {
           <Link to="/guides/chip-selection"><strong>İşlemci seçim kılavuzu</strong><span>Gereksinimleri MCU, MPU ve bağlantı mimarisine dönüştür.</span></Link>
           <Link to="/compare"><strong>Karşılaştırma tablosu</strong><span>En fazla üç kaydı ortak alanlar üzerinden yan yana getir.</span></Link>
           <Link to="/tools/selector"><strong>Gereksinim seçici</strong><span>Zorunlu kriterleri doğrulanmış katalog kanıtlarıyla eşleştir.</span></Link>
+          <Link to="/tools/value"><strong>Fiyat ve performans</strong><span>Tarihli fiyatları ve karşılaştırılabilir MCU benchmarklarını incele.</span></Link>
           <Link to="/methodology"><strong>Veri metodolojisi</strong><span>Kaynak, kanıt seviyesi ve varyant kurallarını gör.</span></Link>
         </div>
       </section>

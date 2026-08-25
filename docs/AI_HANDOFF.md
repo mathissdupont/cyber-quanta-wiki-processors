@@ -21,13 +21,17 @@ Bu proje `secure-signing` reposundan tamamen ayrıdır. Eski repo değiştirilme
 
 - Git deposu `main` dalındadır ve `origin`, public GitHub repository'sine bağlıdır:
   `https://github.com/mathissdupont/cyber-quanta-wiki-processors`.
-- Dokuz üreticiden 51 ayrı çip/seri kaydı var: 41 tam parça, 10 seri/ön eleme kaydı.
-- Son doğrulamada `npm run check`: lint + 17 test + production build başarılıdır.
-- Son doğrulamada `npm run check:links`: 74 benzersiz resmî URL denetlenmiştir.
+- Dokuz üreticiden 55 ayrı çip/seri kaydı var: 45 tam parça, 10 seri/ön eleme kaydı.
+- Son doğrulamada `npm run check`: lint + 21 test + production build başarılıdır.
+- Son doğrulamada `npm run check:links`: 88 benzersiz kaynak URL'si denetlenmiş, 0 hata alınmıştır.
 - Arayüz SaaS/landing page görünümünden Wikipedia tarzı bilgi mimarisine çevrildi.
 - Katalog, her çip maddesi, üretici dizini, kılavuzlar ve karşılaştırma ayrı adreslerde.
 - Üretici ve aile sayfaları kalıcı URL'lerle üretici → aile → model hiyerarşisi kurar.
 - `/tools/selector` zorunlu gereksinimleri uygular ve her elenen kayıt için engel gösterir.
+- `/tools/value` tarihli fiyat anlık görüntülerini ve yalnızca karşılaştırılabilir
+  MCU'larda CoreMark/USD hesabını gösterir.
+- Katalog `applicationTags` alanıyla IoT, endüstriyel, otomotiv, Edge AI,
+  ödeme/erişim ve havacılık/savunma filtreleri sunar.
 - Dark mode tercihi `cq-wiki-theme` anahtarıyla localStorage'da saklanır.
 - Sayfa içi içerik menüsü `PageToc` düğmelerini kullanır; `HashRouter` route'unu
   bozmadan hedef bölümü `scrollIntoView` ile açar.
@@ -45,6 +49,7 @@ Bu proje `secure-signing` reposundan tamamen ayrıdır. Eski repo değiştirilme
 - `src/engine/catalog.ts`: Arama ve filtreleme.
 - `src/engine/selector.ts`: Zorunlu kriter ve açıklanabilir eleme mantığı.
 - `src/domain/slug.ts`: Üretici ve aile URL slug üretimi.
+- `src/domain/value.ts`: Fiyat biçimleme ve sınırlı CoreMark/USD hesabı.
 - `scripts/check-source-links.mjs`: Resmî kaynakların HTTP erişim denetimi.
 - `docs/CONTENT_POLICY_TR.md`: Madde/kılavuz kabul ve kaynak politikası.
 - `src/layout/WikiLayout.tsx`: Wiki bilgi mimarisi.
@@ -57,10 +62,12 @@ Bu proje `secure-signing` reposundan tamamen ayrıdır. Eski repo değiştirilme
 - On seri maddesi ön eleme için korunur. Bunlara bağlı exact-part varyantları
   `extends` ile eklenir. EFR32MG24 için üreticinin 25 Ağustos 2026 seçim
   tablosundaki 22 OPN ayrı kayıttır; diğer aileler henüz bütün OPN'leri kapsamaz.
-- MPU/Linux kapsamı i.MX 93 ve AM625 seri kayıtlarıyla başladı; tam OPN kayıtları henüz eklenmedi.
+- MPU/Linux kapsamı i.MX 93 ve AM625 seri kayıtlarının yanında
+  `MIMX9352CVVXMAC`, `AM6254ATCGGAALW` ve `STM32MP257FAI3` tam OPN'lerini içerir.
 - Anti-rollback birçok üreticide bilerek `unknown` bırakıldı; secure boot'tan
   türetilmedi.
-- Fiyat/stok tutulmuyor.
+- Altı tam OPN için tarih/adet/satıcı bilgili fiyat anlık görüntüsü vardır.
+  Stok kalıcı alan değildir; fiyatlar teklif veya toplam BOM olarak yorumlanmaz.
 - Site henüz yalnızca Türkçe.
 - Henüz tarayıcı otomasyon testi yok.
 - PN7642, MIFARE SAM AV3, ESP32-P4 ve SiWG917M111MGTBA resmî üretici
@@ -77,7 +84,7 @@ Bu proje `secure-signing` reposundan tamamen ayrıdır. Eski repo değiştirilme
 
 ## Sonraki mantıklı iş
 
-Linux/MPU boşluğu i.MX 93 ve AM625 seri kayıtlarıyla ilk kez görünür hale geldi.
-Sonraki adım bu serilerden endüstriyel sıcaklık sınıflı tam OPN'leri eklemek,
-STM32MP25 ve i.MX 8M Plus kapsamını açmak, ardından seçim sonuçlarını URL ile
-paylaşma ve tarayıcı erişilebilirlik testlerini eklemektir.
+MPU tam OPN boşluğu ilk üç parça ile kapatıldı. Sonraki adım fiyat verisinin
+eskime uyarısını otomatikleştirmek, seçiciye uygulama etiketi ve toplam BOM
+karmaşıklığı kriteri eklemek, ardından i.MX 8M Plus/SAMA5/RZ gibi yeni MPU
+aileleri ile tarayıcı erişilebilirlik testlerini eklemektir.

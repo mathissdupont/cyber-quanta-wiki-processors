@@ -64,6 +64,17 @@ describe('chip content integrity', () => {
           }
         }
       }
+      for (const application of chip.applicationTags ?? []) {
+        for (const sourceId of application.sourceIds) {
+          expect(sourceIds.has(sourceId), `${chip.id}.applicationTags.${application.tag} -> ${sourceId}`).toBe(true)
+        }
+      }
+      for (const price of chip.commercial?.priceSnapshots ?? []) {
+        expect(sourceIds.has(price.sourceId), `${chip.id}.commercial.price -> ${price.sourceId}`).toBe(true)
+      }
+      for (const benchmark of chip.commercial?.benchmarks ?? []) {
+        expect(sourceIds.has(benchmark.sourceId), `${chip.id}.commercial.benchmark -> ${benchmark.sourceId}`).toBe(true)
+      }
     }
   })
 
@@ -79,9 +90,16 @@ describe('chip content integrity', () => {
   })
 
   it('contains the documented industrial expansion and Linux MPU coverage', () => {
-    expect(chips).toHaveLength(51)
-    expect(chips.filter((chip) => chip.recordScope === 'exact-part')).toHaveLength(41)
-    expect(chips.filter((chip) => chip.category === 'MPU' && chip.compute.linuxCapable)).toHaveLength(2)
+    expect(chips).toHaveLength(55)
+    expect(chips.filter((chip) => chip.recordScope === 'exact-part')).toHaveLength(45)
+    expect(chips.filter((chip) => chip.category === 'MPU' && chip.compute.linuxCapable)).toHaveLength(5)
     expect(chips.filter((chip) => chip.industrial).length).toBeGreaterThanOrEqual(10)
+  })
+
+  it('keeps application labels and commercial evidence source-backed', () => {
+    expect(chips.filter((chip) => chip.applicationTags?.length).length).toBeGreaterThanOrEqual(10)
+    expect(chips.some((chip) => chip.applicationTags?.some(({ tag }) => tag === 'aerospace-defense'))).toBe(true)
+    expect(chips.filter((chip) => chip.commercial?.priceSnapshots.length).length).toBeGreaterThanOrEqual(6)
+    expect(chips.filter((chip) => chip.commercial?.benchmarks.some(({ metric }) => metric === 'coremark')).length).toBeGreaterThanOrEqual(2)
   })
 })

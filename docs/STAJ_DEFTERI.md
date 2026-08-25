@@ -102,3 +102,30 @@ ortak `PageToc` bileşeniyle değiştirildi. Yeni bileşen URL route'unu
 değiştirmeden hedef başlığa kaydırma yapıyor. Bu davranış için iki otomatik
 regresyon testi eklenerek aynı hatanın diğer wiki ve kılavuz sayfalarında
 tekrarlanması engellendi.
+
+### 25 Ağustos 2026 — MPU, uygulama etiketi ve fiyat/performans katmanı
+
+Katalogda daha önce yalnızca i.MX 93 ve AM625 seri düzeyinde MPU kayıtları
+bulunduğu için satın alınabilir parça seçimine geçilemiyordu. NXP
+MIMX9352CVVXMAC, Texas Instruments AM6254ATCGGAALW ve STMicroelectronics
+STM32MP257FAI3 tam sipariş kodları üretici ürün sayfaları ve veri sayfalarıyla
+doğrulandı. Paket, sıcaklık, Linux desteği, gerçek zamanlı yardımcı çekirdek,
+güvenlik ve harici bellek gereksinimleri ayrı kaydedildi. Böylece MPU kayıtları
+seri ön elemesinden gerçek OPN karşılaştırmasına taşındı.
+
+Katalog filtresine kaynaklı uygulama etiketleri eklendi. IoT, endüstriyel,
+otomotiv, Edge AI, ağ/gateway, akıllı ev, ödeme/erişim ve havacılık/savunma
+etiketlerinin her biri üretici kaynak kimliklerine bağlandı. Savunma etiketi
+genel bir tahminle verilmedi; Microchip'in resmî olarak Aerospace and Defense
+tasarımları için önerdiği radyasyon sertleştirilmiş SAMRH71F20E-7GB-MQ parçası
+eklendi. Bu parçanın secure boot ve anti-rollback özellikleri doğrulanamadığı
+için ilgili alanlar bilinçli olarak belirsiz bırakıldı.
+
+Tam OPN'ler için satıcı, para birimi, adet ve kontrol tarihi içeren fiyat anlık
+görüntüsü modeli geliştirildi. Ayrı fiyat/performans sayfası ve karşılaştırma
+satırları eklendi. MCU'larda aynı CoreMark metriği ve 1 adet USD fiyatı varsa
+CoreMark/USD hesaplandı; MPU'larda harici DDR, PMIC, depolama ve Linux yazılım
+maliyeti nedeniyle yanıltıcı GHz/USD puanı üretilmedi. Kaynak kimliği testleri
+etiket, fiyat ve benchmark alanlarını da kapsayacak biçimde genişletildi.
+Toplam 21 otomatik test, lint ve production build başarılı oldu; 88 benzersiz
+kaynak bağlantısı denetlendi ve hata bulunmadı.

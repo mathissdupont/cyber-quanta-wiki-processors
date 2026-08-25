@@ -1,7 +1,7 @@
 # Cyber Quanta Processor Wiki
 
 Kaynaklı işlemci kataloğu ve gömülü sistem güvenlik kılavuzu.
-Proje; MCU, kablosuz MCU, SoC ve ileride MPU ailelerini yalnızca teknik özellik
+Proje; MCU, kablosuz MCU, SoC ve MPU ailelerini yalnızca teknik özellik
 listesi olarak değil, ürün gereksinimleri ve güvenlik yetenekleriyle birlikte
 karşılaştırmayı amaçlar.
 
@@ -11,7 +11,8 @@ Canlı wiki: https://mathissdupont.github.io/cyber-quanta-wiki-processors/
 
 - 9 üretici: ST, NXP, Espressif, Silicon Labs, Nordic, Texas Instruments,
   Microchip, Renesas ve Infineon
-- 51 kaynaklı çip/seri kaydı; 41 tam parça ve 10 seri/ön eleme kaydı
+- 55 kaynaklı çip/seri kaydı; 45 tam parça ve 10 seri/ön eleme kaydı
+- NXP i.MX 93, TI AM625 ve STM32MP257 için satın alınabilir tam Linux MPU OPN'leri
 - İşlemci, bellek, bağlantı, çevre birimi ve fiziksel özellikler
 - Secure boot, güvenli güncelleme, anti-rollback, güven kökü, izolasyon,
   flash şifreleme, debug ve anahtar saklama incelemesi
@@ -22,6 +23,8 @@ Canlı wiki: https://mathissdupont.github.io/cyber-quanta-wiki-processors/
 - Her çip için kalıcı wiki adresi ve ayrıntılı kaynakça
 - Üretici → aile → seri/tam parça URL hiyerarşisi
 - Kanıtlı endüstriyel kalifikasyon, fonksiyonel güvenlik, ürün ömrü ve gerçek zamanlı çalışma alanları
+- Kaynaklı IoT, endüstriyel, otomotiv, Edge AI ve havacılık/savunma etiket filtreleri
+- Tarih/adet/satıcı içeren fiyat anlık görüntüleri ve karşılaştırılabilir MCU'larda CoreMark/USD
 - Zod veri doğrulama, Vitest testleri ve GitHub Pages deploy akışı
 
 ## Yerel çalıştırma
@@ -83,9 +86,10 @@ karşılıyor kabul edilmez.
 Her kayıt en az bir resmî üretici kaynağı ve inceleme tarihi taşımak zorundadır.
 Yeni içerik ve kılavuzlar `docs/CONTENT_POLICY_TR.md` kabul kurallarına uyar.
 
-Fiyat, stok ve tedarik süresi hızla değiştiği için şu anda statik katalog alanı
-değildir. İleride tarihli ve sağlayıcısı belirtilen ayrı bir veri kaynağından
-beslenmelidir.
+Fiyat, stok ve tedarik süresi hızla değiştiği için kalıcı teknik özellik gibi
+tutulmaz. Yalnızca tam sipariş kodlarında satıcı, para birimi, adet ve kontrol
+tarihi bulunan `commercial.priceSnapshots` kayıtları gösterilir. Bunlar satın
+alma teklifi veya toplam BOM maliyeti değildir.
 
 ## GitHub Pages yayını
 

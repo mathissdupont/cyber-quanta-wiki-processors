@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { EvidenceBadge } from '../components/EvidenceBadge'
 import { chips, chipById } from '../content/chips'
 import type { Chip } from '../domain/chip'
+import { applicationTagLabels } from '../domain/chip'
+import { coreMarkBenchmark, coreMarkPerDollar, formatPrice, primaryPrice } from '../domain/value'
 
 const securityRows: Array<[keyof Chip['security'], string]> = [
   ['secureBoot', 'Secure boot'], ['secureUpdate', 'Güvenli güncelleme'],
@@ -27,6 +29,10 @@ export function ComparePage() {
         <tr><th>Flash / RAM</th>{selected.map((chip) => <td key={chip.id}>{chip.compute.flashKb === null ? 'Harici / yayımlanmamış' : `${chip.compute.flashKb} KB`} / {chip.compute.ramKb === null ? 'Yayımlanmamış' : `${chip.compute.ramKb} KB`}</td>)}</tr>
         <tr><th>Paket içi PSRAM</th>{selected.map((chip) => <td key={chip.id}>{chip.compute.psramKb === undefined ? 'Kaydedilmedi' : chip.compute.psramKb === null ? 'Varyanta bağlı' : chip.compute.psramKb === 0 ? 'Yok' : `${chip.compute.psramKb} KB`}</td>)}</tr>
         <tr><th>Linux</th>{selected.map((chip) => <td key={chip.id}>{chip.compute.linuxCapable ? 'Evet' : 'Hayır'}</td>)}</tr>
+        <tr><th>Uygulama etiketleri</th>{selected.map((chip) => <td key={chip.id}><div className="tag-list">{chip.applicationTags?.map(({ tag }) => <span className="tag-pill" key={tag}>{applicationTagLabels[tag]}</span>) ?? 'Kaydedilmedi'}</div></td>)}</tr>
+        <tr><th>Fiyat anlık görüntüsü</th>{selected.map((chip) => { const price = primaryPrice(chip); return <td key={chip.id}>{price ? <>{formatPrice(price.unitPrice, price.currency)}<small>{price.quantity} adet · {price.seller} · {price.checkedAt}</small></> : 'Kaydedilmedi'}</td> })}</tr>
+        <tr><th>CoreMark</th>{selected.map((chip) => { const benchmark = coreMarkBenchmark(chip); return <td key={chip.id}>{benchmark ? <>{benchmark.value}<small>{benchmark.context}</small></> : 'Karşılaştırılabilir veri yok'}</td> })}</tr>
+        <tr><th>CoreMark / USD</th>{selected.map((chip) => { const value = coreMarkPerDollar(chip); return <td key={chip.id}>{value === null ? 'Hesaplanmadı' : value.toFixed(1)}<small>Yalnızca 1 adet USD fiyatı ve aynı CoreMark metriği varsa.</small></td> })}</tr>
         <tr><th>Endüstriyel kalifikasyon</th>{selected.map((chip) => <td key={chip.id}>{chip.industrial ? <><EvidenceBadge evidence={chip.industrial.qualification} /><small>{chip.industrial.qualification.summary}</small></> : 'Kaydedilmedi'}</td>)}</tr>
         <tr><th>Fonksiyonel güvenlik</th>{selected.map((chip) => <td key={chip.id}>{chip.industrial ? <><EvidenceBadge evidence={chip.industrial.functionalSafety} /><small>{chip.industrial.functionalSafety.summary}</small></> : 'Kaydedilmedi'}</td>)}</tr>
         <tr><th>Ürün ömrü</th>{selected.map((chip) => <td key={chip.id}>{chip.industrial ? <><EvidenceBadge evidence={chip.industrial.longevity} /><small>{chip.industrial.longevity.summary}</small></> : 'Kaydedilmedi'}</td>)}</tr>

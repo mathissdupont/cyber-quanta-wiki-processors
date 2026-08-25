@@ -33,6 +33,7 @@
     "certifications": ["Common Criteria EAL6+ (hardware)", "MIFARE Security Certification (software)", "FIPS 140-2 CAVP"]
   },
   "physical": {"supplyVoltage": "ISO/IEC 7816 arayüz koşullarına göre", "temperature": "Ürün datasheetine göre", "packages": ["HVQFN32", "PCM 1.5 module", "Wafer"]},
+  "applicationTags":[{"tag":"payments-access","sourceIds":["sam-product"]}],
   "tools": ["MIFARE SAM AV3 evaluation kit", "NXP Reader Library"],
   "useCases": ["payment-terminal", "public-transport", "tolling", "access-control", "key-management"],
   "strengths": ["Anahtarları host MCU/MPU'dan ayırır", "Geniş simetrik ve asimetrik algoritma desteği", "POS ve temassız altyapıya uygun modüler güvenlik sınırı"],

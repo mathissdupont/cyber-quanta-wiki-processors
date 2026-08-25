@@ -131,6 +131,11 @@
     "industrialInterfaces": ["Wi-Fi 6","Bluetooth LE","IEEE 802.15.4","Ethernet","USB"],
     "reliabilityFeatures": ["EdgeLock Secure Enclave","Watchdog","Güvenli yaşam döngüsü","PUF"]
   },
+  "applicationTags": [
+    {"tag":"iot","sourceIds":["nxp-product"]},
+    {"tag":"smart-home","sourceIds":["nxp-product"]},
+    {"tag":"networking-gateway","sourceIds":["nxp-product"]}
+  ],
   "tools": [
     "MCUXpresso IDE",
     "MCUXpresso SDK",

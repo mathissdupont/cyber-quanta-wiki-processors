@@ -63,6 +63,16 @@ Distribütör sayfası teknik iddianın tek kaynağı olamaz. Blog, forum ve hab
 metinleri katalog özelliğini doğrulamak için kullanılmaz. Fiyat ve stok bilgisi
 tarih ve sağlayıcı olmadan kalıcı veri olarak tutulmaz.
 
+Uygulama etiketleri de kaynaklı iddiadır. “IoT”, “endüstriyel”, “otomotiv” veya
+“havacılık/savunma” etiketi yalnızca üretici ürün/datasheet metni bu pazarı
+açıkça belirtiyorsa eklenir. Sıcaklık aralığı, kripto motoru veya yüksek işlem
+gücü tek başına bir pazar etiketi üretmez.
+
+Fiyat kayıtlarında tam OPN, para birimi, adet basamağı, satıcı ve kontrol tarihi
+zorunludur. Üretici mağazası veya yetkili distribütör kullanılabilir. Vergi,
+navlun, tarife ve stok durumu kapsam notunda açıklanır. Farklı para birimleri
+kur dönüşümü yapılmadan tek puanda birleştirilmez.
+
 ## Kanıt ve belirsizlik
 
 - `supported`: Kaynak özelliği açıkça doğrular.
@@ -84,6 +94,8 @@ saklama sonucu türetilmez.
 - Bellek türü dahili Flash, SRAM veya paket içi PSRAM olarak doğru ayrıldı mı?
 - Yaşam döngüsü ve inceleme tarihi kaydedildi mi?
 - Pazarlama dili yerine ölçülebilir teknik ifade kullanıldı mı?
+- Uygulama etiketlerinin her biri kendi kaynak kimliğine bağlı mı?
+- Fiyat varsa tam OPN, adet, para birimi, satıcı ve tarih kaydedildi mi?
 - Seçim aracında seri kaydının nihai aday olması engellendi mi?
 
 ## İnceleme ve değişiklik yönetimi

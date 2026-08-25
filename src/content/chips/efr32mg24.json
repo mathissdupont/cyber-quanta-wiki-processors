@@ -114,6 +114,10 @@
       "QFN48"
     ]
   },
+  "applicationTags": [
+    {"tag":"iot","sourceIds":["silabs-product"]},
+    {"tag":"smart-home","sourceIds":["silabs-product"]}
+  ],
   "tools": [
     "Simplicity Studio",
     "Simplicity Commander",

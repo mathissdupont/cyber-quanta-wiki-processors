@@ -37,6 +37,7 @@ export function WikiLayout() {
         <h2>Araçlar</h2>
         <NavLink to="/tools/selector" className={navClass}>Gereksinime göre seçim</NavLink>
         <NavLink to="/compare" className={navClass}>Çip karşılaştırma</NavLink>
+        <NavLink to="/tools/value" className={navClass}>Fiyat ve performans</NavLink>
       </section>
       <section>
         <h2>Proje</h2>

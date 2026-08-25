@@ -33,6 +33,7 @@
     "certifications": ["SESIP"]
   },
   "physical": {"supplyVoltage": "Datasheet çalışma koşullarına göre", "temperature": "Varyanta göre", "packages": ["VFBGA64", "HVQFN64"]},
+  "applicationTags":[{"tag":"payments-access","sourceIds":["pn7642-product","pn7642-ds"]}],
   "tools": ["MCUXpresso IDE", "MCUXpresso SDK", "NFC Cockpit"],
   "useCases": ["nfc-reader", "authentication", "access-control", "payment-terminal-component"],
   "strengths": ["NFC ön ucu ve uygulama MCU'sunu birleştirebilir", "Güvenli anahtar saklama", "Çoklu temassız protokol desteği"],

@@ -119,6 +119,11 @@
       "WLCSP95"
     ]
   },
+  "applicationTags": [
+    {"tag":"iot","sourceIds":["nordic-product"]},
+    {"tag":"smart-home","sourceIds":["nordic-product"]},
+    {"tag":"wearables","sourceIds":["nordic-product"]}
+  ],
   "tools": [
     "nRF Connect SDK",
     "nRF Connect for Desktop",

@@ -3,6 +3,9 @@ import { Link, useSearchParams } from 'react-router-dom'
 import { EvidenceBadge } from '../components/EvidenceBadge'
 import { chips, manufacturers } from '../content/chips'
 import { filterChips, type CatalogFilters } from '../engine/catalog'
+import { applicationTagLabels, type ApplicationTag } from '../domain/chip'
+
+const applicationTagOptions = Object.entries(applicationTagLabels) as Array<[ApplicationTag, string]>
 
 export function CatalogPage() {
   const [searchParams] = useSearchParams()
@@ -13,6 +16,7 @@ export function CatalogPage() {
     secureBootOnly: false,
     wirelessOnly: false,
     industrialOnly: false,
+    applicationTag: '',
   })
   const result = useMemo(() => filterChips(chips, filters), [filters])
 
@@ -28,6 +32,7 @@ export function CatalogPage() {
         <label><span>Metin araması</span><input value={filters.query} onChange={(event) => setFilters({ ...filters, query: event.target.value })} placeholder="Model, aile, özellik…" /></label>
         <label><span>Üretici</span><select value={filters.manufacturer} onChange={(event) => setFilters({ ...filters, manufacturer: event.target.value })}><option value="">Tümü</option>{manufacturers.map((manufacturer) => <option key={manufacturer}>{manufacturer}</option>)}</select></label>
         <label><span>Tür</span><select value={filters.category} onChange={(event) => setFilters({ ...filters, category: event.target.value })}><option value="">Tümü</option><option>MCU</option><option>Wireless MCU</option><option>SoC</option><option>MPU</option><option>Secure Element</option><option>NFC Controller</option></select></label>
+        <label><span>Uygulama etiketi</span><select value={filters.applicationTag} onChange={(event) => setFilters({ ...filters, applicationTag: event.target.value })}><option value="">Tümü</option>{applicationTagOptions.map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></label>
         <label className="inline-check"><input type="checkbox" checked={filters.secureBootOnly} onChange={(event) => setFilters({ ...filters, secureBootOnly: event.target.checked })} /> Secure boot doğrulanmış</label>
         <label className="inline-check"><input type="checkbox" checked={filters.wirelessOnly} onChange={(event) => setFilters({ ...filters, wirelessOnly: event.target.checked })} /> Dahili kablosuz</label>
         <label className="inline-check"><input type="checkbox" checked={filters.industrialOnly} onChange={(event) => setFilters({ ...filters, industrialOnly: event.target.checked })} /> Endüstriyel kalifikasyon doğrulanmış</label>
@@ -36,7 +41,7 @@ export function CatalogPage() {
       <p className="result-count">{result.length} kayıt bulundu.</p>
       <div className="table-scroll">
         <table className="wiki-table catalog-table">
-          <thead><tr><th>Model/seri</th><th>Üretici ve aile</th><th>CPU</th><th>Bellek</th><th>Secure boot</th><th>Bağlantı özeti</th></tr></thead>
+          <thead><tr><th>Model/seri</th><th>Üretici ve aile</th><th>CPU</th><th>Bellek</th><th>Secure boot</th><th>Etiketler</th><th>Bağlantı özeti</th></tr></thead>
           <tbody>
             {result.map((chip) => (
               <tr key={chip.id}>
@@ -45,6 +50,7 @@ export function CatalogPage() {
                 <td>{chip.compute.cpu}<small>{chip.compute.maxClockMhz === null ? 'Yayımlanmamış' : `${chip.compute.maxClockMhz} MHz`}</small></td>
                 <td>{chip.compute.flashKb === null ? 'Harici / yayımlanmamış' : `${chip.compute.flashKb} KB Flash`}<small>{chip.compute.ramKb === null ? 'RAM: yayımlanmamış' : `${chip.compute.ramKb} KB RAM`}{chip.compute.psramKb !== undefined && <>{` · Paket içi PSRAM: ${chip.compute.psramKb === null ? 'varyanta bağlı' : `${chip.compute.psramKb} KB`}`}</>}</small></td>
                 <td><EvidenceBadge evidence={chip.security.secureBoot} /></td>
+                <td><div className="tag-list">{chip.applicationTags?.map(({ tag }) => <span className="tag-pill" key={tag}>{applicationTagLabels[tag]}</span>) ?? <small>Kaydedilmedi</small>}</div></td>
                 <td>{chip.connectivity.slice(0, 4).join(', ')}</td>
               </tr>
             ))}

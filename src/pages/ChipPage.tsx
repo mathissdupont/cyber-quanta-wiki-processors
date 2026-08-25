@@ -2,7 +2,8 @@ import { Link, useParams } from 'react-router-dom'
 import { EvidenceBadge } from '../components/EvidenceBadge'
 import { PageToc } from '../components/PageToc'
 import { chipById } from '../content/chips'
-import type { Chip } from '../domain/chip'
+import { applicationTagLabels, type Chip } from '../domain/chip'
+import { formatPrice } from '../domain/value'
 import { catalogSlug } from '../domain/slug'
 import { NotFoundPage } from './NotFoundPage'
 
@@ -54,6 +55,8 @@ export function ChipPage() {
 
       <section id="overview"><h2>Genel bakış</h2><p>{chip.summary}</p><p>Başlıca kullanım alanları: {chip.useCases.join(', ')}.</p></section>
 
+      {chip.applicationTags?.length && <section id="applications"><h2>Uygulama etiketleri</h2><p>Etiketler yalnızca aşağıdaki üretici kaynaklarının uygulama veya pazar tanımına dayalıdır.</p><div className="table-scroll"><table className="wiki-table definition-table"><thead><tr><th>Etiket</th><th>Dayanak</th></tr></thead><tbody>{chip.applicationTags.map(({ tag, sourceIds }) => <tr key={tag}><th><span className="tag-pill">{applicationTagLabels[tag]}</span></th><td>{sourceIds.map((sourceId) => { const source = chip.sources.find(({ id }) => id === sourceId); return source ? <a className="inline-record-link" key={sourceId} href={source.url} target="_blank" rel="noreferrer">{source.title}</a> : sourceId })}</td></tr>)}</tbody></table></div></section>}
+
       <section id="compute">
         <h2>İşlemci ve bellek mimarisi</h2>
         <div className="table-scroll"><table className="wiki-table definition-table"><tbody>
@@ -82,12 +85,14 @@ export function ChipPage() {
 
       {chip.industrial && <section id="industrial"><h2>Endüstriyel uygunluk</h2><p>Bu bölüm, genel kullanım söylemi yerine üretici belgelerinde doğrulanabilen endüstriyel karar ölçütlerini gösterir.</p><div className="table-scroll"><table className="wiki-table security-table"><thead><tr><th>Ölçüt</th><th>Durum</th><th>Açıklama</th></tr></thead><tbody><tr><th>Endüstriyel kalifikasyon</th><td><EvidenceBadge evidence={chip.industrial.qualification} /></td><td>{chip.industrial.qualification.summary}</td></tr><tr><th>Fonksiyonel güvenlik</th><td><EvidenceBadge evidence={chip.industrial.functionalSafety} /></td><td>{chip.industrial.functionalSafety.summary}</td></tr><tr><th>Ürün ömrü taahhüdü</th><td><EvidenceBadge evidence={chip.industrial.longevity} /></td><td>{chip.industrial.longevity.summary}</td></tr><tr><th>Gerçek zamanlı çalışma</th><td><EvidenceBadge evidence={chip.industrial.realTime} /></td><td>{chip.industrial.realTime.summary}</td></tr><tr><th>Endüstriyel arayüzler</th><td colSpan={2}>{chip.industrial.industrialInterfaces.join(', ') || 'Bu kayıtta belirtilmedi'}</td></tr><tr><th>Güvenilirlik özellikleri</th><td colSpan={2}>{chip.industrial.reliabilityFeatures.join(', ') || 'Bu kayıtta belirtilmedi'}</td></tr></tbody></table></div></section>}
 
+      {chip.commercial && <section id="commercial"><h2>Fiyat ve benchmark kanıtı</h2><div className="wiki-notice warning"><strong>Anlık görüntü:</strong> Bu bölümdeki fiyatlar teklif değildir; belirtilen satıcı, adet ve kontrol tarihinde gözlenen birim fiyatlardır.</div><div className="table-scroll"><table className="wiki-table definition-table"><tbody>{chip.commercial.priceSnapshots.map((price) => { const source = chip.sources.find(({ id }) => id === price.sourceId); return <tr key={`${price.seller}-${price.checkedAt}-${price.quantity}`}><th>Birim fiyat</th><td><strong>{formatPrice(price.unitPrice, price.currency)}</strong> · {price.quantity} adet · {price.seller} · {price.checkedAt}<small>{price.note}</small>{source && <a className="source-link" href={source.url} target="_blank" rel="noreferrer">Fiyat kaynağını aç</a>}</td></tr> })}{chip.commercial.benchmarks.map((benchmark) => { const source = chip.sources.find(({ id }) => id === benchmark.sourceId); return <tr key={`${benchmark.metric}-${benchmark.value}`}><th>{benchmark.metric === 'coremark' ? 'CoreMark' : 'CoreMark/MHz'}</th><td><strong>{benchmark.value}</strong><small>{benchmark.context}</small>{source && <a className="source-link" href={source.url} target="_blank" rel="noreferrer">Benchmark kaynağını aç</a>}</td></tr> })}</tbody></table></div></section>}
+
       <section id="development"><h2>Geliştirme ekosistemi</h2><ul>{chip.tools.map((tool) => <li key={tool}>{tool}</li>)}</ul></section>
       <section id="assessment"><h2>Değerlendirme notları</h2><div className="assessment-grid"><div><h3>Güçlü yönler</h3><ul>{chip.strengths.map((item) => <li key={item}>{item}</li>)}</ul></div><div><h3>Sınırlamalar</h3><ul>{chip.limitations.map((item) => <li key={item}>{item}</li>)}</ul></div></div></section>
 
       <section id="sources"><h2>Kaynakça</h2><ol className="references">{chip.sources.map((source) => <li key={source.id}><a href={source.url} target="_blank" rel="noreferrer">{source.title}</a>. {source.publisher}. Erişim/kontrol: {source.checkedAt}.</li>)}</ol></section>
 
-      <PageToc items={[{id:'overview',label:'Genel bakış'},{id:'compute',label:'İşlemci ve bellek'},{id:'interfaces',label:'Bağlantı'},{id:'security',label:'Güvenlik'},{id:'physical',label:'Fiziksel özellikler'},...(chip.industrial ? [{id:'industrial',label:'Endüstriyel uygunluk'}] : []),{id:'development',label:'Geliştirme'},{id:'assessment',label:'Değerlendirme'},{id:'sources',label:'Kaynakça'}]} />
+      <PageToc items={[{id:'overview',label:'Genel bakış'},...(chip.applicationTags?.length ? [{id:'applications',label:'Uygulama etiketleri'}] : []),{id:'compute',label:'İşlemci ve bellek'},{id:'interfaces',label:'Bağlantı'},{id:'security',label:'Güvenlik'},{id:'physical',label:'Fiziksel özellikler'},...(chip.industrial ? [{id:'industrial',label:'Endüstriyel uygunluk'}] : []),...(chip.commercial ? [{id:'commercial',label:'Fiyat ve benchmark'}] : []),{id:'development',label:'Geliştirme'},{id:'assessment',label:'Değerlendirme'},{id:'sources',label:'Kaynakça'}]} />
     </article>
   )
 }

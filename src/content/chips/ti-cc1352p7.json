@@ -115,6 +115,11 @@
       "VQFN48 7×7 mm"
     ]
   },
+  "applicationTags": [
+    {"tag":"iot","sourceIds":["ti-product"]},
+    {"tag":"industrial","sourceIds":["ti-product"]},
+    {"tag":"smart-home","sourceIds":["ti-product"]}
+  ],
   "tools": [
     "Code Composer Studio",
     "SimpleLink SDK",

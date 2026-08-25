@@ -71,11 +71,44 @@ seçilen tam OPN'nin endüstriyel sınıfta olduğunu kanıtlamaz; böyle bir ka
 `conditional` tutulur. `industrialInterfaces` ve `reliabilityFeatures` ise CAN
 FD, TSN, ECC ve watchdog gibi karşılaştırma terimlerini listeler.
 
+## Kaynaklı uygulama etiketleri
+
+Opsiyonel `applicationTags`, katalog filtrelemesinde kullanılan IoT,
+endüstriyel, otomotiv, Edge AI, ağ/gateway, ödeme/erişim ve
+havacılık/savunma gibi sınıfları taşır. Her etiket en az bir `sourceId`
+içermek zorundadır:
+
+```json
+{"tag":"aerospace-defense","sourceIds":["samrh71-product"]}
+```
+
+Etiket, yalnızca çipin teknik olarak kullanılabileceğine dair yorum değildir;
+üreticinin açık uygulama/pazar tanımını temsil eder. Örneğin geniş sıcaklık
+aralığı tek başına “savunma” etiketi üretmez.
+
+## Ticari veri ve benchmark
+
+Opsiyonel `commercial` nesnesi iki ayrı kanıt türünü tutar:
+
+- `priceSnapshots`: birim fiyat, para birimi, adet, satıcı, kontrol tarihi,
+  kaynak kimliği ve kapsam notu.
+- `benchmarks`: CoreMark veya CoreMark/MHz değeri, test bağlamı ve üretici
+  kaynak kimliği.
+
+Fiyat teknik özellik değildir ve güncel teklif sayılmaz. CoreMark/USD yalnızca
+1 adet USD fiyatı ile aynı CoreMark metriği birlikte varsa hesaplanır. MPU'lar
+için GHz/USD üretilmez; harici DDR, PMIC, depolama, GPU/NPU ve Linux yazılım
+maliyeti tek bir frekans oranına indirgenemez.
+
 ## Kaynaklar
 
 Her kayıt en az bir resmî kaynak içerir. Kaynakta başlık, URL, doküman türü,
 yayıncı ve kontrol tarihi bulunur. İleride her alanı tek tek kaynak kimliğine
 bağlayan otomatik kapsama raporu eklenecektir.
+
+Teknik iddialar üretici kaynaklarına dayanır. Fiyat için üreticinin çevrimiçi
+mağazası veya yetkili distribütör kullanılabilir; bu kaynak teknik özellik
+kanıtı yerine geçmez.
 
 ## Kayıt granülerliği
 

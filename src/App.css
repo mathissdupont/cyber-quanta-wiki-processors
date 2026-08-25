@@ -84,6 +84,9 @@
 .inline-check input { accent-color: var(--link); }
 .result-count { color: var(--muted); font-size: 12px !important; }
 .catalog-table td:first-child { min-width: 140px; }
+.tag-list { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 5px; }
+.tag-pill { background: var(--panel-strong); border: 1px solid var(--light-border); border-radius: 999px; color: var(--body-copy); display: inline-block; font-size: 9px; line-height: 1.2; padding: 3px 7px; white-space: nowrap; }
+.source-link { display: block; font-size: 10px; margin-top: 4px; text-decoration: none; }
 
 .evidence { border: 1px solid; border-radius: 2px; display: inline-block; font-size: 9px; font-weight: 700; line-height: 1.2; padding: 3px 5px; white-space: nowrap; }
 .evidence-supported { background: #e6f3ed; border-color: #72b89d; color: #0b654d; }
@@ -118,6 +121,8 @@
 .compare-table th:first-child { width: 160px; }
 .compare-table td { min-width: 190px; }
 .compare-table ul { margin: 0; padding-left: 18px; }
+.value-table { min-width: 1050px; }
+.value-table td:first-child { min-width: 170px; }
 
 .selector-panel { align-items: end; background: var(--panel); border: 1px solid var(--light-border); display: grid; gap: 15px; grid-template-columns: repeat(3, minmax(160px, 1fr)); padding: 16px; }
 .selector-panel > label:not(.inline-check) { display: flex; flex-direction: column; gap: 4px; }

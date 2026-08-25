@@ -13,6 +13,7 @@ import { NotFoundPage } from './pages/NotFoundPage'
 import { SecureBootGuidePage } from './pages/SecureBootGuidePage'
 import { SelectionGuidePage } from './pages/SelectionGuidePage'
 import { SelectorPage } from './pages/SelectorPage'
+import { ValuePage } from './pages/ValuePage'
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="families/:manufacturerSlug/:familySlug" element={<FamilyPage />} />
           <Route path="compare" element={<ComparePage />} />
           <Route path="tools/selector" element={<SelectorPage />} />
+          <Route path="tools/value" element={<ValuePage />} />
           <Route path="guides/secure-boot" element={<SecureBootGuidePage />} />
           <Route path="guides/chip-selection" element={<SelectionGuidePage />} />
           <Route path="methodology" element={<MethodologyPage />} />

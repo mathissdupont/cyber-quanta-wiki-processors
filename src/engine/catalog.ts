@@ -7,6 +7,7 @@ export interface CatalogFilters {
   secureBootOnly: boolean
   wirelessOnly: boolean
   industrialOnly: boolean
+  applicationTag: string
 }
 
 const searchableText = (chip: Chip) => [
@@ -20,6 +21,7 @@ const searchableText = (chip: Chip) => [
   ...chip.useCases,
   ...(chip.industrial?.industrialInterfaces ?? []),
   ...(chip.industrial?.reliabilityFeatures ?? []),
+  ...(chip.applicationTags ?? []).map(({ tag }) => tag),
 ].join(' ').toLocaleLowerCase('tr')
 
 export function filterChips(chips: Chip[], filters: CatalogFilters): Chip[] {
@@ -32,6 +34,7 @@ export function filterChips(chips: Chip[], filters: CatalogFilters): Chip[] {
     if (filters.secureBootOnly && chip.security.secureBoot.support !== 'supported') return false
     if (filters.wirelessOnly && !chip.connectivity.some((item) => /wi-fi|bluetooth|802\.15\.4|sub-1/i.test(item))) return false
     if (filters.industrialOnly && chip.industrial?.qualification.support !== 'supported') return false
+    if (filters.applicationTag && !chip.applicationTags?.some(({ tag }) => tag === filters.applicationTag)) return false
     return true
   })
 }

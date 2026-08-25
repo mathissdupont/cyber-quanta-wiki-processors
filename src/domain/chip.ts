@@ -18,9 +18,52 @@ export const sourceSchema = z.object({
   id: z.string().min(1),
   title: z.string().min(1),
   url: z.string().url(),
-  kind: z.enum(['product-page', 'datasheet', 'reference-manual', 'application-note']),
+  kind: z.enum([
+    'product-page',
+    'datasheet',
+    'reference-manual',
+    'application-note',
+    'manufacturer-store',
+    'authorized-distributor',
+  ]),
   publisher: z.string().min(1),
   checkedAt: z.string().date(),
+})
+
+export const applicationTagSchema = z.enum([
+  'iot',
+  'industrial',
+  'automotive',
+  'edge-ai',
+  'networking-gateway',
+  'smart-home',
+  'wearables',
+  'payments-access',
+  'aerospace-defense',
+  'motor-control',
+])
+
+export const sourcedApplicationTagSchema = z.object({
+  tag: applicationTagSchema,
+  sourceIds: z.array(z.string()).min(1),
+})
+
+export const commercialSchema = z.object({
+  priceSnapshots: z.array(z.object({
+    unitPrice: z.number().positive(),
+    currency: z.enum(['USD', 'EUR']),
+    quantity: z.number().int().positive(),
+    seller: z.string().min(1),
+    checkedAt: z.string().date(),
+    sourceId: z.string().min(1),
+    note: z.string().min(1),
+  })),
+  benchmarks: z.array(z.object({
+    metric: z.enum(['coremark', 'coremark-per-mhz']),
+    value: z.number().positive(),
+    context: z.string().min(1),
+    sourceId: z.string().min(1),
+  })),
 })
 
 export const chipSchema = z.object({
@@ -73,6 +116,8 @@ export const chipSchema = z.object({
     industrialInterfaces: z.array(z.string()),
     reliabilityFeatures: z.array(z.string()),
   }).optional(),
+  applicationTags: z.array(sourcedApplicationTagSchema).optional(),
+  commercial: commercialSchema.optional(),
   tools: z.array(z.string()),
   useCases: z.array(z.string()),
   strengths: z.array(z.string()).min(1),
@@ -84,6 +129,7 @@ export const chipSchema = z.object({
 export type SupportLevel = z.infer<typeof supportLevelSchema>
 export type FeatureEvidence = z.infer<typeof evidenceSchema>
 export type Chip = z.infer<typeof chipSchema>
+export type ApplicationTag = z.infer<typeof applicationTagSchema>
 
 export const chipVariantSchema = z.object({
   extends: z.string().regex(/^[a-z0-9-]+$/),
@@ -99,6 +145,8 @@ export const chipVariantSchema = z.object({
   security: chipSchema.shape.security.partial().optional(),
   physical: chipSchema.shape.physical.partial().optional(),
   industrial: chipSchema.shape.industrial.optional(),
+  applicationTags: chipSchema.shape.applicationTags.optional(),
+  commercial: chipSchema.shape.commercial.optional(),
   tools: z.array(z.string()).optional(),
   useCases: z.array(z.string()).optional(),
   strengths: z.array(z.string()).min(1).optional(),
@@ -115,4 +163,17 @@ export const supportLabels: Record<SupportLevel, string> = {
   'not-supported': 'Desteklenmiyor',
   'not-applicable': 'Uygulanamaz',
   unknown: 'Belirsiz',
+}
+
+export const applicationTagLabels: Record<ApplicationTag, string> = {
+  iot: 'IoT',
+  industrial: 'Endüstriyel',
+  automotive: 'Otomotiv',
+  'edge-ai': 'Edge AI',
+  'networking-gateway': 'Ağ / Gateway',
+  'smart-home': 'Akıllı ev',
+  wearables: 'Giyilebilir',
+  'payments-access': 'Ödeme / Erişim',
+  'aerospace-defense': 'Havacılık / Savunma',
+  'motor-control': 'Motor kontrolü',
 }

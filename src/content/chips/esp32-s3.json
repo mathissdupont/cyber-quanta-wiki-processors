@@ -119,6 +119,11 @@
       "Modül seçenekleri"
     ]
   },
+  "applicationTags": [
+    {"tag":"iot","sourceIds":["esp-product"]},
+    {"tag":"smart-home","sourceIds":["esp-product"]},
+    {"tag":"networking-gateway","sourceIds":["esp-product"]}
+  ],
   "tools": [
     "ESP-IDF",
     "idf.py",
