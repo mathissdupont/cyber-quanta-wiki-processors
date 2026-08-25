@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { PageToc } from '../components/PageToc'
 
 export function SecureBootGuidePage() {
   return (
@@ -10,8 +11,7 @@ export function SecureBootGuidePage() {
       <section id="rollback"><h2>Anti-rollback neden ayrıdır?</h2><p>Eski bir firmware doğru anahtarla imzalanmış olabilir. Bu nedenle yalnızca imza kontrolü eski ve bilinen zafiyetli sürümün kurulmasını engellemez. Anti-rollback için güvenilir monoton sayaç, security version veya benzer bir sürüm tabanı gerekir.</p></section>
       <section id="updates"><h2>Güvenli güncelleme</h2><p>Güncelleme sistemi imajı indirme, imza doğrulama, uyumluluk ve sürüm politikası kontrolü, pasif alana yazma, deneme açılışı, onay ve geri dönüş adımlarını kapsayabilir. Her üreticinin imaj formatı ve boot metadata mekanizması farklıdır.</p></section>
       <section id="related"><h2>İlgili içerik</h2><ul><li><Link to="/chips">Secure boot ile filtrelenmiş katalog kayıtları</Link></li><li><Link to="/methodology">Wiki güvenlik kanıt seviyeleri</Link></li><li><Link to="/guides/chip-selection">İşlemci seçim kılavuzu</Link></li></ul></section>
-      <aside className="page-toc"><strong>Bu sayfada</strong><a href="#chain">Güven zinciri</a><a href="#signature">İmza doğrulama</a><a href="#rollback">Anti-rollback</a><a href="#updates">Güvenli güncelleme</a><a href="#related">İlgili içerik</a></aside>
+      <PageToc items={[{id:'chain',label:'Güven zinciri'},{id:'signature',label:'İmza doğrulama'},{id:'rollback',label:'Anti-rollback'},{id:'updates',label:'Güvenli güncelleme'},{id:'related',label:'İlgili içerik'}]} />
     </article>
   )
 }
-

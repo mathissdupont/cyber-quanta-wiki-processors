@@ -1,3 +1,5 @@
+import { PageToc } from '../components/PageToc'
+
 export function SelectionGuidePage() {
   return (
     <article className="wiki-article">
@@ -6,7 +8,7 @@ export function SelectionGuidePage() {
       <section id="requirements"><h2>2. Zorunlu ve tercih edilen gereksinimleri ayırın</h2><p>Zorunlu kriterler puanlama konusu yapılmamalıdır. Örneğin ürün politikası secure boot gerektiriyorsa, özelliği belirsiz olan bir parça yüksek performansı nedeniyle aday listesine alınmamalıdır.</p><ul><li>İşletim sistemi ve gerçek zamanlılık</li><li>İşlemci performansı ve bellek</li><li>Kablolu/kablosuz bağlantı</li><li>Analog ve kontrol çevre birimleri</li><li>Çalışma sıcaklığı ve paket</li><li>Secure boot, güncelleme, rollback ve anahtar yönetimi</li><li>SDK, lisans, yaşam döngüsü ve tedarik</li></ul></section>
       <section id="architecture"><h2>3. Tek çip varsayımını sorgulayın</h2><p>Ana kontrol, kablosuz bağlantı ve yüksek seviyeli kullanıcı arayüzü farklı işlemcilere ayrılabilir. Tek çip BOM'u azaltırken iki işlemcili yapı güvenlik alanlarını, gerçek zamanlı kontrolü ve bağlantı yazılımını ayırabilir.</p></section>
       <section id="verification"><h2>4. Tam sipariş kodunu doğrulayın</h2><p>Aile sayfası ön eleme için kullanılır. Nihai kararda tam sipariş kodunun datasheet'i, errata belgesi, paket/sıcaklık seçeneği, boot ROM davranışı, provisioning süreci ve üretici yaşam döngüsü kontrol edilmelidir.</p></section>
-      <aside className="page-toc"><strong>Bu sayfada</strong><a href="#classification">İş yükü sınıfı</a><a href="#requirements">Gereksinimler</a><a href="#architecture">Mimari</a><a href="#verification">Doğrulama</a></aside>
+      <PageToc items={[{id:'classification',label:'İş yükü sınıfı'},{id:'requirements',label:'Gereksinimler'},{id:'architecture',label:'Mimari'},{id:'verification',label:'Doğrulama'}]} />
     </article>
   )
 }

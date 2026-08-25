@@ -95,3 +95,10 @@ seçilmemiş kayıtların nihai aday olarak gösterilmemesi özellikle korundu.
 suffix'i taşımadığı fark edilerek kayıt kapsamları seri/ön eleme olarak
 düzeltildi; böylece seçim aracının eksik sipariş kodlarını nihai aday göstermesi
 engellendi.
+
+Sayfa içi “Bu sayfada” menüsündeki bağlantıların HashRouter adresini silerek
+404 sayfasına yönlendirdiği hata tespit edildi. Ham `#section` bağlantıları
+ortak `PageToc` bileşeniyle değiştirildi. Yeni bileşen URL route'unu
+değiştirmeden hedef başlığa kaydırma yapıyor. Bu davranış için iki otomatik
+regresyon testi eklenerek aynı hatanın diğer wiki ve kılavuz sayfalarında
+tekrarlanması engellendi.

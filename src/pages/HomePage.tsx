@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { chips, manufacturers } from '../content/chips'
+import { PageToc } from '../components/PageToc'
 
 export function HomePage() {
   const sourceCount = new Set(chips.flatMap((chip) => chip.sources.map((source) => source.url))).size
@@ -44,7 +45,7 @@ export function HomePage() {
         </table></div>
       </section>
 
-      <aside className="page-toc" aria-label="Bu sayfada"><strong>Bu sayfada</strong><a href="#purpose">Amaç</a><a href="#browse">İçeriğe göz at</a><a href="#recent">Katalog maddeleri</a></aside>
+      <PageToc items={[{id:'purpose',label:'Amaç'},{id:'browse',label:'İçeriğe göz at'},{id:'recent',label:'Katalog maddeleri'}]} />
     </article>
   )
 }

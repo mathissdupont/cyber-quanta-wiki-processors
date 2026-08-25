@@ -52,8 +52,8 @@
 
 .page-toc { border-left: 1px solid var(--light-border); display: flex; flex-direction: column; font-size: 12px; gap: 6px; padding: 4px 0 4px 14px; position: absolute; right: 36px; top: 190px; width: 170px; }
 .page-toc strong { font-size: 12px; margin-bottom: 3px; }
-.page-toc a { color: var(--muted); text-decoration: none; }
-.page-toc a:hover { color: var(--link); }
+.page-toc button { background: none; border: 0; color: var(--muted); cursor: pointer; font: inherit; padding: 0; text-align: left; }
+.page-toc button:hover, .page-toc button:focus-visible { color: var(--link); }
 
 .wiki-notice { border: 1px solid var(--light-border); border-left-width: 5px; font-size: 13px; line-height: 1.55; margin: 20px 0; padding: 12px 15px; }
 .wiki-notice.info { background: var(--info-background); border-left-color: #36c; }

@@ -3,6 +3,7 @@ import { EvidenceBadge } from '../components/EvidenceBadge'
 import { chips } from '../content/chips'
 import { catalogSlug } from '../domain/slug'
 import { NotFoundPage } from './NotFoundPage'
+import { PageToc } from '../components/PageToc'
 
 export function FamilyPage() {
   const { manufacturerSlug, familySlug } = useParams()
@@ -20,7 +21,7 @@ export function FamilyPage() {
       <div className="wiki-notice info"><strong>Kapsam:</strong> {seriesRecords.length} seri maddesi, {exactParts.length} tam parça maddesi ve {sourceCount} resmî kaynak.</div>
       <section id="records"><h2>Kayıtlar</h2><div className="table-scroll"><table className="wiki-table family-table"><thead><tr><th>Model</th><th>Kapsam</th><th>Flash / RAM</th><th>Paket</th><th>Secure boot</th></tr></thead><tbody>{[...seriesRecords, ...exactParts].map((chip) => <tr key={chip.id}><td><Link to={`/chips/${chip.id}`}><strong>{chip.model}</strong></Link>{chip.parentId && <small>Üst seri: {chips.find((item) => item.id === chip.parentId)?.model}</small>}</td><td>{chip.recordScope === 'series' ? 'Seri / ön eleme' : 'Tam parça'}</td><td>{chip.compute.flashKb === null ? 'Harici/değişken' : `${chip.compute.flashKb} KB`}<small>{chip.compute.ramKb === null ? 'RAM belirtilmedi' : `${chip.compute.ramKb} KB RAM`}</small></td><td>{chip.physical.packages.join(', ')}</td><td><EvidenceBadge evidence={chip.security.secureBoot} /></td></tr>)}</tbody></table></div></section>
       <section id="interpretation"><h2>Kayıt kapsamının yorumu</h2><p>Seri maddeleri ortak mimariyi tanımlar ve ön eleme içindir. Nihai donanım seçimi, üreticinin sipariş edilebilir tam parça kodu ile yapılmalıdır. Aynı ailedeki bellek, paket, GPIO, radyo gücü ve güvenlik seviyesi farklılıkları ayrı tam parça kayıtlarında gösterilir.</p></section>
-      <aside className="page-toc"><strong>Bu sayfada</strong><a href="#records">Kayıtlar</a><a href="#interpretation">Kapsam yorumu</a></aside>
+      <PageToc items={[{id:'records',label:'Kayıtlar'},{id:'interpretation',label:'Kapsam yorumu'}]} />
     </article>
   )
 }

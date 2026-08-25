@@ -1,4 +1,5 @@
 import { EvidenceBadge } from '../components/EvidenceBadge'
+import { PageToc } from '../components/PageToc'
 import type { FeatureEvidence } from '../domain/chip'
 
 const examples: FeatureEvidence[] = [
@@ -18,7 +19,7 @@ export function MethodologyPage() {
       <section id="records"><h2>Seri ve tam parça kayıtları</h2><p><code>series</code> kayıtları aileyi anlamak ve adayları daraltmak içindir. <code>exact-part</code> kayıtları belirli sipariş kodunun bellek, paket ve çevre birimlerini temsil eder. Seri kaydında farklılık varsa madde başında varyant uyarısı gösterilir.</p></section>
       <section id="validation"><h2>Otomatik doğrulama</h2><p>Her JSON kayıt uygulama başlarken Zod şemasından geçirilir. Geçersiz URL, eksik kaynak, bilinmeyen durum değeri veya zorunlu alan eksikliği build/test sırasında görünür hata üretir.</p></section>
       <section id="limitations"><h2>Mevcut sınırlamalar</h2><ul><li>Katalog henüz kapsamlı değildir.</li><li>İlk sürümde MPU/Linux kayıtları bulunmamaktadır.</li><li>Bazı güvenlik ayrıntıları üretici erişimi veya NDA gerektirebilir.</li><li>Kaynak kontrol tarihi güncellik garantisi değildir; periyodik tekrar inceleme gerekir.</li></ul></section>
-      <aside className="page-toc"><strong>Bu sayfada</strong><a href="#principles">İlkeler</a><a href="#evidence">Kanıt statüleri</a><a href="#records">Kayıt kapsamı</a><a href="#validation">Doğrulama</a><a href="#limitations">Sınırlamalar</a></aside>
+      <PageToc items={[{id:'principles',label:'İlkeler'},{id:'evidence',label:'Kanıt statüleri'},{id:'records',label:'Kayıt kapsamı'},{id:'validation',label:'Doğrulama'},{id:'limitations',label:'Sınırlamalar'}]} />
     </article>
   )
 }

@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
 import { EvidenceBadge } from '../components/EvidenceBadge'
+import { PageToc } from '../components/PageToc'
 import { chipById } from '../content/chips'
 import type { Chip } from '../domain/chip'
 import { catalogSlug } from '../domain/slug'
@@ -86,7 +87,7 @@ export function ChipPage() {
 
       <section id="sources"><h2>Kaynakça</h2><ol className="references">{chip.sources.map((source) => <li key={source.id}><a href={source.url} target="_blank" rel="noreferrer">{source.title}</a>. {source.publisher}. Erişim/kontrol: {source.checkedAt}.</li>)}</ol></section>
 
-      <aside className="page-toc" aria-label="Bu sayfada"><strong>Bu sayfada</strong><a href="#overview">Genel bakış</a><a href="#compute">İşlemci ve bellek</a><a href="#interfaces">Bağlantı</a><a href="#security">Güvenlik</a><a href="#physical">Fiziksel özellikler</a>{chip.industrial && <a href="#industrial">Endüstriyel uygunluk</a>}<a href="#development">Geliştirme</a><a href="#assessment">Değerlendirme</a><a href="#sources">Kaynakça</a></aside>
+      <PageToc items={[{id:'overview',label:'Genel bakış'},{id:'compute',label:'İşlemci ve bellek'},{id:'interfaces',label:'Bağlantı'},{id:'security',label:'Güvenlik'},{id:'physical',label:'Fiziksel özellikler'},...(chip.industrial ? [{id:'industrial',label:'Endüstriyel uygunluk'}] : []),{id:'development',label:'Geliştirme'},{id:'assessment',label:'Değerlendirme'},{id:'sources',label:'Kaynakça'}]} />
     </article>
   )
 }
