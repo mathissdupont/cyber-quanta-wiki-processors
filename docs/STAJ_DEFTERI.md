@@ -59,3 +59,18 @@ aile ve model için ayrı URL hiyerarşisi oluşturuldu. Benzersiz model, parent
 ilişkisi, kaynak referansı ve URL slug kontrolleriyle test sayısı 11'e çıkarıldı.
 Ek olarak 31 resmî kaynak bağlantısını HTTP üzerinden denetleyen komut
 çalıştırıldı ve bütün bağlantılar erişilebilir bulundu.
+
+### 25 Ağustos 2026 — EFR32MG24 tam parça kataloğunun genişletilmesi
+
+Silicon Labs'ın resmî EFR32MG24 ürün seçim tablosu incelenerek güncel tabloda
+yer alan 22 sipariş kodunun tamamı ayrı wiki kayıtlarına dönüştürüldü. Parçalar;
+Flash ve RAM kapasitesi, radyo çıkış gücü, GPIO sayısı, QFN paket tipi,
+Secure Vault Mid/High güvenlik seviyesi ve AI/ML hızlandırıcı bulunması gibi
+OPN düzeyinde değişen alanlarla ayrıştırıldı.
+
+Seri kaydında bütün varyantlara yanlışlıkla aktarılabilecek PUF, anti-tamper,
+gelişmiş secure debug ve AI/ML hızlandırıcı iddiaları koşullu hale getirildi.
+Secure Vault Mid parçalarında High düzeyi özelliklerin bulunmadığı, High
+parçalarında ise ilgili güvenlik yeteneklerinin desteklendiği açıkça kaydedildi.
+Bu ayrım için otomatik regresyon testi eklendi. Katalog toplam 43 kayda ulaştı:
+38 tam sipariş kodu ve 5 seri kaydı.

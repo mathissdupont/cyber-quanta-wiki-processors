@@ -4,9 +4,14 @@
   "model": "EFR32MG24B310F1536IM48",
   "summary": "78 MHz Cortex-M33, 1536 KB Flash, 256 KB RAM, +10 dBm radyo, ADC ve Secure Vault High içeren QFN48 EFR32MG24 varyantı.",
   "variantNote": "Bu tam parça Secure Vault High ve ADC özellikli B310 varyantıdır.",
-  "compute": {"flashKb": 1536, "ramKb": 256},
+  "compute": {"flashKb": 1536, "ramKb": 256, "accelerators": ["AI/ML accelerator", "Secure Vault"]},
   "peripherals": ["28 GPIO", "ADC", "Timers/PWM", "UART/SPI/I²C/I²S", "Low-energy timers"],
-  "security": {"certifications": ["PSA Certified Level 3"]},
+  "security": {
+    "secureDebug": {"support": "supported", "summary": "Secure Vault High gelişmiş güvenli debug açma mekanizması sağlar.", "sourceIds": ["b310-product"]},
+    "secureKeyStorage": {"support": "supported", "summary": "Secure Vault High PUF tabanlı güvenli anahtar yönetimi sağlar.", "sourceIds": ["b310-product"]},
+    "tamperResistance": {"support": "supported", "summary": "Secure Vault High anti-tamper koruması sağlar.", "sourceIds": ["b310-product"]},
+    "certifications": ["PSA Certified Level 3"]
+  },
   "physical": {"temperature": "-40 °C–125 °C", "packages": ["QFN48, 6 × 6 mm"]},
   "strengths": ["Secure Vault High", "1536 KB Flash ve 256 KB RAM", "Matter/Thread/Zigbee/Bluetooth desteği"],
   "limitations": ["Wi-Fi içermez", "+10 dBm varyantıdır; daha yüksek çıkış gücü gereken tasarımlar başka OPN seçmelidir"],

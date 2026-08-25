@@ -19,10 +19,10 @@ Bu proje `secure-signing` reposundan tamamen ayrıdır. Eski repo değiştirilme
 
 ## Güncel durum
 
-- Git deposu `main` dalıyla oluşturuldu, henüz remote ve commit yok.
-- Dokuz üreticiden 23 ayrı çip/seri kaydı var: 18 tam parça, 5 seri.
-- `npm run check` başarılı: lint + 11 test + production build.
-- `npm run check:links` başarılı: 31 benzersiz resmî URL, 0 hata.
+- Git deposu `main` dalındadır. İlk çalışan sürüm commitlenmiştir; remote henüz yoktur.
+- Dokuz üreticiden 43 ayrı çip/seri kaydı var: 38 tam parça, 5 seri.
+- Son doğrulamada `npm run check`: lint + 12 test + production build başarılıdır.
+- Son doğrulamada `npm run check:links`: 51 benzersiz resmî URL denetlenmiştir.
 - Arayüz SaaS/landing page görünümünden Wikipedia tarzı bilgi mimarisine çevrildi.
 - Katalog, her çip maddesi, üretici dizini, kılavuzlar ve karşılaştırma ayrı adreslerde.
 - Üretici ve aile sayfaları kalıcı URL'lerle üretici → aile → model hiyerarşisi kurar.
@@ -50,9 +50,9 @@ Bu proje `secure-signing` reposundan tamamen ayrıdır. Eski repo değiştirilme
 
 ## Bilinen sınırlar
 
-- Beş seri maddesi ön eleme için korunur. Bunlara bağlı 10 yeni exact-part
-  varyantı `extends` ile eklenmiştir; katalog henüz bütün üretici OPN'lerini
-  kapsamaz.
+- Beş seri maddesi ön eleme için korunur. Bunlara bağlı exact-part varyantları
+  `extends` ile eklenir. EFR32MG24 için üreticinin 25 Ağustos 2026 seçim
+  tablosundaki 22 OPN ayrı kayıttır; diğer aileler henüz bütün OPN'leri kapsamaz.
 - MPU/Linux kataloğu henüz yok.
 - Anti-rollback birçok üreticide bilerek `unknown` bırakıldı; secure boot'tan
   türetilmedi.

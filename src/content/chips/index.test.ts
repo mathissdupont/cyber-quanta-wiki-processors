@@ -53,4 +53,15 @@ describe('chip content integrity', () => {
       }
     }
   })
+
+  it('keeps EFR32MG24 OPN security tiers and variant count explicit', () => {
+    const parts = chips.filter((chip) => chip.parentId === 'efr32mg24')
+    expect(parts).toHaveLength(22)
+
+    const mid = chipById.get('efr32mg24a010f1024im40')
+    const high = chipById.get('efr32mg24b310f1536im48')
+    expect(mid?.security.tamperResistance.support).toBe('not-supported')
+    expect(high?.security.tamperResistance.support).toBe('supported')
+    expect(high?.compute.accelerators).toContain('AI/ML accelerator')
+  })
 })

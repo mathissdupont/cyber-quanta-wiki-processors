@@ -4,7 +4,7 @@
 
 - React, Vite ve TypeScript iskeleti
 - Ayrı Git deposu
-- Dokuz üreticili, 23 kayıtlı başlangıç kataloğu
+- Dokuz üreticili, 43 kayıtlı başlangıç kataloğu
 - Ayrıntılı ve kaynaklı güvenlik modeli
 - Katalog araması ve filtreleri
 - Üçlü karşılaştırma aracı
@@ -23,7 +23,7 @@
 - STM32: U5, H5, H7, WB, MP1 ve MP2
 - NXP: MCX, LPC, RW61x, i.MX RT, i.MX 8/9
 - Espressif: ESP32-S3 ve P4 seri kayıtları ile FN8, FH4R2, P4NRW16X ve P4NRW32X tam parçaları mevcut; C3, C6 ve H2 sırada
-- Silicon Labs: EFR32MG24 seri kaydı, iki MG24 OPN'si ve tam SiWG917M111MGTBA kaydı mevcut; kalan MG24 OPN'leri, MG26 ve diğer SiWx917 SKU'ları sırada
+- Silicon Labs: EFR32MG24 seri kaydı, üreticinin güncel seçim tablosundaki 22 MG24 OPN'si ve tam SiWG917M111MGTBA kaydı mevcut; MG26 ve diğer SiWx917 SKU'ları sırada
 - Ödeme/güvenli eleman: PN7642 ve MIFARE SAM AV3 mevcut; ST31/STPay ve diğer secure element aileleri sırada
 - Nordic: nRF52, nRF53, nRF54, nRF91
 - TI: CC13xx/CC26xx, MSPM0, AM62/Sitara

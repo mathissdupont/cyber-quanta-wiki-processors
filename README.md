@@ -9,7 +9,7 @@ karşılaştırmayı amaçlar.
 
 - 9 üretici: ST, NXP, Espressif, Silicon Labs, Nordic, Texas Instruments,
   Microchip, Renesas ve Infineon
-- 23 kaynaklı çip/seri kaydı; her model ayrı JSON içerik dosyasında
+- 43 kaynaklı çip/seri kaydı; 38 tam parça ve 5 seri kaydı
 - İşlemci, bellek, bağlantı, çevre birimi ve fiziksel özellikler
 - Secure boot, güvenli güncelleme, anti-rollback, güven kökü, izolasyon,
   flash şifreleme, debug ve anahtar saklama incelemesi

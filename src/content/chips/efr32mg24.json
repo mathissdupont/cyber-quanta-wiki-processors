@@ -20,7 +20,6 @@
       "RTOS"
     ],
     "accelerators": [
-      "AI/ML accelerator",
       "Secure Vault"
     ]
   },
@@ -77,22 +76,22 @@
       "sourceIds": []
     },
     "secureDebug": {
-      "support": "supported",
-      "summary": "Secure Debug Unlock özelliği bulunur.",
+      "support": "conditional",
+      "summary": "Debug koruma seviyesi ve Secure Debug Unlock özellikleri Secure Vault Mid/High seçimine göre değişir.",
       "sourceIds": [
         "silabs-product"
       ]
     },
     "secureKeyStorage": {
-      "support": "supported",
-      "summary": "PUF destekli güvenli anahtar yönetimi bulunur.",
+      "support": "conditional",
+      "summary": "Güvenli anahtar yönetimi bulunur; PUF tabanlı koruma Secure Vault High parçalarına özgüdür.",
       "sourceIds": [
         "silabs-product"
       ]
     },
     "tamperResistance": {
-      "support": "supported",
-      "summary": "Secure Vault High seçeneklerinde anti-tamper belirtilir.",
+      "support": "conditional",
+      "summary": "Anti-tamper koruması Secure Vault High seçeneklerinde bulunur; tam OPN üzerinden doğrulanmalıdır.",
       "sourceIds": [
         "silabs-product"
       ]
