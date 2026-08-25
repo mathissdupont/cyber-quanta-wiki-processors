@@ -10,6 +10,8 @@ export type SecurityRequirement =
 export interface SelectionCriteria {
   category: string
   requireLinux: boolean
+  requireIndustrialQualification: boolean
+  requireFunctionalSafety: boolean
   minClockMhz: number
   requiredConnectivity: string[]
   requiredSecurity: SecurityRequirement[]
@@ -55,6 +57,14 @@ export function selectChips(chips: Chip[], criteria: SelectionCriteria): Selecti
         blockers.push('Linux çalıştırmaya uygun değil')
       } else if (criteria.requireLinux) {
         matchedRequirements.push('Linux desteği')
+      }
+      if (criteria.requireIndustrialQualification) {
+        if (chip.industrial?.qualification.support === 'supported') matchedRequirements.push('Endüstriyel kalifikasyon')
+        else blockers.push('Endüstriyel kalifikasyon doğrulanmamış')
+      }
+      if (criteria.requireFunctionalSafety) {
+        if (chip.industrial?.functionalSafety.support === 'supported') matchedRequirements.push('Fonksiyonel güvenlik')
+        else blockers.push('Fonksiyonel güvenlik desteği doğrulanmamış')
       }
       if (criteria.minClockMhz > 0) {
         if (chip.compute.maxClockMhz === null) blockers.push('Saat frekansı doğrulanmamış')

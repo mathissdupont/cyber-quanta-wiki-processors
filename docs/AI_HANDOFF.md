@@ -21,9 +21,9 @@ Bu proje `secure-signing` reposundan tamamen ayrıdır. Eski repo değiştirilme
 
 - Git deposu `main` dalındadır ve `origin`, public GitHub repository'sine bağlıdır:
   `https://github.com/mathissdupont/cyber-quanta-wiki-processors`.
-- Dokuz üreticiden 43 ayrı çip/seri kaydı var: 38 tam parça, 5 seri.
-- Son doğrulamada `npm run check`: lint + 12 test + production build başarılıdır.
-- Son doğrulamada `npm run check:links`: 51 benzersiz resmî URL denetlenmiştir.
+- Dokuz üreticiden 51 ayrı çip/seri kaydı var: 41 tam parça, 10 seri/ön eleme kaydı.
+- Son doğrulamada `npm run check`: lint + 15 test + production build başarılıdır.
+- Son doğrulamada `npm run check:links`: 74 benzersiz resmî URL denetlenmiştir.
 - Arayüz SaaS/landing page görünümünden Wikipedia tarzı bilgi mimarisine çevrildi.
 - Katalog, her çip maddesi, üretici dizini, kılavuzlar ve karşılaştırma ayrı adreslerde.
 - Üretici ve aile sayfaları kalıcı URL'lerle üretici → aile → model hiyerarşisi kurar.
@@ -52,10 +52,10 @@ Bu proje `secure-signing` reposundan tamamen ayrıdır. Eski repo değiştirilme
 
 ## Bilinen sınırlar
 
-- Beş seri maddesi ön eleme için korunur. Bunlara bağlı exact-part varyantları
+- On seri maddesi ön eleme için korunur. Bunlara bağlı exact-part varyantları
   `extends` ile eklenir. EFR32MG24 için üreticinin 25 Ağustos 2026 seçim
   tablosundaki 22 OPN ayrı kayıttır; diğer aileler henüz bütün OPN'leri kapsamaz.
-- MPU/Linux kataloğu henüz yok.
+- MPU/Linux kapsamı i.MX 93 ve AM625 seri kayıtlarıyla başladı; tam OPN kayıtları henüz eklenmedi.
 - Anti-rollback birçok üreticide bilerek `unknown` bırakıldı; secure boot'tan
   türetilmedi.
 - Fiyat/stok tutulmuyor.
@@ -68,11 +68,14 @@ Bu proje `secure-signing` reposundan tamamen ayrıdır. Eski repo değiştirilme
   olmalı; ürüne özgü bilgiler ilgili çip maddesinde tutulmalıdır.
 - Seçim motoru seri kaydına `ADAY` vermez. Teknik şartları karşılayan seri
   `ÖN ELEME`, yalnızca exact-part kayıt `ADAY` olabilir.
+- `industrial` alanı opsiyoneldir; endüstriyel kalifikasyon, fonksiyonel
+  güvenlik, longevity ve gerçek zamanlı çalışma kanıtlarını ayrı tutar.
+- STM32H573ZI ve RW612 paket/sıcaklık suffix'i taşımadığı için seri/ön eleme
+  olarak düzeltilmiştir; tam sipariş kodları ayrıca eklenmelidir.
 
 ## Sonraki mantıklı iş
 
-Önce Linux/MPU boşluğunu kapatmak için NXP i.MX 8M Plus, STM32MP157/MP25 ve
-TI AM62x kayıtları resmî dokümanlarla eklenmeli. Sonra aynı ailedeki model
-numarası farklarını göstermek üzere NXP MCX N94/N54 ve STM32 varyantları ayrı
-exact-part kayıtlarına ayrılmalı. Ardından seçim sonuçlarını URL ile paylaşma
-ve tarayıcı erişilebilirlik testleri eklenmeli.
+Linux/MPU boşluğu i.MX 93 ve AM625 seri kayıtlarıyla ilk kez görünür hale geldi.
+Sonraki adım bu serilerden endüstriyel sıcaklık sınıflı tam OPN'leri eklemek,
+STM32MP25 ve i.MX 8M Plus kapsamını açmak, ardından seçim sonuçlarını URL ile
+paylaşma ve tarayıcı erişilebilirlik testlerini eklemektir.

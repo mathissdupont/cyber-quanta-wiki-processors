@@ -74,3 +74,24 @@ Secure Vault Mid parçalarında High düzeyi özelliklerin bulunmadığı, High
 parçalarında ise ilgili güvenlik yeteneklerinin desteklendiği açıkça kaydedildi.
 Bu ayrım için otomatik regresyon testi eklendi. Katalog toplam 43 kayda ulaştı:
 38 tam sipariş kodu ve 5 seri kaydı.
+
+### 25 Ağustos 2026 — Endüstriyel işlemci kapsamı ve seçim ölçütleri
+
+Kataloğun yalnızca teknik özellik listesi olmaması için endüstriyel seçimde
+kullanılan dört alan veri modeline eklendi: endüstriyel kalifikasyon,
+fonksiyonel güvenlik, üretici ürün ömrü taahhüdü ve gerçek zamanlı çalışma.
+Her alanın doğrulandı, koşullu veya belirsiz durumu ile kaynak referansı ayrı
+tutuldu. Katalog ve gereksinim seçici bu kanıtlara göre filtreleme yapacak
+şekilde geliştirildi; karşılaştırma ve çip madde sayfalarında yeni bir
+endüstriyel uygunluk bölümü oluşturuldu.
+
+Resmî üretici belgeleri incelenerek STM32U585AII6, MCXN947VDFT,
+R7FA6M5BH3CFC#BA0, nRF54L15-QFAA ve SAK-TC397XA-256F300S BD tam parça
+kayıtları; i.MX 93, AM625 ve ATSAML11E16A seri/ön eleme kayıtları eklendi.
+Bu paket düşük güçlü MCU, kablosuz sensör, motor kontrol, Linux gateway/HMI ve
+ASIL-D/SIL-3 güvenlik-kritik kontrol sınıflarını kapsadı. Paket suffix'i
+seçilmemiş kayıtların nihai aday olarak gösterilmemesi özellikle korundu.
+Önceki katalogdaki STM32H573ZI ve RW612 kayıtlarının da tam paket/sıcaklık
+suffix'i taşımadığı fark edilerek kayıt kapsamları seri/ön eleme olarak
+düzeltildi; böylece seçim aracının eksik sipariş kodlarını nihai aday göstermesi
+engellendi.

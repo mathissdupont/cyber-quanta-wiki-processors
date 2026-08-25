@@ -55,6 +55,22 @@ Her güvenlik alanı üç bilgi taşır:
 Anti-rollback özellikle ayrı tutulur. İmzalı firmware desteği, otomatik olarak
 eski ama geçerli imzalı firmware'in reddedildiği anlamına gelmez.
 
+## Endüstriyel uygunluk kanıtı
+
+Opsiyonel `industrial` nesnesi dört ayrı kanıt alanı taşır:
+
+- `qualification`: Endüstriyel/otomotiv sıcaklık veya ürün sınıfı.
+- `functionalSafety`: IEC 61508, ISO 26262, SIL veya ASIL kapsamı.
+- `longevity`: Üreticinin açık ürün bulunabilirliği taahhüdü ya da bitiş yılı.
+- `realTime`: MCU çekirdeği, yardımcı gerçek zamanlı çekirdek veya PRU gibi
+  deterministik çalışma mekanizması.
+
+Bu alanlar da güvenlik alanlarıyla aynı `support`, `summary` ve `sourceIds`
+yapısını kullanır. Örneğin yalnızca genel ailede -40 °C seçeneği bulunması,
+seçilen tam OPN'nin endüstriyel sınıfta olduğunu kanıtlamaz; böyle bir kayıt
+`conditional` tutulur. `industrialInterfaces` ve `reliabilityFeatures` ise CAN
+FD, TSN, ECC ve watchdog gibi karşılaştırma terimlerini listeler.
+
 ## Kaynaklar
 
 Her kayıt en az bir resmî kaynak içerir. Kaynakta başlık, URL, doküman türü,

@@ -14,6 +14,8 @@ const securityOptions = Object.entries(securityRequirementLabels) as Array<[Secu
 const initialCriteria: SelectionCriteria = {
   category: '',
   requireLinux: false,
+  requireIndustrialQualification: false,
+  requireFunctionalSafety: false,
   minClockMhz: 0,
   requiredConnectivity: [],
   requiredSecurity: [],
@@ -43,6 +45,8 @@ export function SelectorPage() {
         <label><span>Çip türü</span><select value={criteria.category} onChange={(event) => setCriteria({ ...criteria, category: event.target.value })}><option value="">Tümü</option><option>MCU</option><option>Wireless MCU</option><option>SoC</option><option>MPU</option><option>Secure Element</option><option>NFC Controller</option></select></label>
         <label><span>En düşük saat frekansı</span><select value={criteria.minClockMhz} onChange={(event) => setCriteria({ ...criteria, minClockMhz: Number(event.target.value) })}><option value={0}>Sınır yok</option><option value={100}>100 MHz</option><option value={150}>150 MHz</option><option value={200}>200 MHz</option><option value={400}>400 MHz</option></select></label>
         <label className="inline-check"><input type="checkbox" checked={criteria.requireLinux} onChange={(event) => setCriteria({ ...criteria, requireLinux: event.target.checked })} /> Linux gerekli</label>
+        <label className="inline-check"><input type="checkbox" checked={criteria.requireIndustrialQualification} onChange={(event) => setCriteria({ ...criteria, requireIndustrialQualification: event.target.checked })} /> Endüstriyel kalifikasyon doğrulanmış</label>
+        <label className="inline-check"><input type="checkbox" checked={criteria.requireFunctionalSafety} onChange={(event) => setCriteria({ ...criteria, requireFunctionalSafety: event.target.checked })} /> Fonksiyonel güvenlik doğrulanmış</label>
         <fieldset><legend>Zorunlu bağlantılar</legend>{connectivityOptions.map((item) => <label className="inline-check" key={item}><input type="checkbox" checked={criteria.requiredConnectivity.includes(item)} onChange={() => setCriteria({ ...criteria, requiredConnectivity: toggleValue(criteria.requiredConnectivity, item) })} /> {item}</label>)}</fieldset>
         <fieldset><legend>Zorunlu güvenlik</legend>{securityOptions.map(([key, label]) => <label className="inline-check" key={key}><input type="checkbox" checked={criteria.requiredSecurity.includes(key)} onChange={() => setCriteria({ ...criteria, requiredSecurity: toggleValue(criteria.requiredSecurity, key) })} /> {label}</label>)}</fieldset>
         <button className="secondary-button" type="button" onClick={() => setCriteria(initialCriteria)}>Filtreleri temizle</button>

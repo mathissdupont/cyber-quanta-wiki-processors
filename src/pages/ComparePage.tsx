@@ -27,6 +27,9 @@ export function ComparePage() {
         <tr><th>Flash / RAM</th>{selected.map((chip) => <td key={chip.id}>{chip.compute.flashKb === null ? 'Harici / yayımlanmamış' : `${chip.compute.flashKb} KB`} / {chip.compute.ramKb === null ? 'Yayımlanmamış' : `${chip.compute.ramKb} KB`}</td>)}</tr>
         <tr><th>Paket içi PSRAM</th>{selected.map((chip) => <td key={chip.id}>{chip.compute.psramKb === undefined ? 'Kaydedilmedi' : chip.compute.psramKb === null ? 'Varyanta bağlı' : chip.compute.psramKb === 0 ? 'Yok' : `${chip.compute.psramKb} KB`}</td>)}</tr>
         <tr><th>Linux</th>{selected.map((chip) => <td key={chip.id}>{chip.compute.linuxCapable ? 'Evet' : 'Hayır'}</td>)}</tr>
+        <tr><th>Endüstriyel kalifikasyon</th>{selected.map((chip) => <td key={chip.id}>{chip.industrial ? <><EvidenceBadge evidence={chip.industrial.qualification} /><small>{chip.industrial.qualification.summary}</small></> : 'Kaydedilmedi'}</td>)}</tr>
+        <tr><th>Fonksiyonel güvenlik</th>{selected.map((chip) => <td key={chip.id}>{chip.industrial ? <><EvidenceBadge evidence={chip.industrial.functionalSafety} /><small>{chip.industrial.functionalSafety.summary}</small></> : 'Kaydedilmedi'}</td>)}</tr>
+        <tr><th>Ürün ömrü</th>{selected.map((chip) => <td key={chip.id}>{chip.industrial ? <><EvidenceBadge evidence={chip.industrial.longevity} /><small>{chip.industrial.longevity.summary}</small></> : 'Kaydedilmedi'}</td>)}</tr>
         {securityRows.map(([key, label]) => <tr key={key}><th>{label}</th>{selected.map((chip) => { const evidence = chip.security[key]; return <td key={chip.id}>{Array.isArray(evidence) ? '—' : <><EvidenceBadge evidence={evidence} /><small>{evidence.summary}</small></>}</td> })}</tr>)}
         <tr><th>Bağlantı</th>{selected.map((chip) => <td key={chip.id}>{chip.connectivity.join(', ')}</td>)}</tr>
         <tr><th>Sıcaklık</th>{selected.map((chip) => <td key={chip.id}>{chip.physical.temperature}</td>)}</tr>

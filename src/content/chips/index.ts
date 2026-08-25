@@ -24,7 +24,7 @@ function resolveVariant(rawVariant: unknown): Chip {
   if (!base) throw new Error(`${variant.id}: parent record '${variant.extends}' was not found`)
   if (base.recordScope !== 'series') throw new Error(`${variant.id}: parent '${base.id}' must be a series record`)
 
-  const { extends: _baseId, compute, security, physical, sources, ...overrides } = variant
+  const { extends: _baseId, compute, security, physical, industrial, sources, ...overrides } = variant
   return chipSchema.parse({
     ...base,
     ...overrides,
@@ -33,6 +33,7 @@ function resolveVariant(rawVariant: unknown): Chip {
     compute: { ...base.compute, ...compute },
     security: { ...base.security, ...security },
     physical: { ...base.physical, ...physical },
+    industrial: industrial ?? base.industrial,
     sources: mergeSources(base.sources, sources),
   })
 }

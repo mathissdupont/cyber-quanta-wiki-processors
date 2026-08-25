@@ -3,10 +3,11 @@
   "manufacturer": "NXP Semiconductors",
   "family": "RW61x",
   "model": "RW612",
-  "recordScope": "exact-part",
+  "recordScope": "series",
   "category": "Wireless MCU",
   "lifecycle": "active",
   "summary": "Wi-Fi 6, Bluetooth LE ve 802.15.4 radyolarını EdgeLock güvenliğiyle birleştiren kablosuz MCU.",
+  "variantNote": "Paket ve endüstriyel sıcaklık kodu seçilmeden tam sipariş OPN'si oluşmaz; RW612 kaydı seri/cihaz düzeyinde ön eleme içindir.",
   "compute": {
     "cpu": "Arm Cortex-M33",
     "cores": 1,
@@ -122,6 +123,14 @@
       "WLCSP151"
     ]
   },
+  "industrial": {
+    "qualification": {"support":"conditional","summary":"RW612 veri sayfasında industrial sıcaklık kodu bulunur; kesin paket ve derece tam OPN'ye bağlıdır.","sourceIds":["rw612-datasheet"]},
+    "functionalSafety": {"support":"unknown","summary":"Bu kablosuz MCU için işlevsel güvenlik sertifikası kaydedilmedi.","sourceIds":[]},
+    "longevity": {"support":"supported","summary":"NXP Product Longevity programı RW612 için Şubat 2039 tarihini belirtir.","sourceIds":["nxp-longevity"]},
+    "realTime": {"support":"supported","summary":"260 MHz Cortex-M33 ve RTOS ekosistemi gerçek zamanlı uç cihaz görevlerini destekler.","sourceIds":["nxp-product","rw612-datasheet"]},
+    "industrialInterfaces": ["Wi-Fi 6","Bluetooth LE","IEEE 802.15.4","Ethernet","USB"],
+    "reliabilityFeatures": ["EdgeLock Secure Enclave","Watchdog","Güvenli yaşam döngüsü","PUF"]
+  },
   "tools": [
     "MCUXpresso IDE",
     "MCUXpresso SDK",
@@ -148,6 +157,22 @@
       "id": "nxp-product",
       "title": "RW612 product page",
       "url": "https://www.nxp.com/products/wireless-connectivity/wi-fi-plus-bluetooth-plus-802-15-4/wireless-mcu-with-integrated-tri-radio-1x1-wi-fi-6-plus-bluetooth-low-energy-5-4-802-15-4:RW612",
+      "kind": "product-page",
+      "publisher": "NXP Semiconductors",
+      "checkedAt": "2026-08-25"
+    },
+    {
+      "id": "rw612-datasheet",
+      "title": "RW612 product data sheet",
+      "url": "https://www.nxp.com/docs/en/data-sheet/RW612.pdf",
+      "kind": "datasheet",
+      "publisher": "NXP Semiconductors",
+      "checkedAt": "2026-08-25"
+    },
+    {
+      "id": "nxp-longevity",
+      "title": "NXP Product Longevity program",
+      "url": "https://www.nxp.com/products/nxp-product-information/nxp-product-programs/product-longevity:PRDCT_LONGEVITY_HM",
       "kind": "product-page",
       "publisher": "NXP Semiconductors",
       "checkedAt": "2026-08-25"

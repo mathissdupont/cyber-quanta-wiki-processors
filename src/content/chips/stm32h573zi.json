@@ -3,11 +3,11 @@
   "manufacturer": "STMicroelectronics",
   "family": "STM32H5",
   "model": "STM32H573ZI",
-  "recordScope": "exact-part",
+  "recordScope": "series",
   "category": "MCU",
   "lifecycle": "active",
   "summary": "Yüksek performans, TrustZone ve ST-iRoT güven kökü sunan Cortex-M33 tabanlı güvenli MCU.",
-  "variantNote": "STM32H563 ve STM32H573 güvenlik hızlandırıcıları ile hazır güven kökü seçeneklerinde farklılaşır.",
+  "variantNote": "ZI cihaz kodu 144 pin sınıfını belirtir; sıcaklık, SMPS ve ambalaj suffix'i seçilmeden tam sipariş kodu oluşmaz. Bu kayıt ön eleme kapsamındadır.",
   "compute": {
     "cpu": "Arm Cortex-M33",
     "cores": 1,
@@ -121,6 +121,14 @@
       "BGA"
     ]
   },
+  "industrial": {
+    "qualification": {"support":"conditional","summary":"ZI ürün tablosunda industrial-grade sipariş kodları vardır; kesin sıcaklık ve güç seçeneği tam suffix'e bağlıdır.","sourceIds":["st-part"]},
+    "functionalSafety": {"support":"unknown","summary":"Bu cihaz kodu için belirli IEC 61508 veya ISO 26262 sertifikası kaydedilmedi.","sourceIds":[]},
+    "longevity": {"support":"supported","summary":"ST kalite tablosu ZI sipariş seçenekleri için 2026 başlangıçlı 10 yıllık taahhüt belirtir.","sourceIds":["st-part"]},
+    "realTime": {"support":"supported","summary":"250 MHz Cortex-M33, iki CAN FD, Ethernet DMA ve motor-control timer'ları gerçek zamanlı kontrolü destekler.","sourceIds":["st-part"]},
+    "industrialInterfaces": ["100 Mbps Ethernet","CAN FD","I3C","SMBus/PMBus","Motor-control PWM"],
+    "reliabilityFeatures": ["Flash ECC","SRAM ECC","İki watchdog","Active tamper","Clock security"]
+  },
   "tools": [
     "STM32CubeIDE",
     "STM32CubeProgrammer",
@@ -148,6 +156,22 @@
       "title": "STM32H563/573 product page",
       "url": "https://www.st.com/en/microcontrollers-microprocessors/stm32h563-573.html",
       "kind": "product-page",
+      "publisher": "STMicroelectronics",
+      "checkedAt": "2026-08-25"
+    },
+    {
+      "id": "st-part",
+      "title": "STM32H573ZI product and ordering page",
+      "url": "https://www.st.com/en/microcontrollers-microprocessors/stm32h573zi.html",
+      "kind": "product-page",
+      "publisher": "STMicroelectronics",
+      "checkedAt": "2026-08-25"
+    },
+    {
+      "id": "st-h573-datasheet",
+      "title": "STM32H573xx datasheet",
+      "url": "https://www.st.com/resource/en/datasheet/stm32h573zi.pdf",
+      "kind": "datasheet",
       "publisher": "STMicroelectronics",
       "checkedAt": "2026-08-25"
     }

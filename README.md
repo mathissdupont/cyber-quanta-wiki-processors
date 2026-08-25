@@ -11,7 +11,7 @@ Canlı wiki: https://mathissdupont.github.io/cyber-quanta-wiki-processors/
 
 - 9 üretici: ST, NXP, Espressif, Silicon Labs, Nordic, Texas Instruments,
   Microchip, Renesas ve Infineon
-- 43 kaynaklı çip/seri kaydı; 38 tam parça ve 5 seri kaydı
+- 51 kaynaklı çip/seri kaydı; 41 tam parça ve 10 seri/ön eleme kaydı
 - İşlemci, bellek, bağlantı, çevre birimi ve fiziksel özellikler
 - Secure boot, güvenli güncelleme, anti-rollback, güven kökü, izolasyon,
   flash şifreleme, debug ve anahtar saklama incelemesi
@@ -21,6 +21,7 @@ Canlı wiki: https://mathissdupont.github.io/cyber-quanta-wiki-processors/
 - Açık/koyu tema ve mobilde yatay kaydırılabilir teknik tablolar
 - Her çip için kalıcı wiki adresi ve ayrıntılı kaynakça
 - Üretici → aile → seri/tam parça URL hiyerarşisi
+- Kanıtlı endüstriyel kalifikasyon, fonksiyonel güvenlik, ürün ömrü ve gerçek zamanlı çalışma alanları
 - Zod veri doğrulama, Vitest testleri ve GitHub Pages deploy akışı
 
 ## Yerel çalıştırma

@@ -12,6 +12,7 @@ export function CatalogPage() {
     category: '',
     secureBootOnly: false,
     wirelessOnly: false,
+    industrialOnly: false,
   })
   const result = useMemo(() => filterChips(chips, filters), [filters])
 
@@ -29,6 +30,7 @@ export function CatalogPage() {
         <label><span>Tür</span><select value={filters.category} onChange={(event) => setFilters({ ...filters, category: event.target.value })}><option value="">Tümü</option><option>MCU</option><option>Wireless MCU</option><option>SoC</option><option>MPU</option><option>Secure Element</option><option>NFC Controller</option></select></label>
         <label className="inline-check"><input type="checkbox" checked={filters.secureBootOnly} onChange={(event) => setFilters({ ...filters, secureBootOnly: event.target.checked })} /> Secure boot doğrulanmış</label>
         <label className="inline-check"><input type="checkbox" checked={filters.wirelessOnly} onChange={(event) => setFilters({ ...filters, wirelessOnly: event.target.checked })} /> Dahili kablosuz</label>
+        <label className="inline-check"><input type="checkbox" checked={filters.industrialOnly} onChange={(event) => setFilters({ ...filters, industrialOnly: event.target.checked })} /> Endüstriyel kalifikasyon doğrulanmış</label>
       </div>
 
       <p className="result-count">{result.length} kayıt bulundu.</p>

@@ -51,6 +51,19 @@ describe('chip content integrity', () => {
           expect(sourceIds.has(sourceId), `${chip.id}.${key} -> ${sourceId}`).toBe(true)
         }
       }
+      if (chip.industrial) {
+        const industrialEvidence = [
+          chip.industrial.qualification,
+          chip.industrial.functionalSafety,
+          chip.industrial.longevity,
+          chip.industrial.realTime,
+        ]
+        for (const evidence of industrialEvidence) {
+          for (const sourceId of evidence.sourceIds) {
+            expect(sourceIds.has(sourceId), `${chip.id}.industrial -> ${sourceId}`).toBe(true)
+          }
+        }
+      }
     }
   })
 
@@ -63,5 +76,12 @@ describe('chip content integrity', () => {
     expect(mid?.security.tamperResistance.support).toBe('not-supported')
     expect(high?.security.tamperResistance.support).toBe('supported')
     expect(high?.compute.accelerators).toContain('AI/ML accelerator')
+  })
+
+  it('contains the documented industrial expansion and Linux MPU coverage', () => {
+    expect(chips).toHaveLength(51)
+    expect(chips.filter((chip) => chip.recordScope === 'exact-part')).toHaveLength(41)
+    expect(chips.filter((chip) => chip.category === 'MPU' && chip.compute.linuxCapable)).toHaveLength(2)
+    expect(chips.filter((chip) => chip.industrial).length).toBeGreaterThanOrEqual(10)
   })
 })
