@@ -73,6 +73,13 @@ zorunludur. Üretici mağazası veya yetkili distribütör kullanılabilir. Verg
 navlun, tarife ve stok durumu kapsam notunda açıklanır. Farklı para birimleri
 kur dönüşümü yapılmadan tek puanda birleştirilmez.
 
+Somut ürün/sektör uygunluğu bir pazarlama sloganı olarak yazılmaz. Her kayıt;
+ürünü veya sistemi açıkça adlandırır, kanıt düzeyini belirtir, kaynaklı teknik
+avantajları ve parçayı eleyebilecek koşulları birlikte gösterir. Bir üretici
+referans tasarımı ile yalnızca özelliklerden yapılan mühendislik çıkarımı aynı
+kanıt seviyesinde sunulamaz. Güvenlik, EMC, çevresel kalifikasyon veya yasal
+uygunluk işlemci seçimiyle otomatik kazanılmış kabul edilmez.
+
 ## Kanıt ve belirsizlik
 
 - `supported`: Kaynak özelliği açıkça doğrular.
@@ -95,6 +102,7 @@ saklama sonucu türetilmez.
 - Yaşam döngüsü ve inceleme tarihi kaydedildi mi?
 - Pazarlama dili yerine ölçülebilir teknik ifade kullanıldı mı?
 - Uygulama etiketlerinin her biri kendi kaynak kimliğine bağlı mı?
+- Somut sektör adaylığında kanıt düzeyi, avantaj, kritik koşul ve kaynak var mı?
 - Fiyat varsa tam OPN, adet, para birimi, satıcı ve tarih kaydedildi mi?
 - Seçim aracında seri kaydının nihai aday olması engellendi mi?
 

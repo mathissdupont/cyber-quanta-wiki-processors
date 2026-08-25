@@ -129,3 +129,31 @@ maliyeti nedeniyle yanıltıcı GHz/USD puanı üretilmedi. Kaynak kimliği test
 etiket, fiyat ve benchmark alanlarını da kapsayacak biçimde genişletildi.
 Toplam 21 otomatik test, lint ve production build başarılı oldu; 88 benzersiz
 kaynak bağlantısı denetlendi ve hata bulunmadı.
+
+### 25 Ağustos 2026 — Somut ürün ve sektör uygunluğu modeli
+
+Çiplerin yalnızca genel “IoT” veya “endüstriyel” etiketiyle gösterilmesinin ürün
+seçimi için yeterli olmadığı değerlendirildi. Bu nedenle veri modeline somut
+ürün/sistem adı, kanıt düzeyi, teknik avantajlar, kritik koşullar ve kaynak
+kimliklerini birlikte taşıyan `sectorFits` alanı eklendi. Üretici referans
+tasarımı, üreticinin hedef uygulaması ve kaynaklı özellik eşleşmesi birbirinden
+ayrıldı. Böylece mühendislik çıkarımı kesin üretici önerisi gibi sunulmadı.
+
+STMicroelectronics'in STEVAL-CTM014A çamaşır makinesi motor sürücü referans
+tasarımı incelendi. Referansın ana kontrolcü olarak kullandığı tam
+`STM32G431CBT6` sipariş kodu kataloğa eklendi. Motor-control PWM zamanlayıcıları,
+ADC'ler, karşılaştırıcılar, dahili işlemsel yükselteçler, CORDIC ve FMAC'ın
+kapalı çevrim BLDC kontrolündeki avantajları kaydedildi. Bunun yanında MCU'nun
+tek başına şebeke motorunu süremeyeceği, harici güç ve izolasyon katı ile EMC ve
+ürün güvenliği doğrulamasının gerekli olduğu özellikle belirtildi.
+
+Model ayrıca SAMRH71 için uzay aracı bilgisayarı/haberleşme düğümü, AURIX TC397
+için ADAS veya araç alan kontrolcüsü, MIFARE SAM AV3 için toplu taşıma/erişim
+terminali ve AM6254 için Linux tabanlı endüstriyel HMI/ağ geçidi örnekleriyle
+uygulandı. Çip madde ve karşılaştırma sayfaları yeni alanları gösterecek şekilde
+geliştirildi. Kaynak kimliklerinin çözülmesi, avantaj ve kritik koşulların boş
+bırakılmaması ve ürün adıyla katalogda bulunabilmesi için regresyon testleri
+eklendi. Lint, 23 otomatik test ve
+production build başarıyla tamamlandı.
+Beş yeni resmî ST bağlantısıyla birlikte toplam 93 benzersiz kaynak URL'si
+denetlendi ve erişilemeyen bağlantı bulunmadı.

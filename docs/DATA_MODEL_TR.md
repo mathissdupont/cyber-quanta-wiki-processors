@@ -86,6 +86,36 @@ Etiket, yalnızca çipin teknik olarak kullanılabileceğine dair yorum değildi
 üreticinin açık uygulama/pazar tanımını temsil eder. Örneğin geniş sıcaklık
 aralığı tek başına “savunma” etiketi üretmez.
 
+## Somut ürün ve sektör uygunluğu
+
+Opsiyonel `sectorFits`, bir parçanın belirli bir ürün veya sistem için neden
+aday olabileceğini kaynaklı ve sınırları açık biçimde kaydeder:
+
+```json
+{
+  "sector": "home-appliances",
+  "product": "Çamaşır makinesi tambur motor sürücüsü",
+  "evidenceLevel": "reference-design",
+  "rationale": "Üreticinin aynı OPN'yi kullanan referans tasarımı vardır.",
+  "advantages": ["Motor-control PWM ve dahili analog ölçüm zinciri"],
+  "constraints": ["Harici güç katı ve ürün seviyesi güvenlik testi gerekir"],
+  "sourceIds": ["official-reference-design"]
+}
+```
+
+Kanıt düzeyleri birbirinin yerine kullanılmaz:
+
+- `reference-design`: Üreticinin aynı parça veya açıkça belirtilen işlemciyle
+  yayımladığı somut referans tasarımı.
+- `manufacturer-target`: Üreticinin ürün sayfası veya veri sayfasında doğrudan
+  belirttiği hedef uygulama.
+- `feature-match`: Kaynaklı çevre birimi, performans ve çevre koşullarından
+  yapılan mühendislik çıkarımı. Arayüzde kesin öneri gibi gösterilmez.
+
+Her kayıtta en az bir avantaj, bir kritik koşul ve bir resmî kaynak zorunludur.
+Örneğin “uçaklar için iyidir” yeterli değildir; radyasyon sınıfı, kullanılan
+uçuş veri yolu ve görev seviyesi kalifikasyonun ayrıca gerektiği yazılmalıdır.
+
 ## Ticari veri ve benchmark
 
 Opsiyonel `commercial` nesnesi iki ayrı kanıt türünü tutar:

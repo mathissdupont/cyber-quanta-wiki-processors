@@ -4,7 +4,7 @@
 
 - React, Vite ve TypeScript iskeleti
 - Ayrı Git deposu
-- Dokuz üreticili, 55 kayıtlı katalog
+- Dokuz üreticili, 56 kayıtlı katalog
 - Ayrıntılı ve kaynaklı güvenlik modeli
 - Katalog araması ve filtreleri
 - Üçlü karşılaştırma aracı
@@ -18,6 +18,7 @@
 - Kaynaklı uygulama etiketleri ve katalog filtresi
 - Tarihli fiyat anlık görüntüsü ve sınırlı CoreMark/USD karşılaştırması
 - i.MX 93, AM625 ve STM32MP257 için tam Linux MPU sipariş kodları
+- Somut ürün/sektör uygunluğu, kanıt düzeyi, avantaj ve eleme koşulu modeli
 - Test/build kontrolü
 - GitHub Pages workflow'u
 
@@ -39,7 +40,7 @@
 
 - Tercih kriterleri, ağırlıklandırma ve paylaşılabilir sorguyla seçim aracını geliştirme
 - “Tek çip” ve “ana MCU + bağlantı çipi” mimari önerileri
-- Sayaç, kilit, gateway, giyilebilir cihaz ve motor sürücü gibi alan kılavuzları
+- Yeni sektör kayıtları için kaynaklı referans tasarımı ve hedef uygulama kapsamı
 - Güç tüketimi, toplam BOM karmaşıklığı ve geliştirme zorluğu kanıt alanları
 - Neden önerildi/neden elendi açıklaması
 

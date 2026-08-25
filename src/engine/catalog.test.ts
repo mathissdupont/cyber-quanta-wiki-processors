@@ -22,6 +22,13 @@ describe('chip catalog', () => {
     expect(featureResult.length).toBeGreaterThan(1)
   })
 
+  it('finds records by concrete product and sector rationale', () => {
+    const result = filterChips(chips, {
+      query: 'çamaşır makinesi', manufacturer: '', category: '', secureBootOnly: false, wirelessOnly: false, industrialOnly: false, applicationTag: '',
+    })
+    expect(result.map((chip) => chip.id)).toContain('stm32g431cbt6')
+  })
+
   it('combines manufacturer and wireless filters', () => {
     const result = filterChips(chips, {
       query: '', manufacturer: 'Espressif Systems', category: '', secureBootOnly: false, wirelessOnly: true, industrialOnly: false, applicationTag: '',

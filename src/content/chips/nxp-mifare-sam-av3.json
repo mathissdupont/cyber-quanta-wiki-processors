@@ -34,6 +34,15 @@
   },
   "physical": {"supplyVoltage": "ISO/IEC 7816 arayüz koşullarına göre", "temperature": "Ürün datasheetine göre", "packages": ["HVQFN32", "PCM 1.5 module", "Wafer"]},
   "applicationTags":[{"tag":"payments-access","sourceIds":["sam-product"]}],
+  "sectorFits": [{
+    "sector": "payments-access",
+    "product": "Toplu taşıma ücret toplama terminali veya erişim kontrol okuyucusu",
+    "evidenceLevel": "manufacturer-target",
+    "rationale": "NXP, MIFARE SAM AV3'ü erişim anahtarlarını ve temassız işlemleri host işlemciden ayıran güvenli erişim modülü olarak sunar.",
+    "advantages": ["Kriptografik anahtarlar genel amaçlı host MCU/MPU yerine ayrık güvenli modülde tutulur.", "MIFARE protokolleri ile AES, RSA ve ECC işlemleri tek modülde desteklenir.", "ISO/IEC 7816 arayüzü mevcut terminal veya okuyucu tasarımına güvenlik yardımcı işlemcisi olarak eklenmesini sağlar."],
+    "constraints": ["Ana uygulama işlemcisinin yerini tutmaz; terminal hâlâ ayrı bir MCU/MPU ve okuyucu ön yüzü gerektirir.", "Tek başına nihai ödeme terminalinin EMV, PCI veya ulaşım sistemi sertifikasını sağlamaz.", "Anahtar yükleme, yaşam döngüsü ve üretim kişiselleştirme süreçleri sistem seviyesinde tasarlanmalıdır."],
+    "sourceIds": ["sam-product"]
+  }],
   "tools": ["MIFARE SAM AV3 evaluation kit", "NXP Reader Library"],
   "useCases": ["payment-terminal", "public-transport", "tolling", "access-control", "key-management"],
   "strengths": ["Anahtarları host MCU/MPU'dan ayırır", "Geniş simetrik ve asimetrik algoritma desteği", "POS ve temassız altyapıya uygun modüler güvenlik sınırı"],

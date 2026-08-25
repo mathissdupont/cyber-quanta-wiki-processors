@@ -22,6 +22,13 @@ const searchableText = (chip: Chip) => [
   ...(chip.industrial?.industrialInterfaces ?? []),
   ...(chip.industrial?.reliabilityFeatures ?? []),
   ...(chip.applicationTags ?? []).map(({ tag }) => tag),
+  ...(chip.sectorFits ?? []).flatMap((fit) => [
+    fit.sector,
+    fit.product,
+    fit.rationale,
+    ...fit.advantages,
+    ...fit.constraints,
+  ]),
 ].join(' ').toLocaleLowerCase('tr')
 
 export function filterChips(chips: Chip[], filters: CatalogFilters): Chip[] {

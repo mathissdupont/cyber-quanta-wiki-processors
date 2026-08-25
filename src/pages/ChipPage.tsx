@@ -2,7 +2,7 @@ import { Link, useParams } from 'react-router-dom'
 import { EvidenceBadge } from '../components/EvidenceBadge'
 import { PageToc } from '../components/PageToc'
 import { chipById } from '../content/chips'
-import { applicationTagLabels, type Chip } from '../domain/chip'
+import { applicationTagLabels, sectorFitEvidenceLabels, sectorLabels, type Chip } from '../domain/chip'
 import { formatPrice } from '../domain/value'
 import { catalogSlug } from '../domain/slug'
 import { NotFoundPage } from './NotFoundPage'
@@ -57,6 +57,8 @@ export function ChipPage() {
 
       {chip.applicationTags?.length && <section id="applications"><h2>Uygulama etiketleri</h2><p>Etiketler yalnızca aşağıdaki üretici kaynaklarının uygulama veya pazar tanımına dayalıdır.</p><div className="table-scroll"><table className="wiki-table definition-table"><thead><tr><th>Etiket</th><th>Dayanak</th></tr></thead><tbody>{chip.applicationTags.map(({ tag, sourceIds }) => <tr key={tag}><th><span className="tag-pill">{applicationTagLabels[tag]}</span></th><td>{sourceIds.map((sourceId) => { const source = chip.sources.find(({ id }) => id === sourceId); return source ? <a className="inline-record-link" key={sourceId} href={source.url} target="_blank" rel="noreferrer">{source.title}</a> : sourceId })}</td></tr>)}</tbody></table></div></section>}
 
+      {chip.sectorFits?.length && <section id="sector-fit"><h2>Somut ürün ve sektör uygunluğu</h2><p>Bu bölüm doğrudan seçim kararı vermez. Üretici kanıtını, teknik avantajı ve eleme koşullarını aynı yerde gösterir; “özellik eşleşmesi” kayıtları açıkça mühendislik çıkarımıdır.</p><div className="sector-fit-grid">{chip.sectorFits.map((fit) => <article className="sector-fit-card" key={`${fit.sector}-${fit.product}`}><header><span className="tag-pill">{sectorLabels[fit.sector]}</span><span className={`evidence-level evidence-level-${fit.evidenceLevel}`}>{sectorFitEvidenceLabels[fit.evidenceLevel]}</span><h3>{fit.product}</h3></header><p>{fit.rationale}</p><div className="sector-fit-columns"><div><h4>Neden avantajlı?</h4><ul>{fit.advantages.map((item) => <li key={item}>{item}</li>)}</ul></div><div><h4>Kritik koşullar</h4><ul>{fit.constraints.map((item) => <li key={item}>{item}</li>)}</ul></div></div><div className="sector-fit-sources"><strong>Dayanak:</strong>{fit.sourceIds.map((sourceId) => { const source = chip.sources.find(({ id }) => id === sourceId); return source ? <a className="inline-record-link" key={sourceId} href={source.url} target="_blank" rel="noreferrer">{source.title}</a> : sourceId })}</div></article>)}</div></section>}
+
       <section id="compute">
         <h2>İşlemci ve bellek mimarisi</h2>
         <div className="table-scroll"><table className="wiki-table definition-table"><tbody>
@@ -92,7 +94,7 @@ export function ChipPage() {
 
       <section id="sources"><h2>Kaynakça</h2><ol className="references">{chip.sources.map((source) => <li key={source.id}><a href={source.url} target="_blank" rel="noreferrer">{source.title}</a>. {source.publisher}. Erişim/kontrol: {source.checkedAt}.</li>)}</ol></section>
 
-      <PageToc items={[{id:'overview',label:'Genel bakış'},...(chip.applicationTags?.length ? [{id:'applications',label:'Uygulama etiketleri'}] : []),{id:'compute',label:'İşlemci ve bellek'},{id:'interfaces',label:'Bağlantı'},{id:'security',label:'Güvenlik'},{id:'physical',label:'Fiziksel özellikler'},...(chip.industrial ? [{id:'industrial',label:'Endüstriyel uygunluk'}] : []),...(chip.commercial ? [{id:'commercial',label:'Fiyat ve benchmark'}] : []),{id:'development',label:'Geliştirme'},{id:'assessment',label:'Değerlendirme'},{id:'sources',label:'Kaynakça'}]} />
+      <PageToc items={[{id:'overview',label:'Genel bakış'},...(chip.applicationTags?.length ? [{id:'applications',label:'Uygulama etiketleri'}] : []),...(chip.sectorFits?.length ? [{id:'sector-fit',label:'Ürün ve sektör uygunluğu'}] : []),{id:'compute',label:'İşlemci ve bellek'},{id:'interfaces',label:'Bağlantı'},{id:'security',label:'Güvenlik'},{id:'physical',label:'Fiziksel özellikler'},...(chip.industrial ? [{id:'industrial',label:'Endüstriyel uygunluk'}] : []),...(chip.commercial ? [{id:'commercial',label:'Fiyat ve benchmark'}] : []),{id:'development',label:'Geliştirme'},{id:'assessment',label:'Değerlendirme'},{id:'sources',label:'Kaynakça'}]} />
     </article>
   )
 }

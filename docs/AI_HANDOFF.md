@@ -21,9 +21,9 @@ Bu proje `secure-signing` reposundan tamamen ayrıdır. Eski repo değiştirilme
 
 - Git deposu `main` dalındadır ve `origin`, public GitHub repository'sine bağlıdır:
   `https://github.com/mathissdupont/cyber-quanta-wiki-processors`.
-- Dokuz üreticiden 55 ayrı çip/seri kaydı var: 45 tam parça, 10 seri/ön eleme kaydı.
-- Son doğrulamada `npm run check`: lint + 21 test + production build başarılıdır.
-- Son doğrulamada `npm run check:links`: 88 benzersiz kaynak URL'si denetlenmiş, 0 hata alınmıştır.
+- Dokuz üreticiden 56 ayrı çip/seri kaydı var: 46 tam parça, 10 seri/ön eleme kaydı.
+- Son doğrulamada `npm run check`: lint + 23 test + production build başarılıdır.
+- Son doğrulamada `npm run check:links`: 93 benzersiz kaynak URL'si denetlenmiş, 0 hata alınmıştır.
 - Arayüz SaaS/landing page görünümünden Wikipedia tarzı bilgi mimarisine çevrildi.
 - Katalog, her çip maddesi, üretici dizini, kılavuzlar ve karşılaştırma ayrı adreslerde.
 - Üretici ve aile sayfaları kalıcı URL'lerle üretici → aile → model hiyerarşisi kurar.
@@ -32,6 +32,11 @@ Bu proje `secure-signing` reposundan tamamen ayrıdır. Eski repo değiştirilme
   MCU'larda CoreMark/USD hesabını gösterir.
 - Katalog `applicationTags` alanıyla IoT, endüstriyel, otomotiv, Edge AI,
   ödeme/erişim ve havacılık/savunma filtreleri sunar.
+- `sectorFits`, somut ürün adaylığını `reference-design`,
+  `manufacturer-target` veya `feature-match` kanıt düzeyiyle; avantajlar,
+  kritik koşullar ve kaynaklar birlikte olacak biçimde gösterir.
+- STM32G431CBT6 kaydı, ST'nin STEVAL-CTM014A çamaşır makinesi motor sürücü
+  referans tasarımına doğrudan bağlı ilk `reference-design` örneğidir.
 - Dark mode tercihi `cq-wiki-theme` anahtarıyla localStorage'da saklanır.
 - Sayfa içi içerik menüsü `PageToc` düğmelerini kullanır; `HashRouter` route'unu
   bozmadan hedef bölümü `scrollIntoView` ile açar.
@@ -66,7 +71,7 @@ Bu proje `secure-signing` reposundan tamamen ayrıdır. Eski repo değiştirilme
   `MIMX9352CVVXMAC`, `AM6254ATCGGAALW` ve `STM32MP257FAI3` tam OPN'lerini içerir.
 - Anti-rollback birçok üreticide bilerek `unknown` bırakıldı; secure boot'tan
   türetilmedi.
-- Altı tam OPN için tarih/adet/satıcı bilgili fiyat anlık görüntüsü vardır.
+- Yedi tam OPN için tarih/adet/satıcı bilgili fiyat anlık görüntüsü vardır.
   Stok kalıcı alan değildir; fiyatlar teklif veya toplam BOM olarak yorumlanmaz.
 - Site henüz yalnızca Türkçe.
 - Henüz tarayıcı otomasyon testi yok.
@@ -84,7 +89,7 @@ Bu proje `secure-signing` reposundan tamamen ayrıdır. Eski repo değiştirilme
 
 ## Sonraki mantıklı iş
 
-MPU tam OPN boşluğu ilk üç parça ile kapatıldı. Sonraki adım fiyat verisinin
-eskime uyarısını otomatikleştirmek, seçiciye uygulama etiketi ve toplam BOM
-karmaşıklığı kriteri eklemek, ardından i.MX 8M Plus/SAMA5/RZ gibi yeni MPU
-aileleri ile tarayıcı erişilebilirlik testlerini eklemektir.
+Somut sektör modeli STM32G431CBT6, SAMRH71, AURIX TC397, MIFARE SAM AV3 ve
+AM6254 ile başlatıldı. Sonraki adım yeni kayıtları yalnızca resmî referans
+tasarım/hedef uygulama kanıtıyla genişletmek, fiyat verisinin eskime uyarısını
+otomatikleştirmek ve seçiciye toplam BOM karmaşıklığı kriteri eklemektir.

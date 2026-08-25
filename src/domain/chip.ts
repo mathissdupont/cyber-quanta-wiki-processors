@@ -48,6 +48,31 @@ export const sourcedApplicationTagSchema = z.object({
   sourceIds: z.array(z.string()).min(1),
 })
 
+export const sectorSchema = z.enum([
+  'home-appliances',
+  'industrial-automation',
+  'automotive-mobility',
+  'payments-access',
+  'aerospace-space',
+  'edge-computing',
+])
+
+export const sectorFitEvidenceSchema = z.enum([
+  'reference-design',
+  'manufacturer-target',
+  'feature-match',
+])
+
+export const sectorFitSchema = z.object({
+  sector: sectorSchema,
+  product: z.string().min(3),
+  evidenceLevel: sectorFitEvidenceSchema,
+  rationale: z.string().min(20),
+  advantages: z.array(z.string().min(3)).min(1),
+  constraints: z.array(z.string().min(3)).min(1),
+  sourceIds: z.array(z.string()).min(1),
+})
+
 export const commercialSchema = z.object({
   priceSnapshots: z.array(z.object({
     unitPrice: z.number().positive(),
@@ -117,6 +142,7 @@ export const chipSchema = z.object({
     reliabilityFeatures: z.array(z.string()),
   }).optional(),
   applicationTags: z.array(sourcedApplicationTagSchema).optional(),
+  sectorFits: z.array(sectorFitSchema).optional(),
   commercial: commercialSchema.optional(),
   tools: z.array(z.string()),
   useCases: z.array(z.string()),
@@ -130,6 +156,8 @@ export type SupportLevel = z.infer<typeof supportLevelSchema>
 export type FeatureEvidence = z.infer<typeof evidenceSchema>
 export type Chip = z.infer<typeof chipSchema>
 export type ApplicationTag = z.infer<typeof applicationTagSchema>
+export type Sector = z.infer<typeof sectorSchema>
+export type SectorFitEvidence = z.infer<typeof sectorFitEvidenceSchema>
 
 export const chipVariantSchema = z.object({
   extends: z.string().regex(/^[a-z0-9-]+$/),
@@ -146,6 +174,7 @@ export const chipVariantSchema = z.object({
   physical: chipSchema.shape.physical.partial().optional(),
   industrial: chipSchema.shape.industrial.optional(),
   applicationTags: chipSchema.shape.applicationTags.optional(),
+  sectorFits: chipSchema.shape.sectorFits.optional(),
   commercial: chipSchema.shape.commercial.optional(),
   tools: z.array(z.string()).optional(),
   useCases: z.array(z.string()).optional(),
@@ -176,4 +205,19 @@ export const applicationTagLabels: Record<ApplicationTag, string> = {
   'payments-access': 'Ödeme / Erişim',
   'aerospace-defense': 'Havacılık / Savunma',
   'motor-control': 'Motor kontrolü',
+}
+
+export const sectorLabels: Record<Sector, string> = {
+  'home-appliances': 'Ev aletleri',
+  'industrial-automation': 'Endüstriyel otomasyon',
+  'automotive-mobility': 'Otomotiv ve mobilite',
+  'payments-access': 'Ödeme ve erişim',
+  'aerospace-space': 'Havacılık ve uzay',
+  'edge-computing': 'Edge bilişim',
+}
+
+export const sectorFitEvidenceLabels: Record<SectorFitEvidence, string> = {
+  'reference-design': 'Üretici referans tasarımı',
+  'manufacturer-target': 'Üreticinin hedef uygulaması',
+  'feature-match': 'Kaynaklı özellik eşleşmesi',
 }

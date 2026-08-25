@@ -1,0 +1,90 @@
+{
+  "id": "stm32g431cbt6",
+  "manufacturer": "STMicroelectronics",
+  "family": "STM32G4",
+  "model": "STM32G431CBT6",
+  "recordScope": "exact-part",
+  "category": "MCU",
+  "lifecycle": "active",
+  "summary": "170 MHz Cortex-M4, 128 KB Flash, motor kontrol zamanlayıcıları, hızlı ADC'ler, karşılaştırıcılar ve dahili işlemsel yükselteçler içeren 48 pin endüstriyel mikrodenetleyici.",
+  "variantNote": "Bu tam OPN, LQFP48 paketi ve -40 °C–85 °C çalışma aralığını sabitler. STM32G431CB ailesi daha geniş sıcaklık kodları ve farklı paketlerle de sunulur.",
+  "compute": {
+    "cpu": "Arm Cortex-M4F",
+    "cores": 1,
+    "maxClockMhz": 170,
+    "flashKb": 128,
+    "ramKb": 32,
+    "linuxCapable": false,
+    "operatingSystems": ["Bare metal", "FreeRTOS", "Zephyr"],
+    "accelerators": ["FPU", "DSP instructions", "CORDIC", "FMAC"]
+  },
+  "connectivity": ["FDCAN", "USB Full-Speed", "3× I²C", "3× SPI", "5× USART/UART"],
+  "peripherals": ["2× motor-control PWM timer", "2× 12-bit ADC", "3× operational amplifier", "4× comparator", "4× DAC channel", "UCPD", "TRNG"],
+  "security": {
+    "secureBoot": {"support": "conditional", "summary": "Ürün sayfası Flash okuma/yazma koruması ve securable memory area açıklar; hazır bir ROM tabanlı imzalı secure boot zinciri doğrulanmadı ve güven kökü yazılım tasarımına bağlıdır.", "sourceIds": ["stm32g431-product"]},
+    "secureUpdate": {"support": "conditional", "summary": "Firmware güncellemesi uygulama veya özel bootloader ile kurulabilir; bu parçada üreticiye özgü atomik A/B güvenli güncelleme mekanizması doğrulanmadı.", "sourceIds": ["stm32g431-product"]},
+    "antiRollback": {"support": "unknown", "summary": "Donanımsal monotonik firmware sürüm sayacı veya üretici anti-rollback akışı doğrulanmadı.", "sourceIds": []},
+    "hardwareRootOfTrust": {"support": "unknown", "summary": "Değiştirilemez ROM doğrulayıcı veya ayrılmış güvenli enclave bu incelemede doğrulanmadı.", "sourceIds": []},
+    "isolation": {"support": "conditional", "summary": "Cortex-M4 MPU ve securable memory area erişim sınırı kurabilir; Arm TrustZone güvenli dünya ayrımı bulunmaz.", "sourceIds": ["stm32g431-product"]},
+    "flashEncryption": {"support": "unknown", "summary": "Çalışırken şeffaf dahili Flash şifreleme mekanizması doğrulanmadı.", "sourceIds": []},
+    "secureDebug": {"support": "conditional", "summary": "Readout protection ve proprietary code readout protection kod erişimini sınırlar; kimlik doğrulamalı debug protokolü değildir.", "sourceIds": ["stm32g431-product"]},
+    "secureKeyStorage": {"support": "conditional", "summary": "OTP ve korumalı Flash alanları yazılım politikasıyla kullanılabilir; ayrılmış donanımsal anahtar kasası doğrulanmadı.", "sourceIds": ["stm32g431-product"]},
+    "tamperResistance": {"support": "unknown", "summary": "Aktif fiziksel tamper algılama veya sertifikalı saldırı dayanımı doğrulanmadı.", "sourceIds": []},
+    "cryptography": ["TRNG", "CRC"],
+    "certifications": []
+  },
+  "physical": {
+    "supplyVoltage": "1.71 V–3.6 V",
+    "temperature": "-40 °C–85 °C",
+    "packages": ["LQFP48, 7 × 7 mm"]
+  },
+  "industrial": {
+    "qualification": {"support": "supported", "summary": "STM32G431CBT6, ST ürün sayfasında Industrial grade ve aktif üretim olarak listelenir.", "sourceIds": ["stm32g431-product"]},
+    "functionalSafety": {"support": "unknown", "summary": "Bu tam OPN için bağımsız işlevsel güvenlik sertifikası veya safety manual bu kayıtta doğrulanmadı.", "sourceIds": []},
+    "longevity": {"support": "unknown", "summary": "Bu tam OPN için belirli bir son bulunabilirlik yılı doğrulanmadı.", "sourceIds": []},
+    "realTime": {"support": "supported", "summary": "170 MHz Cortex-M4, motor-control PWM zamanlayıcıları, ADC, karşılaştırıcı ve işlemsel yükselteçler kapalı çevrim motor kontrolüne yöneliktir.", "sourceIds": ["stm32g431-product", "steval-ctm014a-brief"]},
+    "industrialInterfaces": ["FDCAN", "PWM", "Quadrature encoder timer", "UCPD"],
+    "reliabilityFeatures": ["Flash ECC", "SRAM parity", "Independent/window watchdog", "Overcurrent emergency stop inputs"]
+  },
+  "applicationTags": [
+    {"tag": "industrial", "sourceIds": ["stm32g431-product"]},
+    {"tag": "motor-control", "sourceIds": ["stm32g431-product", "steval-ctm014a-brief"]}
+  ],
+  "sectorFits": [
+    {
+      "sector": "home-appliances",
+      "product": "Çamaşır makinesi tambur motor sürücüsü",
+      "evidenceLevel": "reference-design",
+      "rationale": "ST'nin STEVAL-CTM014A tasarımı bu tam OPN'yi 600–800 W çamaşır makinesi BLDC motor sürücüsünün ana kontrolcüsü olarak kullanır.",
+      "advantages": [
+        "İki motor-control PWM zamanlayıcısı üç fazlı sürüş ve acil durdurma sinyallerini destekler.",
+        "Dahili ADC, karşılaştırıcı ve işlemsel yükselteçler akım, gerilim ve sıcaklık ölçüm zincirini sadeleştirir.",
+        "CORDIC ve FMAC kapalı çevrim motor kontrol matematiğini hızlandırır."
+      ],
+      "constraints": [
+        "MCU tek başına şebeke gerilimi motorunu süremez; güç modülü, izolasyon, besleme ve koruma devreleri gerekir.",
+        "Ürün güvenliği, EMC ve ev aleti standardı uygunluğu nihai kart ve yazılımla ayrıca doğrulanmalıdır.",
+        "Yerleşik donanımsal secure boot ve anti-rollback doğrulanmadığından uzaktan güncelleme güvenliği özel tasarım gerektirir."
+      ],
+      "sourceIds": ["steval-ctm014a-brief", "steval-ctm014a-manual", "stm32g431-product"]
+    }
+  ],
+  "commercial": {
+    "priceSnapshots": [
+      {"unitPrice": 3.77, "currency": "USD", "quantity": 500, "seller": "ST Online Store", "checkedAt": "2026-08-25", "sourceId": "stm32g431-store", "note": "500 adet bütçe fiyatı; vergi, navlun ve teslimat koşulları hariç. Tek adet fiyatı değildir."}
+    ],
+    "benchmarks": []
+  },
+  "tools": ["STM32CubeIDE", "STM32CubeMX", "X-CUBE-MCSDK", "STEVAL-CTM014A"],
+  "useCases": ["washing-machine-motor-drive", "home-appliance-motor-control", "industrial-motor-control", "digital-power"],
+  "strengths": ["Motor kontrolüne yönelik zengin analog ve zamanlayıcı altyapısı", "170 MHz Cortex-M4 ile gerçek zamanlı kontrol", "Üreticinin aynı OPN'yi kullanan çamaşır makinesi referans tasarımı"],
+  "limitations": ["Linux çalıştırmaz", "Yerleşik TrustZone veya güvenli enclave yoktur", "Şebeke motor uygulamasında harici güç katı ve ürün seviyesi güvenlik doğrulaması zorunludur"],
+  "sources": [
+    {"id": "stm32g431-product", "title": "STM32G431CB product page", "url": "https://www.st.com/en/microcontrollers-microprocessors/stm32g431cb.html", "kind": "product-page", "publisher": "STMicroelectronics", "checkedAt": "2026-08-25"},
+    {"id": "stm32g431-datasheet", "title": "STM32G431x6/x8/xB data sheet", "url": "https://www.st.com/resource/en/datasheet/stm32g431cb.pdf", "kind": "datasheet", "publisher": "STMicroelectronics", "checkedAt": "2026-08-25"},
+    {"id": "steval-ctm014a-brief", "title": "STEVAL-CTM014A 700 W washing machine reference design", "url": "https://www.st.com/resource/en/data_brief/steval-ctm014a.pdf", "kind": "application-note", "publisher": "STMicroelectronics", "checkedAt": "2026-08-25"},
+    {"id": "steval-ctm014a-manual", "title": "STEVAL-CTM014A washing machine motor drive user manual", "url": "https://www.st.com/resource/en/user_manual/um3592-getting-started-with-stevalctm014a-600-w--800-w-washing-machine-motor-drive-solution-stmicroelectronics.pdf", "kind": "reference-manual", "publisher": "STMicroelectronics", "checkedAt": "2026-08-25"},
+    {"id": "stm32g431-store", "title": "STM32G431CB ST Online Store", "url": "https://estore.st.com/en/products/microcontrollers-microprocessors/stm32-32-bit-arm-174-cortex-174-mcus/stm32-mainstream-mcus/stm32g4-series/stm32g4x1/stm32g431cb.html", "kind": "manufacturer-store", "publisher": "STMicroelectronics", "checkedAt": "2026-08-25"}
+  ],
+  "reviewedAt": "2026-08-25"
+}

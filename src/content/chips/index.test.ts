@@ -69,6 +69,11 @@ describe('chip content integrity', () => {
           expect(sourceIds.has(sourceId), `${chip.id}.applicationTags.${application.tag} -> ${sourceId}`).toBe(true)
         }
       }
+      for (const fit of chip.sectorFits ?? []) {
+        for (const sourceId of fit.sourceIds) {
+          expect(sourceIds.has(sourceId), `${chip.id}.sectorFits.${fit.product} -> ${sourceId}`).toBe(true)
+        }
+      }
       for (const price of chip.commercial?.priceSnapshots ?? []) {
         expect(sourceIds.has(price.sourceId), `${chip.id}.commercial.price -> ${price.sourceId}`).toBe(true)
       }
@@ -90,8 +95,8 @@ describe('chip content integrity', () => {
   })
 
   it('contains the documented industrial expansion and Linux MPU coverage', () => {
-    expect(chips).toHaveLength(55)
-    expect(chips.filter((chip) => chip.recordScope === 'exact-part')).toHaveLength(45)
+    expect(chips).toHaveLength(56)
+    expect(chips.filter((chip) => chip.recordScope === 'exact-part')).toHaveLength(46)
     expect(chips.filter((chip) => chip.category === 'MPU' && chip.compute.linuxCapable)).toHaveLength(5)
     expect(chips.filter((chip) => chip.industrial).length).toBeGreaterThanOrEqual(10)
   })
@@ -101,5 +106,17 @@ describe('chip content integrity', () => {
     expect(chips.some((chip) => chip.applicationTags?.some(({ tag }) => tag === 'aerospace-defense'))).toBe(true)
     expect(chips.filter((chip) => chip.commercial?.priceSnapshots.length).length).toBeGreaterThanOrEqual(6)
     expect(chips.filter((chip) => chip.commercial?.benchmarks.some(({ metric }) => metric === 'coremark')).length).toBeGreaterThanOrEqual(2)
+  })
+
+  it('keeps concrete sector fits balanced and source-backed', () => {
+    expect(chips.filter((chip) => chip.sectorFits?.length).length).toBeGreaterThanOrEqual(5)
+    expect(chipById.get('stm32g431cbt6')?.sectorFits?.[0].evidenceLevel).toBe('reference-design')
+    expect(chips.some((chip) => chip.sectorFits?.some(({ evidenceLevel }) => evidenceLevel === 'feature-match'))).toBe(true)
+    for (const chip of chips) {
+      for (const fit of chip.sectorFits ?? []) {
+        expect(fit.advantages.length).toBeGreaterThan(0)
+        expect(fit.constraints.length).toBeGreaterThan(0)
+      }
+    }
   })
 })

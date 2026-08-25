@@ -11,7 +11,7 @@ Canlı wiki: https://mathissdupont.github.io/cyber-quanta-wiki-processors/
 
 - 9 üretici: ST, NXP, Espressif, Silicon Labs, Nordic, Texas Instruments,
   Microchip, Renesas ve Infineon
-- 55 kaynaklı çip/seri kaydı; 45 tam parça ve 10 seri/ön eleme kaydı
+- 56 kaynaklı çip/seri kaydı; 46 tam parça ve 10 seri/ön eleme kaydı
 - NXP i.MX 93, TI AM625 ve STM32MP257 için satın alınabilir tam Linux MPU OPN'leri
 - İşlemci, bellek, bağlantı, çevre birimi ve fiziksel özellikler
 - Secure boot, güvenli güncelleme, anti-rollback, güven kökü, izolasyon,
@@ -24,6 +24,8 @@ Canlı wiki: https://mathissdupont.github.io/cyber-quanta-wiki-processors/
 - Üretici → aile → seri/tam parça URL hiyerarşisi
 - Kanıtlı endüstriyel kalifikasyon, fonksiyonel güvenlik, ürün ömrü ve gerçek zamanlı çalışma alanları
 - Kaynaklı IoT, endüstriyel, otomotiv, Edge AI ve havacılık/savunma etiket filtreleri
+- Referans tasarımı, üretici hedefi veya kaynaklı özellik eşleşmesi düzeyinde
+  somut ürün/sektör adaylığı; avantaj ve eleme koşulları birlikte
 - Tarih/adet/satıcı içeren fiyat anlık görüntüleri ve karşılaştırılabilir MCU'larda CoreMark/USD
 - Zod veri doğrulama, Vitest testleri ve GitHub Pages deploy akışı
 
@@ -90,6 +92,11 @@ Fiyat, stok ve tedarik süresi hızla değiştiği için kalıcı teknik özelli
 tutulmaz. Yalnızca tam sipariş kodlarında satıcı, para birimi, adet ve kontrol
 tarihi bulunan `commercial.priceSnapshots` kayıtları gösterilir. Bunlar satın
 alma teklifi veya toplam BOM maliyeti değildir.
+
+`sectorFits` kayıtları da otomatik ürün önerisi değildir. “Üretici referans
+tasarımı”, “üreticinin hedef uygulaması” ve “kaynaklı özellik eşleşmesi” kanıt
+düzeyleri birbirinden ayrılır. Her somut ürün adayında avantajlar, kritik
+koşullar ve kaynaklar birlikte gösterilir.
 
 ## GitHub Pages yayını
 
